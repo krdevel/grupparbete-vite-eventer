@@ -18,14 +18,15 @@
 				console.log('  Tags:')
 				let tags = events[i].tags
 				for (let j = 0; j < tags.length; j++) {
-					console.log(
-						'   Location: ' +
-							tags[j].location +
-							' Type: ' +
-							tags[j].type +
-							' Date: ' +
-							tags[j].date
-					)
+					console.log(tags[j])
+					// console.log(
+					// 	'   Location: ' +
+					// 		tags[j].location +
+					// 		' Type: ' +
+					// 		tags[j].type +
+					// 		' Date: ' +
+					// 		tags[j].date
+					// )
 				}
 			}
 		},
