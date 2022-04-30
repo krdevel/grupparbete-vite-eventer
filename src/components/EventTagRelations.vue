@@ -18,15 +18,16 @@
 				console.log('  Tags:')
 				let tags = events[i].tags
 				for (let j = 0; j < tags.length; j++) {
-					console.log(tags[j])
-					// console.log(
-					// 	'   Location: ' +
-					// 		tags[j].location +
-					// 		' Type: ' +
-					// 		tags[j].type +
-					// 		' Date: ' +
-					// 		tags[j].date
-					// )
+					let tag = this.getTagFromId(tags[j])
+					console.log('TTTTT ' + tag)
+					console.log(
+						'   Location: ' +
+							tag.location +
+							' Type: ' +
+							tag.type +
+							' Date: ' +
+							tag.date
+					)
 				}
 			}
 		},
@@ -39,7 +40,20 @@
 				})
 			},
 			getTagFromId(id) {
-				return this.$store.state.tags.find((element) => (element.id = id))
+				// console.log(this.$store.state.tags.find((element) => (element.id = id)))
+				console.log('getTagFromId: ' + id)
+
+				let tags = this.$store.state.tags
+				for (let i = 0; i < tags.length; i++) {
+					console.log(tags[i].id)
+					if (tags[i].id === id) {
+						console.log('YES!')
+
+						return tags[i]
+					}
+					// return null
+				}
+				// return this.$store.state.tags.find((element) => (element.id = id))
 			}
 		}
 
