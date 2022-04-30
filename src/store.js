@@ -5,8 +5,8 @@ const mutations = {
 		increment(state) {
 			state.counter += 1
 		},
-		addTagToEvent() {
-			console.log('addTagToEvent')
+		addTagToEvent(state, payload) {
+			console.log('addTagToEvent payload: ', payload)
 			// state.events[eventIndex].tags.push(this.tags[tagIndex])
 		}
 	},

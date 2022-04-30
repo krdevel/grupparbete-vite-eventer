@@ -4,9 +4,12 @@
 			this.assignTagsToEvents()
 		},
 		methods: {
-			assignTagsToEvents() {
+			assignTagsToEvents(eventIndex, tagIndex) {
 				console.log('assignTagsToEvents')
-				this.$store.commit('addTagToEvent')
+				this.$store.commit('addTagToEvent', {
+					eventIndex: eventIndex,
+					tagIndex: tagIndex
+				})
 
 				// console.log('this ', this + ' store ' + this.$store)
 			}
