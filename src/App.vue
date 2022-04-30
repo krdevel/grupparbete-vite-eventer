@@ -1,22 +1,22 @@
 <script>
-	import EventTagRelations from './EventTagRelations'
+	import EventTagRelations from './components/EventTagRelations.vue'
 	import CitiesList from './components/CitiesList.vue'
 	import CounterButton from './components/CounterButton.vue'
 	import HelloWorld from './components/HelloWorld.vue'
 
 	export default {
-		created() {
-			EventTagRelations.assignTagsToEvents()
-		},
+		created() {},
 		components: {
 			CitiesList,
 			CounterButton,
-			HelloWorld
+			HelloWorld,
+			EventTagRelations
 		}
 	}
 </script>
 
 <template>
+	<EventTagRelations />
 	<nav>
 		<ul>
 			<li>
