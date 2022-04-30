@@ -10,12 +10,12 @@ const assignTagsToEvents = () => {
 
 	let eventIndexes = []
 	for (let i = 0; i < eventMaxIndex; i++) {
-		eventIndexes.push(Math.floor(Math.random() * eventMaxIndex + 1))
+		eventIndexes.push(Math.floor(Math.random() * tagMaxIndex + 1))
 	}
 
-	let eventIndex = Math.floor(Math.random() * eventMaxIndex + 1)
+	// let eventIndex = Math.floor(Math.random() * eventMaxIndex + 1)
 
-	console.log('' + eventIndex)
+	// console.log('' + eventIndex)
 	console.log('' + eventIndexes)
 }
 
