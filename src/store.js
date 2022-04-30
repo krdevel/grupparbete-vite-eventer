@@ -36,32 +36,37 @@ const mutations = {
 				// Location tags
 				location: 'Stockholm',
 				type: null,
-				date: null,
+				date: '2022-06-16',
+				time: '18:30',
 				id: uuidv4()
 			},
 			{
 				location: 'Göteborg',
 				type: null,
-				date: null,
+				date: '2022-06-16',
+				time: '19:00',
 				id: uuidv4()
 			},
 			{
 				// Type tags
 				location: null,
 				type: 'Concert',
-				date: null,
+				date: '2022-06-17',
+				time: '18:00',
 				id: uuidv4()
 			},
 			{
 				location: null,
 				type: 'Football match',
-				date: null,
+				date: '2022-06-18',
+				time: '17:00',
 				id: uuidv4()
 			},
 			{
 				location: null,
 				type: 'Party',
-				date: null,
+				date: '2022-06-18',
+				time: '20:00',
 				id: uuidv4()
 			}
 			// Date tags
