@@ -1,7 +1,7 @@
 <script>
 	export default {
 		created() {
-			this.assignTagsToEvents()
+			this.assignTagsToEvents(0, 0)
 		},
 		methods: {
 			assignTagsToEvents(eventIndex, tagIndex) {
