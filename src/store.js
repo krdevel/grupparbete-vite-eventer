@@ -40,6 +40,25 @@ const mutations = {
 				type: null,
 				date: null,
 				id: uuidv4()
+			},
+			{
+				// Type tags
+				location: null,
+				type: 'Concert',
+				date: null,
+				id: uuidv4()
+			},
+			{
+				location: null,
+				type: 'Football match',
+				date: null,
+				id: uuidv4()
+			},
+			{
+				location: null,
+				type: 'Party',
+				date: null,
+				id: uuidv4()
 			}
 		]
 	}
