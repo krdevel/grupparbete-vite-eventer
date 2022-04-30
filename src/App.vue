@@ -5,7 +5,9 @@
 	import HelloWorld from './components/HelloWorld.vue'
 
 	export default {
-		created() {},
+		created() {
+			EventTagRelations.assignTagsToEvents()
+		},
 		components: {
 			CitiesList,
 			CounterButton,

@@ -5,6 +5,6 @@ const assignTagsToEvents = () => {
 	console.log('assignTagsToEvents' + store.state.events)
 }
 
-assignTagsToEvents()
+// assignTagsToEvents()
 
 export default { assignTagsToEvents }
