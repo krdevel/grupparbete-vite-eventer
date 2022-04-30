@@ -6,7 +6,7 @@
 
 	export default {
 		created() {
-			this.assignTagsToEvents()
+			this.$store.assignTagsToEvents()
 		},
 		components: {
 			CitiesList,
