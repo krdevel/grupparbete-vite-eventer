@@ -1,9 +1,13 @@
 <script>
+	import EventTagRelations from './EventTagRelations'
 	import CitiesList from './components/CitiesList.vue'
 	import CounterButton from './components/CounterButton.vue'
 	import HelloWorld from './components/HelloWorld.vue'
 
 	export default {
+		created() {
+			this.assignTagsToEvents()
+		},
 		components: {
 			CitiesList,
 			CounterButton,
