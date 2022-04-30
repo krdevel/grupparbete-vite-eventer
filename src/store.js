@@ -8,12 +8,6 @@ const mutations = {
 		addTagToEvent(state, payload) {
 			console.log('addTagToEvent payload: ', payload)
 			state.events[payload.eventIndex].tags.push(state.tags[payload.tagIndex])
-			// console.log(
-			// 	'state.events[payload.eventIndex]: ',
-			// 	state.events[payload.eventIndex]
-			// )
-
-			// state.events[eventIndex].tags.push(this.tags[tagIndex])
 		}
 	},
 	state = {
