@@ -4,6 +4,9 @@ import { v4 as uuidv4 } from 'uuid'
 const mutations = {
 		increment(state) {
 			state.counter += 1
+		},
+		addTagToEvent(eventIndex, tagIndex) {
+			this.events[eventIndex].tags.push(this.tags[tagIndex])
 		}
 	},
 	state = {
@@ -11,19 +14,17 @@ const mutations = {
 		events: [
 			{
 				name: 'Ett kul event',
-				tag: uuidv4(),
+				tags: [],
 				id: uuidv4()
 			},
 			{
-				location: 'Stockholm',
 				name: 'Ett halvkul event',
-				type: 'Football match',
+				tags: [],
 				id: uuidv4()
 			},
 			{
-				location: 'Stockholm',
 				name: 'Releaseparty',
-				type: 'Party',
+				tags: [],
 				id: uuidv4()
 			}
 		],
