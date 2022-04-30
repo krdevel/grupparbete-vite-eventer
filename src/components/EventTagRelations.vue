@@ -37,7 +37,11 @@
 					eventIndex: eventIndex,
 					tagIndex: tagIndex
 				})
-			}
+			},
+			getTagFromId(id) {
+	           return this.$store.state.tags.find(element => element.id = id)
+	           }
+	        }
 		}
 		// data() {
 		// 	return {
