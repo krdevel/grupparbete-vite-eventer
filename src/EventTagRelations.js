@@ -7,6 +7,16 @@ const assignTagsToEvents = () => {
 	let eventMaxIndex = store.state.events.length
 	let tagMaxIndex = store.state.tags.length
 	console.log('' + eventMaxIndex + ' ' + tagMaxIndex)
+
+	let eventIndexes = []
+	for (let i = 0; i < eventMaxIndex; i++) {
+		eventIndexes.push(Math.floor(Math.random() * eventMaxIndex + 1))
+	}
+
+	let eventIndex = Math.floor(Math.random() * eventMaxIndex + 1)
+
+	console.log('' + eventIndex)
+	console.log('' + eventIndexes)
 }
 
 export default { assignTagsToEvents }
