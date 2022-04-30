@@ -5,7 +5,7 @@ const assignTagsToEvents = () => {
 
 	//Hardcoded:
 
-	this.$store.commit('addTagToEvent(0, 0)')
+	this.$store.commit('addTagToEvent', 0, 0)
 
 	// store.state.events[0].tags.push(store.state.tags[0])
 	// store.state.events[0].tags.push(store.state.tags[2])
