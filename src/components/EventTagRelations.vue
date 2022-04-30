@@ -39,14 +39,7 @@
 				})
 			},
 			getTagFromId(id) {
-				// Borde vara något i stil med:
-				// return this.$store.state.tags.find((element) => (element.id = id))
-				let tags = this.$store.state.tags
-				for (let i = 0; i < tags.length; i++) {
-					if (tags[i].id === id) {
-						return tags[i]
-					}
-				}
+				return this.$store.state.tags.find((element) => element.id == id)
 			}
 		}
 
