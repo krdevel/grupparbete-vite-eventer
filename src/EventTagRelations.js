@@ -2,10 +2,11 @@ import store from './store'
 
 const assignTagsToEvents = () => {
 	console.log('assignTagsToEvents')
+	console.log('this ', this + ' store ', store.events)
 
 	//Hardcoded:
 
-	this.$store.commit('addTagToEvent')
+	// this.store.commit('addTagToEvent')
 
 	// store.state.events[0].tags.push(store.state.tags[0])
 	// store.state.events[0].tags.push(store.state.tags[2])
