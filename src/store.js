@@ -60,6 +60,7 @@ const mutations = {
 				date: null,
 				id: uuidv4()
 			}
+			// Date tags
 		]
 	}
 
