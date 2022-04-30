@@ -2,7 +2,24 @@
 	export default {
 		created() {
 			this.assignTagsToEvents(0, 0)
+			this.assignTagsToEvents(0, 2)
+			this.assignTagsToEvents(1, 1)
+
+			this.assignTagsToEvents(1, 3)
+
+			let events = this.$store.state.events
+
+			for (let i = 0; i < events.length; i++) {
+				console.log('Event:')
+				console.log(' name: ' + events[i].name)
+				console.log('  Tags:')
+				let tags = events[i].tags
+				for (let j = 0; j < tags.length; j++) {
+					console.log('   ' + tags[j].location)
+				}
+			}
 		},
+
 		methods: {
 			assignTagsToEvents(eventIndex, tagIndex) {
 				console.log('assignTagsToEvents')
