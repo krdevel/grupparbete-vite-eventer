@@ -1,14 +1,14 @@
 <script>
 	export default {
 		created() {
-			this.assignTagsToEvents(0, 0)
-			this.assignTagsToEvents(0, 2)
+			this.assignTagsToEvent(0, 0)
+			this.assignTagsToEvent(0, 2)
 
-			this.assignTagsToEvents(1, 1)
-			this.assignTagsToEvents(1, 3)
+			this.assignTagsToEvent(1, 1)
+			this.assignTagsToEvent(1, 3)
 
-			this.assignTagsToEvents(2, 1)
-			this.assignTagsToEvents(2, 4)
+			this.assignTagsToEvent(2, 1)
+			this.assignTagsToEvent(2, 4)
 
 			// Print out Events with tags in the console:
 			let events = this.$store.state.events
@@ -31,7 +31,7 @@
 			}
 		},
 		methods: {
-			assignTagsToEvents(eventIndex, tagIndex) {
+			assignTagsToEvent(eventIndex, tagIndex) {
 				console.log('assignTagsToEvents')
 				this.$store.commit('addTagToEvent', {
 					eventIndex: eventIndex,
