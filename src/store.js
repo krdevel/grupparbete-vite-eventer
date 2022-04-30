@@ -6,7 +6,7 @@ const mutations = {
 			state.counter += 1
 		},
 		addTagToEvent() {
-			// console.log('addTagToEvent')
+			console.log('addTagToEvent')
 			// state.events[eventIndex].tags.push(this.tags[tagIndex])
 		}
 	},

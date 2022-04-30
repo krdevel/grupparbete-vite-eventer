@@ -6,7 +6,9 @@
 		methods: {
 			assignTagsToEvents() {
 				console.log('assignTagsToEvents')
-				console.log('this ', this + ' store ' + this.$store)
+				this.$store.commit('addTagToEvent')
+
+				// console.log('this ', this + ' store ' + this.$store)
 			}
 		}
 		// data() {
