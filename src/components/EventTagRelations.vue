@@ -19,13 +19,12 @@
 				let tags = events[i].tags
 				for (let j = 0; j < tags.length; j++) {
 					let tag = this.getTagFromId(tags[j])
-					console.log('TTTTT ' + tag)
 					console.log(
-						'   Location: ' +
+						'    Location: ' +
 							tag.location +
-							' Type: ' +
+							', Type: ' +
 							tag.type +
-							' Date: ' +
+							', Date: ' +
 							tag.date
 					)
 				}
@@ -40,20 +39,14 @@
 				})
 			},
 			getTagFromId(id) {
-				// console.log(this.$store.state.tags.find((element) => (element.id = id)))
-				console.log('getTagFromId: ' + id)
-
+				// Borde vara något i stil med:
+				// return this.$store.state.tags.find((element) => (element.id = id))
 				let tags = this.$store.state.tags
 				for (let i = 0; i < tags.length; i++) {
-					console.log(tags[i].id)
 					if (tags[i].id === id) {
-						console.log('YES!')
-
 						return tags[i]
 					}
-					// return null
 				}
-				// return this.$store.state.tags.find((element) => (element.id = id))
 			}
 		}
 
@@ -67,7 +60,7 @@
 
 <style>
 	p {
-		display: none; /* Invisible */
+		display: none; /* Invisible, with 0 space */
 	}
 </style>
 
