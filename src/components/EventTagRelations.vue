@@ -55,7 +55,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	p {
 		display: none; /* Invisible, with 0 space */
 	}

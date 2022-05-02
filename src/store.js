@@ -77,7 +77,7 @@ const mutations = {
 			},
 			{
 				type: 'date',
-				text: '2022-06-16',
+				text: '2022-06-19',
 				id: uuidv4()
 			},
 			// Time tags
