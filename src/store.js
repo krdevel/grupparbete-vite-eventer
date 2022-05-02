@@ -34,42 +34,78 @@ const mutations = {
 		tags: [
 			{
 				// Location tags
-				location: 'Stockholm',
-				type: null,
-				date: '2022-06-16',
-				time: '18:30',
+				type: 'location',
+				text: 'Stockholm',
 				id: uuidv4()
 			},
 			{
-				location: 'Göteborg',
-				type: null,
-				date: '2022-06-16',
-				time: '19:00',
+				type: 'location',
+				text: 'Göteborg',
 				id: uuidv4()
 			},
 			{
 				// Type tags
-				location: null,
-				type: 'Concert',
-				date: '2022-06-17',
-				time: '18:00',
+				type: 'type',
+				text: 'Concert',
 				id: uuidv4()
 			},
 			{
-				location: null,
-				type: 'Football match',
-				date: '2022-06-18',
-				time: '17:00',
+				type: 'type',
+				text: 'Football match',
 				id: uuidv4()
 			},
 			{
-				location: null,
-				type: 'Party',
-				date: '2022-06-18',
-				time: '20:00',
+				type: 'type',
+				text: 'Party',
+				id: uuidv4()
+			},
+			// Date tags
+			{
+				type: 'date',
+				text: '2022-06-16',
+				id: uuidv4()
+			},
+			{
+				type: 'date',
+				text: '2022-06-17',
+				id: uuidv4()
+			},
+			{
+				type: 'date',
+				text: '2022-06-18',
+				id: uuidv4()
+			},
+			{
+				type: 'date',
+				text: '2022-06-16',
+				id: uuidv4()
+			},
+			// Time tags
+			{
+				type: 'time',
+				text: '17:00',
+				id: uuidv4()
+			},
+			{
+				type: 'time',
+				text: '18:00',
+				id: uuidv4()
+			},
+			{
+				type: 'time',
+				text: '18:30',
+				id: uuidv4()
+			},
+			{
+				type: 'time',
+				text: '19:00',
+				id: uuidv4()
+			},
+			{
+				type: 'time',
+				text: '20:00',
 				id: uuidv4()
 			}
-			// Date tags
 		]
 	}
 
