@@ -1,5 +1,7 @@
 <script>
 	import EventTagRelations from './components/EventTagRelations.vue'
+	import SearchResultList from './components/SearchResultList.vue'
+
 	import CitiesList from './components/CitiesList.vue'
 	import CounterButton from './components/CounterButton.vue'
 	import HelloWorld from './components/HelloWorld.vue'
@@ -10,13 +12,15 @@
 			CitiesList,
 			CounterButton,
 			HelloWorld,
-			EventTagRelations
+			EventTagRelations,
+			SearchResultList
 		}
 	}
 </script>
 
 <template>
 	<EventTagRelations />
+	<SearchResultList />
 	<nav>
 		<ul>
 			<li>
