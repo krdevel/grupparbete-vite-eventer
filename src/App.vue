@@ -1,9 +1,12 @@
 <script>
 	import EventTagRelations from './components/EventTagRelations.vue'
+	import SearchResultList from './components/SearchResultList.vue'
+
 	import CitiesList from './components/CitiesList.vue'
 	import CounterButton from './components/CounterButton.vue'
 	import HelloWorld from './components/HelloWorld.vue'
 	import { routerKey } from 'vue-router'
+	import TagContainer from './components/TagContainer.vue'
 
 	export default {
 		created() {},
@@ -18,13 +21,18 @@
 			CitiesList,
 			CounterButton,
 			HelloWorld,
-			EventTagRelations
+			EventTagRelations,
+			SearchResultList,
+			TagContainer
 		}
 	}
 </script>
 
 <template>
+	<TagContainer type="event" />
+
 	<EventTagRelations />
+	<SearchResultList />
 	<nav>
 		<ul>
 			<li>
