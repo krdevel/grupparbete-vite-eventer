@@ -10,13 +10,22 @@ const mutations = {
 		},
 		toggleTag(state, tagId) {
 			const tagIndex = state.filteredTags.indexOf(tagId)
+			console.log('toggleTag tagIndex: ', tagIndex)
 			if (tagIndex !== -1) {
 				state.filteredTags.splice(tagIndex, 1)
 			} else {
 				state.filteredTags.push(tagId)
 			}
 
+			// console.log('state.filteredTags: ', state.filteredTags)
+
 			state.filteredTagsChanged = !state.filteredTagsChanged
+			for (let i = 0; i < state.filteredTags.length; i++) {
+				console.log(
+					'state.filteredTagsChanged[1]: ',
+					state.filteredTagsChanged[i]
+				)
+			}
 		}
 	},
 	state = {
