@@ -12,6 +12,7 @@
 
 <script>
 	export default {
+		emits: ['selected-tag'],
 		props: {
 			tag: {
 				required: true,
@@ -19,9 +20,14 @@
 				default: 'tagname'
 			}
 		},
+
 		methods: {
 			handleSelect() {
 				this.selected = !this.selected
+
+				this.$emit('selected-tag', {
+					tag: this.tag
+				})
 			}
 		},
 
