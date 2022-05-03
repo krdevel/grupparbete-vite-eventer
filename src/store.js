@@ -2,9 +2,6 @@ import { createStore } from 'vuex'
 import { v4 as uuidv4 } from 'uuid'
 
 const mutations = {
-		increment(state) {
-			state.counter += 1
-		},
 		addTagToEvent(state, payload) {
 			// console.log('addTagToEvent payload: ', payload)
 			state.events[payload.eventIndex].tags.push(
@@ -13,7 +10,6 @@ const mutations = {
 		}
 	},
 	state = {
-		counter: 0,
 		events: [
 			{
 				name: 'Ett kul event',

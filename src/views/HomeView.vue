@@ -1,1 +1,3 @@
-<template><h1>Hem</h1></template>
+<script></script>
+<style></style>
+<template><div /></template>
