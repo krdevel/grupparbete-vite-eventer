@@ -12,7 +12,6 @@
 
 <script>
 	export default {
-		emits: ['toggle-tag'],
 		props: {
 			tag: {
 				required: true,
@@ -29,15 +28,12 @@
 		methods: {
 			handleSelect() {
 				this.selected = !this.selected
-				this.$emit('toggle-tag', {
-					tagId: this.tagId
-				})
-			}
-		},
+			},
 
-		data() {
-			return {
-				selected: false
+			data() {
+				return {
+					selected: false
+				}
 			}
 		}
 	}
