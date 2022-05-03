@@ -7,6 +7,16 @@ const mutations = {
 			state.events[payload.eventIndex].tags.push(
 				state.tags[payload.tagIndex].id
 			)
+		},
+		toggleTag(state, tagId) {
+			const tagIndex = state.filteredTags.indexOf(tagId)
+			if (tagIndex !== -1) {
+				state.filteredTags.splice(tagIndex, 1)
+			} else {
+				state.filteredTags.push(tagId)
+			}
+
+			state.filteredTagsChanged = !state.filteredTagsChanged
 		}
 	},
 	state = {
@@ -102,7 +112,9 @@ const mutations = {
 				text: '20:00',
 				id: uuidv4()
 			}
-		]
+		],
+		filteredTags: [],
+		filteredTagsChanged: false
 	}
 
 export default createStore({ mutations, state, strict: true })

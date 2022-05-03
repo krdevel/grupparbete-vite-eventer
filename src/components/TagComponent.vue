@@ -28,6 +28,7 @@
 		methods: {
 			handleSelect() {
 				this.selected = !this.selected
+				this.$store.commit('toggleTag', this.tagId)
 			},
 
 			data() {
