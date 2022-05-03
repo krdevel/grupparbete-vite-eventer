@@ -12,21 +12,25 @@
 
 <script>
 	export default {
-		emits: ['selected-tag'],
+		emits: ['toggle-tag'],
 		props: {
 			tag: {
 				required: true,
 				type: String,
 				default: 'tagname'
+			},
+			tagId: {
+				required: true,
+				type: String,
+				default: 'id'
 			}
 		},
 
 		methods: {
 			handleSelect() {
 				this.selected = !this.selected
-
-				this.$emit('selected-tag', {
-					tag: this.tag
+				this.$emit('toggle-tag', {
+					tagId: this.tagId
 				})
 			}
 		},

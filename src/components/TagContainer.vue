@@ -7,6 +7,7 @@
 					v-for="tag in getTags('type')"
 					:key="tag.id"
 					:tag="tag.text"
+					:tag-id="tag.id"
 				/>
 			</div>
 		</div>
@@ -17,6 +18,7 @@
 					v-for="tag in getTags('location')"
 					:key="tag.id"
 					:tag="tag.text"
+					:tag-id="tag.id"
 				/>
 			</div>
 		</div>
@@ -28,6 +30,7 @@
 					v-for="tag in getTags('date')"
 					:key="tag.id"
 					:tag="tag.text"
+					:tag-id="tag.id"
 				/>
 			</div>
 		</div>
