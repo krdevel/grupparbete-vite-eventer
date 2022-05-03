@@ -11,9 +11,13 @@ const mutations = {
 	}
 }
 const getters = {
-		getTagByType(state, type) {
-			console.log(type)
+		getTag: (state) => (type) => {
+			console.log('LLLLLLLL___' + type)
 		}
+		// someMethod: (state) => (type) => {
+		// 	console.log('LLLLLLLL___' + type)
+		// 	// return state.things.find(thing => thing.id === id)
+		// }
 	},
 	state = {
 		counter: 0,
