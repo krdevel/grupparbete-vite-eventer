@@ -22,7 +22,7 @@ const mutations = {
 			state.filteredTagsChanged = !state.filteredTagsChanged
 			for (let i = 0; i < state.filteredTags.length; i++) {
 				console.log(
-					'state.filteredTagsChanged[1]: ',
+					'state.filteredTagsChanged[i]: ',
 					state.filteredTagsChanged[i]
 				)
 			}
