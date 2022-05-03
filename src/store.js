@@ -9,14 +9,15 @@ const mutations = {
 			)
 		},
 		toggleTag(state, tagId) {
+			// Check if the toggled tag is in the filtered tags list.
 			const tagIndex = state.filteredTags.indexOf(tagId)
+
+			// Remove or add it as needed.
 			if (tagIndex !== -1) {
 				state.filteredTags.splice(tagIndex, 1)
 			} else {
 				state.filteredTags.push(tagId)
 			}
-
-			state.filteredTagsChanged = !state.filteredTagsChanged
 		}
 	},
 	state = {
@@ -113,8 +114,7 @@ const mutations = {
 				id: uuidv4()
 			}
 		],
-		filteredTags: [],
-		filteredTagsChanged: false
+		filteredTags: []
 	}
 
 export default createStore({ mutations, state, strict: true })
