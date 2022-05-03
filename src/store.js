@@ -13,7 +13,8 @@ const mutations = {
 const getters = {
 		getTag: (state) => (type) => {
 			console.log('LLLLLLLL___' + type)
-			return state.tags.find((element) => element.type == type)
+			// return state.tags.find((element) => element.type == type)
+			return type
 		}
 	},
 	state = {
