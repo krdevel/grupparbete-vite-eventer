@@ -54,11 +54,3 @@
 		// }
 	}
 </script>
-
-<style scoped>
-	hr {
-		display: none; /* Invisible, with 0 space */
-	}
-</style>
-
-<template><hr /></template>
