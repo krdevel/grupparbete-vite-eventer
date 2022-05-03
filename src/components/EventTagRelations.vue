@@ -56,9 +56,9 @@
 </script>
 
 <style scoped>
-	p {
+	hr {
 		display: none; /* Invisible, with 0 space */
 	}
 </style>
 
-<template><p /></template>
+<template><hr /></template>

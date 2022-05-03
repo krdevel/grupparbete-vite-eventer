@@ -16,7 +16,8 @@ export default createRouter({
 			component: ContactView,
 			path: '/contact'
 		},
-		{//Router component
+		{
+			//Router component
 			component: EventView,
 			path: '/event/:id?'
 		},
