@@ -5,6 +5,7 @@
 	import CitiesList from './components/CitiesList.vue'
 	import CounterButton from './components/CounterButton.vue'
 	import HelloWorld from './components/HelloWorld.vue'
+	import TagContainer from './components/TagContainer.vue'
 
 	export default {
 		created() {},
@@ -13,12 +14,15 @@
 			CounterButton,
 			HelloWorld,
 			EventTagRelations,
-			SearchResultList
+			SearchResultList,
+			TagContainer
 		}
 	}
 </script>
 
 <template>
+	<TagContainer type="event" />
+
 	<EventTagRelations />
 	<SearchResultList />
 	<nav>
