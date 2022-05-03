@@ -11,8 +11,8 @@ const mutations = {
 	}
 }
 const getters = {
-		getTagByID(state) {
-			console.log(state)
+		getTagByType(state, type) {
+			console.log(type)
 		}
 	},
 	state = {
