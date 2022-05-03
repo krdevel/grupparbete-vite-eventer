@@ -2,14 +2,17 @@ import { createStore } from 'vuex'
 import { v4 as uuidv4 } from 'uuid'
 
 const mutations = {
-		increment(state) {
-			state.counter += 1
-		},
-		addTagToEvent(state, payload) {
-			// console.log('addTagToEvent payload: ', payload)
-			state.events[payload.eventIndex].tags.push(
-				state.tags[payload.tagIndex].id
-			)
+	increment(state) {
+		state.counter += 1
+	},
+	addTagToEvent(state, payload) {
+		// console.log('addTagToEvent payload: ', payload)
+		state.events[payload.eventIndex].tags.push(state.tags[payload.tagIndex].id)
+	}
+}
+const getters = {
+		getTagByID(state) {
+			console.log(state)
 		}
 	},
 	state = {
@@ -109,4 +112,4 @@ const mutations = {
 		]
 	}
 
-export default createStore({ mutations, state, strict: true })
+export default createStore({ mutations, state, getters, strict: true })

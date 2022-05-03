@@ -31,6 +31,9 @@
 				return this.$store.state.tags.find((element) => element.id == id)
 			},
 			printEventWithTagsToConsole() {
+				let mmm = this.$store.getters[('getTagByID', 'd111')]
+				console.log('KKKKKK_____' + mmm)
+
 				let events = this.$store.state.events
 				for (let i = 0; i < events.length; i++) {
 					console.log('Event:')
