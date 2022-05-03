@@ -1,30 +1,37 @@
 <template>
 	<div>
-		<h3>What kind of event?</h3>
 		<div v-if="this.type === 'event'" class="container">
+			<p>What kind of event?</p>
 			<div class="tags">
-				<TagComponent v-for="tag in tags" :key="tag.id" :tag="tag" />
-				<TagComponent tag="Testtesttestestsets" />
-				<TagComponent tag="Testtesttestestsets" />
-				<TagComponent tag="Testtesttestestsets" />
+				<TagComponent
+					v-for="tag in getTags('type')"
+					:key="tag.id"
+					:tag="tag.text"
+					:tag-id="tag.id"
+				/>
 			</div>
 		</div>
-
-		<div v-if="this.type === 'where'" class="container">
+		<div v-if="this.type === 'location'" class="container">
+			<p>Where?</p>
 			<div class="tags">
-				<TagComponent v-for="tag in tags" :key="tag.id" :tag="tag" />
-				<TagComponent tag="Testtesttestestsets" />
-				<TagComponent tag="Testtesttestestsets" />
-				<TagComponent tag="Testtesttestestsets" />
+				<TagComponent
+					v-for="tag in getTags('location')"
+					:key="tag.id"
+					:tag="tag.text"
+					:tag-id="tag.id"
+				/>
 			</div>
 		</div>
 
 		<div v-if="this.type === 'date'" class="container">
+			<p>When?</p>
 			<div class="tags">
-				<TagComponent v-for="tag in tags" :key="tag.id" :tag="tag" />
-				<TagComponent tag="Testtesttestestsets" />
-				<TagComponent tag="Testtesttestestsets" />
-				<TagComponent tag="Testtesttestestsets" />
+				<TagComponent
+					v-for="tag in getTags('date')"
+					:key="tag.id"
+					:tag="tag.text"
+					:tag-id="tag.id"
+				/>
 			</div>
 		</div>
 	</div>
@@ -34,17 +41,7 @@
 	import TagComponent from './TagComponent.vue'
 
 	export default {
-		created() {
-			let events = this.$store.state.tags
-			let arr = []
-			events.forEach((element) => {
-				if (element.type === 'type') {
-					arr.push(element.text)
-				}
-			})
-
-			this.tags = arr
-		},
+		created() {},
 		components: {
 			TagComponent
 		},
@@ -58,6 +55,13 @@
 				required: true,
 				type: String,
 				default: 'event'
+			}
+		},
+		methods: {
+			getTags(type) {
+				let event = this.$store.state.tags
+				let newArr = event.filter((e) => e.type === type)
+				return newArr
 			}
 		}
 	}
@@ -74,6 +78,11 @@
 
 		-webkit-box-shadow: 0px 0px 29px -3px rgba(0, 0, 0, 0.81);
 		box-shadow: 0px 0px 29px -3px rgba(0, 0, 0, 0.81);
+		margin: 10px;
+	}
+
+	.container p {
+		text-align: center;
 	}
 
 	.tags {
