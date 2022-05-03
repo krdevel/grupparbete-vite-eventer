@@ -30,6 +30,8 @@
 
 <template>
 	<TagContainer type="event" />
+	<TagContainer type="location" />
+	<TagContainer type="date" />
 
 	<EventTagRelations />
 	<SearchResultList />

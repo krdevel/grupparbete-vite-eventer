@@ -5,3 +5,5 @@
 		@click="$store.commit('increment')"
 	/>
 </template>
+
+<script></script>
