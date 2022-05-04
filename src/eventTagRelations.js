@@ -36,7 +36,7 @@ const getTagFromId = function (id) {
 }
 
 const printEventsWithTagsToConsole = function () {
-	let events = this.$store.state.events
+	let events = store.state.events
 	for (let i = 0; i < events.length; i++) {
 		console.log('Event:')
 		console.log(' Name: ' + events[i].name)
