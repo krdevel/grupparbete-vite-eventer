@@ -31,6 +31,10 @@ const assignTagsToEvents = function () {
 	printEventsWithTagsToConsole()
 }
 
+const getTagFromId = function (id) {
+	return store.state.tags.find((element) => element.id == id)
+}
+
 const printEventsWithTagsToConsole = function () {
 	let events = this.$store.state.events
 	for (let i = 0; i < events.length; i++) {
@@ -41,7 +45,7 @@ const printEventsWithTagsToConsole = function () {
 		let tags = events[i].tags
 
 		for (let j = 0; j < tags.length; j++) {
-			let tag = this.getTagFromId(tags[j])
+			let tag = getTagFromId(tags[j])
 			console.log('   ' + tag.type + ': ' + tag.text)
 		}
 	}
