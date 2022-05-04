@@ -4,8 +4,10 @@ import store from './store'
 
 const assignTagsToEvent = function (eventIndex, tagIndex) {
 	console.log('JavaScript: assignTagsToEvents')
-	this.store.commit('addTagToEvent', {
+	store.commit('addTagToEvent', {
 		eventIndex: eventIndex,
 		tagIndex: tagIndex
 	})
 }
+
+export default assignTagsToEvent
