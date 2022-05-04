@@ -52,8 +52,4 @@ const printEventsWithTagsToConsole = function () {
 }
 
 export default assignTagsToEvents
-
-// export default {
-// 	assignTagsToEvent,
-// 	assignTagsToEvents
-// }
+assignTagsToEvent
