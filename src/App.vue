@@ -1,5 +1,4 @@
 <script>
-	import EventTagRelations from './components/EventTagRelations.vue'
 	import SearchResultList from './components/SearchResultList.vue'
 
 	import TagContainer from './components/TagContainer.vue'
@@ -14,7 +13,6 @@
 			}
 		} */
 		components: {
-			EventTagRelations,
 			SearchResultList,
 			TagContainer
 		}
@@ -26,7 +24,6 @@
 	<TagContainer type="location" />
 	<TagContainer type="date" />
 
-	<EventTagRelations />
 	<SearchResultList />
 
 	<main>
