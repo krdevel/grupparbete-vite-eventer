@@ -32,6 +32,7 @@ const assignTagsToEvents = function () {
 }
 
 const getTagFromId = function (id) {
+	console.log('JavaScript: getTagFromId ____')
 	return store.state.tags.find((element) => element.id == id)
 }
 
@@ -51,4 +52,4 @@ const printEventsWithTagsToConsole = function () {
 	}
 }
 
-export default assignTagsToEvents
+export { assignTagsToEvents, getTagFromId }
