@@ -57,6 +57,7 @@
 
 	p {
 		color: #fff;
+		margin: 0;
 	}
 
 	.selected {
