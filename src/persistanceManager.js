@@ -1,14 +1,38 @@
 import store from './store'
 
-// this.$store.commit('addTagToEvent', {
+let storeAreaForRead = store.state
+let storeAreaForWrite = store
+
+const getAllEvents = function () {
+	return storeAreaForRead.events
+}
+
+const getAllTags = function () {
+	return storeAreaForRead.tags
+}
+
+const getFilteredTags = function () {
+	return storeAreaForRead.filteredTags
+}
+
+const getEventById = function (id) {
+	return storeAreaForRead.events.find((element) => element.id == id)
+}
+
+const getTagById = function (id) {
+	// console.log('JavaScript: getTagFromId ____')
+	return storeAreaForRead.tags.find((element) => element.id == id)
+}
 
 const assignTagsToEvent = function (eventIndex, tagIndex) {
 	console.log('JavaScript: assignTagsToEvents')
-	store.commit('addTagToEvent', {
+	storeAreaForWrite.commit('addTagToEvent', {
 		eventIndex: eventIndex,
 		tagIndex: tagIndex
 	})
 }
+
+// Ad Hoc setup during development:
 
 const assignTagsToEvents = function () {
 	console.log('JavaScript: assignTagsToEvents ____')
@@ -31,12 +55,8 @@ const assignTagsToEvents = function () {
 	printEventsWithTagsToConsole()
 }
 
-const getTagFromId = function (id) {
-	return store.state.tags.find((element) => element.id == id)
-}
-
 const printEventsWithTagsToConsole = function () {
-	let events = store.state.events
+	let events = storeAreaForRead.events
 	for (let i = 0; i < events.length; i++) {
 		console.log('Event:')
 		console.log(' Name: ' + events[i].name)
@@ -45,10 +65,19 @@ const printEventsWithTagsToConsole = function () {
 		let tags = events[i].tags
 
 		for (let j = 0; j < tags.length; j++) {
-			let tag = getTagFromId(tags[j])
+			let tag = getTagById(tags[j])
 			console.log('   ' + tag.type + ': ' + tag.text)
 		}
 	}
 }
 
-export default assignTagsToEvents
+export {
+	getAllEvents,
+	getAllTags,
+	getFilteredTags,
+	getEventById,
+	getTagById,
+	//
+	// Ad Hoc setup during development:
+	assignTagsToEvents
+}
