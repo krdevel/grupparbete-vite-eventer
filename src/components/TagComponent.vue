@@ -1,9 +1,5 @@
 <template>
-	<div
-		class="rounded-corners"
-		:class="{ selected: selected }"
-		@click="handleSelect"
-	>
+	<div :class="{ selected: selected }" @click="handleSelect">
 		<p>
 			{{ this.tag }}
 		</p>
@@ -12,6 +8,11 @@
 
 <script>
 	export default {
+		data() {
+			return {
+				selected: false
+			}
+		},
 		props: {
 			tag: {
 				required: true,
@@ -24,17 +25,10 @@
 				default: 'id'
 			}
 		},
-
 		methods: {
 			handleSelect() {
 				this.selected = !this.selected
 				this.$store.commit('toggleTag', this.tagId)
-			},
-
-			data() {
-				return {
-					selected: false
-				}
 			}
 		}
 	}
@@ -54,11 +48,10 @@
 		opacity: 0.9;
 		transition: 0.3s;
 		font-size: 0.8rem;
+		border-radius: 50vh;
 	}
 
 	div:hover {
-		opacity: 1;
-		background-color: rgba(255, 255, 255, 0.2);
 		cursor: pointer;
 	}
 
@@ -68,9 +61,5 @@
 
 	.selected {
 		background-color: grey;
-	}
-
-	.rounded-corners {
-		border-radius: 50vh;
 	}
 </style>

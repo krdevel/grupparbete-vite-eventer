@@ -19,13 +19,18 @@
 </script>
 
 <template>
-	<main>
+	<main id="filter-view">
 		<h1>Filter</h1>
 
-		<TagContainer type="event" />
-		<TagContainer type="location" />
-		<TagContainer type="date" />
-
-		<FilterList />
+		<div>
+			<div>
+				<TagContainer type="event" />
+				<TagContainer type="location" />
+				<TagContainer type="date" />
+			</div>
+			<div>
+				<FilterList />
+			</div>
+		</div>
 	</main>
 </template>
