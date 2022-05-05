@@ -128,9 +128,10 @@ function makeNewStore() {
 	})
 }
 
-export default createStore({
+export default { createStore({
 	mutations,
 	state,
 	plugins: [new VuexPersistence().plugin],
 	strict: true
-})
+}),
+makeNewStore}
