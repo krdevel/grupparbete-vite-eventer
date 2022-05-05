@@ -1,6 +1,6 @@
 import store from './store'
 
-let reAssignTagsToEvents = true
+let reAssignTagsToEvents = false
 
 let storeAreaForRead = store.state
 let storeAreaForWrite = store
@@ -23,17 +23,16 @@ const assignTagsToEvent = function (eventIndex, tagIndex) {
 function resetStateData() {
 	// let newState = store.initialState
 	// store.state = store.replaceState()
-	store.replaceState()
-	store.makeNewStore()
+	// store.replaceState()
+	// store.makeNewStore()
 }
 
 const assignTagsToEvents = function () {
 	console.log('JavaScript: assignTagsToEvents ____')
 
 	if (reAssignTagsToEvents) {
-		resetStateData()
-
-		// window.localStorage.removeItem('vuex')
+		// resetStateData()
+		window.localStorage.removeItem('vuex')
 
 		assignTagsToEvent(0, 0)
 		assignTagsToEvent(0, 2)

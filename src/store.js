@@ -119,13 +119,9 @@ const mutations = {
 		filteredTags: []
 	}
 
-function makeNewStore() {
-	createStore({
-		mutations,
-		state,
-		plugins: [new VuexPersistence().plugin],
-		strict: true
-	})
-}
-
-export default makeNewStore
+export default createStore({
+	mutations,
+	state,
+	plugins: [new VuexPersistence().plugin],
+	strict: true
+})
