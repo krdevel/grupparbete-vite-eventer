@@ -4,21 +4,15 @@
 
 	import TagContainer from './components/TagContainer.vue'
 	import EventView from './views/EventView.vue'
+	import NavigationMenu from './components/NavigationMenu.vue'
 
 	export default {
-		created() {},
-		//Programatisk Router exempel
-		/* ,
-		methods:{
-			tryClick(place){
-				this.$router.push('/event/'+place)
-			}
-		} */
 		components: {
 			EventTagRelations,
 			SearchResultList,
 			TagContainer,
-			EventView
+			EventView,
+			NavigationMenu
 		}
 	}
 </script>
@@ -31,7 +25,9 @@
 	<EventTagRelations />
 	<SearchResultList />
 	<EventView />
-	<main>
+
+	<div>
+		<NavigationMenu />
 		<RouterView />
-	</main>
+	</div>
 </template>
