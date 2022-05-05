@@ -1,4 +1,6 @@
 import { createStore } from 'vuex'
+import VuexPersistence from 'vuex-persist'
+
 import { v4 as uuidv4 } from 'uuid'
 
 const mutations = {
@@ -117,4 +119,9 @@ const mutations = {
 		filteredTags: []
 	}
 
-export default createStore({ mutations, state, strict: true })
+export default createStore({
+	mutations,
+	state,
+	plugins: [new VuexPersistence().plugin],
+	strict: true
+})
