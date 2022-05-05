@@ -71,7 +71,7 @@ const mutations = {
 			// Date tags
 			{
 				type: 'date',
-				text: dayjs().format(),
+				text: dayjs().month(),
 				// text: '2022-06-16',
 				id: uuidv4()
 			},
