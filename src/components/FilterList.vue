@@ -1,5 +1,6 @@
 <script>
 	import FilterItem from './FilterItem.vue'
+	import { getAllEvents, getFilteredTags } from '../persistanceManager'
 
 	export default {
 		components: {
@@ -27,14 +28,14 @@
 				const filteredEvents = []
 
 				// Loop through the events.
-				this.$store.state.events.forEach((event) => {
+				getAllEvents().forEach((event) => {
 					// Count and store the number of matching tags.
 					const tagCounter = event.tags.filter((value) =>
-						this.$store.state.filteredTags.includes(value)
+						getFilteredTags().includes(value)
 					).length
 
 					// When the number of found event tags match the number of supplied tags, save the event.
-					if (tagCounter === this.$store.state.filteredTags.length) {
+					if (tagCounter === getFilteredTags().length) {
 						filteredEvents.push(event)
 					}
 				})
