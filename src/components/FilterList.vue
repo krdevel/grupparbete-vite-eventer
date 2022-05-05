@@ -1,6 +1,10 @@
 <script>
 	import FilterItem from './FilterItem.vue'
-	import { getAllEvents, getFilteredTags } from '../persistanceManager'
+	import {
+		getAllEvents,
+		getFilteredTags,
+		filteredTags
+	} from '../persistanceManager'
 
 	export default {
 		components: {
@@ -15,8 +19,9 @@
 			}
 		},
 		watch: {
-			'$store.state.filteredTags': {
+			getFilteredTags: {
 				handler: function () {
+					console.log('WWWWWWWWWWW')
 					this.filterEvents()
 				},
 				deep: true

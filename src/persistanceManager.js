@@ -3,6 +3,8 @@ import store from './store'
 let storeAreaForRead = store.state
 let storeAreaForWrite = store
 
+const filteredTags = storeAreaForRead.filteredTags
+
 const getAllEvents = function () {
 	return storeAreaForRead.events
 }
@@ -77,6 +79,7 @@ export {
 	getFilteredTags,
 	getEventById,
 	getTagById,
+	filteredTags,
 	//
 	// Ad Hoc setup during development:
 	assignTagsToEvents
