@@ -70,7 +70,7 @@
 <style scoped>
 	.container {
 		width: 500px;
-		min-height: 200px;
+		min-height: 128px;
 		height: auto;
 		border-radius: 5vh;
 		background-color: rgb(195, 195, 195);
