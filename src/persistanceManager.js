@@ -1,9 +1,16 @@
 import store from './store'
+// import { Vue } from 'vue'
+// import App from './App.vue'
 
 let storeAreaForRead = store.state
 let storeAreaForWrite = store
 
 let filteredTags = store.state.filteredTags
+// let filteredTags = Vue.observable({
+// 	filteredTags: storeAreaForRead.filteredTags
+// })
+
+// const errors = Vue.observable({ errors: {} })
 
 const getAllEvents = function () {
 	return storeAreaForRead.events
@@ -73,14 +80,30 @@ const printEventsWithTagsToConsole = function () {
 	}
 }
 
-export {
-	getAllEvents,
-	getAllTags,
-	getFilteredTags,
-	getEventById,
-	getTagById,
-	filteredTags,
-	//
-	// Ad Hoc setup during development:
-	assignTagsToEvents
+// export {
+// 	getAllEvents,
+// 	getAllTags,
+// 	getFilteredTags,
+// 	getEventById,
+// 	getTagById,
+// 	filteredTags,
+// 	//
+// 	// Ad Hoc setup during development:
+// 	assignTagsToEvents
+// }
+
+export default {
+	install(app /* , options */) {
+		app.$db = {
+			getAllEvents,
+			getAllTags,
+			getFilteredTags,
+			getEventById,
+			getTagById,
+			filteredTags,
+			//
+			// Ad Hoc setup during development:
+			assignTagsToEvents
+		}
+	}
 }

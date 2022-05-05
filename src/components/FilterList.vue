@@ -1,10 +1,10 @@
 <script>
 	import FilterItem from './FilterItem.vue'
-	import {
-		getAllEvents,
-		getFilteredTags,
-		filteredTags
-	} from '../persistanceManager'
+	// import {
+	// 	getAllEvents,
+	// 	getFilteredTags,
+	// 	filteredTags
+	// } from '../persistanceManager'
 
 	export default {
 		components: {
@@ -19,7 +19,7 @@
 			}
 		},
 		watch: {
-			'$store.state.filteredTags': {
+			'$db.filteredTags': {
 				handler: function () {
 					this.filterEvents()
 					console.log('WWWWWWWWWWW')
@@ -33,14 +33,14 @@
 				const filteredEvents = []
 
 				// Loop through the events.
-				getAllEvents().forEach((event) => {
+				this.$db.getAllEvents().forEach((event) => {
 					// Count and store the number of matching tags.
 					const tagCounter = event.tags.filter((value) =>
-						getFilteredTags().includes(value)
+						this.$db.getFilteredTags().includes(value)
 					).length
 
 					// When the number of found event tags match the number of supplied tags, save the event.
-					if (tagCounter === getFilteredTags().length) {
+					if (tagCounter === this.$db.getFilteredTags().length) {
 						filteredEvents.push(event)
 					}
 				})
