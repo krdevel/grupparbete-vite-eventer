@@ -19,10 +19,10 @@
 			}
 		},
 		watch: {
-			getFilteredTags: {
+			'$store.state.filteredTags': {
 				handler: function () {
-					console.log('WWWWWWWWWWW')
 					this.filterEvents()
+					console.log('WWWWWWWWWWW')
 				},
 				deep: true
 			}

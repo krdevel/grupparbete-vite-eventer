@@ -3,7 +3,7 @@ import store from './store'
 let storeAreaForRead = store.state
 let storeAreaForWrite = store
 
-const filteredTags = storeAreaForRead.filteredTags
+let filteredTags = store.state.filteredTags
 
 const getAllEvents = function () {
 	return storeAreaForRead.events
