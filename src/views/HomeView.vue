@@ -1,3 +1,3 @@
-<script></script>
-<style></style>
-<template><div /></template>
+<template>
+	<main><h1>Home</h1></main>
+</template>

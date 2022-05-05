@@ -1,32 +1,16 @@
 <script>
-	import SearchResultList from './components/SearchResultList.vue'
-
-	import TagContainer from './components/TagContainer.vue'
+	import NavigationMenu from './components/NavigationMenu.vue'
 
 	export default {
-		created() {},
-		//Programatisk Router exempel
-		/* ,
-		methods:{
-			tryClick(place){
-				this.$router.push('/event/'+place)
-			}
-		} */
 		components: {
-			SearchResultList,
-			TagContainer
+			NavigationMenu
 		}
 	}
 </script>
 
 <template>
-	<TagContainer type="event" />
-	<TagContainer type="location" />
-	<TagContainer type="date" />
-
-	<SearchResultList />
-
-	<main>
+	<div>
+		<NavigationMenu />
 		<RouterView />
-	</main>
+	</div>
 </template>

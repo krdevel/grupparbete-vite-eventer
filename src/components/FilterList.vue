@@ -1,9 +1,9 @@
 <script>
-	import SearchResultItem from './SearchResultItem.vue'
+	import FilterItem from './FilterItem.vue'
 
 	export default {
 		components: {
-			SearchResultItem
+			FilterItem
 		},
 		created() {
 			this.filterEvents()
@@ -27,17 +27,17 @@
 				const filteredEvents = []
 
 				// Loop through the events.
-				for (let i = 0; i < this.$store.state.events.length; i++) {
+				this.$store.state.events.forEach((event) => {
 					// Count and store the number of matching tags.
-					const tagCounter = this.$store.state.events[i].tags.filter((value) =>
+					const tagCounter = event.tags.filter((value) =>
 						this.$store.state.filteredTags.includes(value)
 					).length
 
 					// When the number of found event tags match the number of supplied tags, save the event.
 					if (tagCounter === this.$store.state.filteredTags.length) {
-						filteredEvents.push(this.$store.state.events[i])
+						filteredEvents.push(event)
 					}
-				}
+				})
 
 				this.events = filteredEvents
 			}
@@ -47,6 +47,6 @@
 
 <template>
 	<ul v-if="events.length !== 0">
-		<SearchResultItem :id="event.id" :key="event.id" v-for="event in events" />
+		<FilterItem :id="event.id" :key="event.id" v-for="event in events" />
 	</ul>
 </template>

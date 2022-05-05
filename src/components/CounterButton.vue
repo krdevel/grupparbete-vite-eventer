@@ -1,3 +1,5 @@
+<script></script>
+
 <template>
 	<input
 		type="button"
@@ -5,5 +7,3 @@
 		@click="$store.commit('increment')"
 	/>
 </template>
-
-<script></script>
