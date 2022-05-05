@@ -1,8 +1,12 @@
 <template>
 	<div>
-		<div v-if="this.type === 'event'" class="container">
-			<p>What kind of event?</p>
-			<div class="tags">
+		<div
+			class="card"
+			v-if="this.type === 'event'"
+			style="width: 500px; height: auto"
+		>
+			<h5 class="card-header">What kind of event?</h5>
+			<div class="card-body">
 				<TagComponent
 					v-for="tag in getTags('type')"
 					:key="tag.id"
@@ -11,9 +15,14 @@
 				/>
 			</div>
 		</div>
-		<div v-if="this.type === 'location'" class="container">
-			<p>Where?</p>
-			<div class="tags">
+
+		<div
+			class="card"
+			v-if="this.type === 'location'"
+			style="width: 500px; height: auto"
+		>
+			<h5 class="card-header">Where?</h5>
+			<div class="card-body">
 				<TagComponent
 					v-for="tag in getTags('location')"
 					:key="tag.id"
@@ -23,9 +32,13 @@
 			</div>
 		</div>
 
-		<div v-if="this.type === 'date'" class="container">
-			<p>When?</p>
-			<div class="tags">
+		<div
+			class="card"
+			v-if="this.type === 'date'"
+			style="width: 500px; height: auto"
+		>
+			<h5 class="card-header">Where?</h5>
+			<div class="card-body">
 				<TagComponent
 					v-for="tag in getTags('date')"
 					:key="tag.id"
@@ -70,7 +83,7 @@
 <style scoped>
 	.container {
 		width: 500px;
-		min-height: 128px;
+		min-height: 150px;
 		height: auto;
 		border-radius: 5vh;
 		background-color: rgb(195, 195, 195);
@@ -83,6 +96,10 @@
 
 	.container p {
 		text-align: center;
+	}
+
+	.card {
+		margin: 10px;
 	}
 
 	.tags {
