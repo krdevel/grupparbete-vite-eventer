@@ -46,7 +46,7 @@
 </script>
 
 <template>
-	<ul v-if="events.length !== 0">
+	<ul id="filter-list" v-if="events.length !== 0">
 		<FilterItem :id="event.id" :key="event.id" v-for="event in events" />
 	</ul>
 </template>

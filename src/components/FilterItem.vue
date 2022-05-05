@@ -4,10 +4,21 @@
 			this.event = this.$store.state.events.find(
 				(element) => element.id === this.id
 			)
+
+			/*
+			this.event.tags.forEach(tag => {if (tag.id)})
+
+								const tagCounter = this.event.tags.filter((value) =>
+						this.$store.state.filteredTags.includes(value)
+					).length
+
+			this.tags
+*/
 		},
 		data() {
 			return {
 				event: undefined
+				//				tags: []
 			}
 		},
 		props: {
@@ -20,14 +31,15 @@
 			link() {
 				return '/event/' + this.event.id
 			}
-		},
-		watch: {},
-		methods: {}
+		}
 	}
 </script>
 
 <template>
 	<li v-if="event !== undefined">
-		<RouterLink :to="link">{{ event.name }}</RouterLink>
+		<RouterLink :to="link"
+			><h5 class="title">{{ event.name }}</h5>
+			<!-- p>{{ event.name }}</p --></RouterLink
+		>
 	</li>
 </template>
