@@ -3,22 +3,6 @@ import store from './store'
 let storeAreaForRead = store.state
 let storeAreaForWrite = store
 
-const getAllEvents = function () {
-	return storeAreaForRead.events
-}
-
-const getAllTags = function () {
-	return storeAreaForRead.tags
-}
-
-const getFilteredTags = function () {
-	return storeAreaForRead.filteredTags
-}
-
-const getEventById = function (id) {
-	return storeAreaForRead.events.find((element) => element.id == id)
-}
-
 const getTagById = function (id) {
 	// console.log('JavaScript: getTagFromId ____')
 	return storeAreaForRead.tags.find((element) => element.id == id)
@@ -72,11 +56,6 @@ const printEventsWithTagsToConsole = function () {
 }
 
 export {
-	getAllEvents,
-	getAllTags,
-	getFilteredTags,
-	getEventById,
-	getTagById,
 	//
 	// Ad Hoc setup during development:
 	assignTagsToEvents
