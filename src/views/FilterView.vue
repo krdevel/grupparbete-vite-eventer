@@ -1,5 +1,5 @@
 <script>
-	import SearchResultList from '../components/SearchResultList.vue'
+	import FilterList from '../components/FilterList.vue'
 	import TagContainer from '../components/TagContainer.vue'
 
 	export default {
@@ -12,7 +12,7 @@
 			}
 		} */
 		components: {
-			SearchResultList,
+			FilterList,
 			TagContainer
 		}
 	}
@@ -26,6 +26,6 @@
 		<TagContainer type="location" />
 		<TagContainer type="date" />
 
-		<SearchResultList />
+		<FilterList />
 	</main>
 </template>

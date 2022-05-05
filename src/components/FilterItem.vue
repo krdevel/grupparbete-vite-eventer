@@ -28,6 +28,6 @@
 
 <template>
 	<li v-if="event !== undefined">
-		<a :href="link">{{ event.name }}</a>
+		<RouterLink :to="link">{{ event.name }}</RouterLink>
 	</li>
 </template>

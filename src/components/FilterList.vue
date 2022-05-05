@@ -1,9 +1,9 @@
 <script>
-	import SearchResultItem from './SearchResultItem.vue'
+	import FilterItem from './FilterItem.vue'
 
 	export default {
 		components: {
-			SearchResultItem
+			FilterItem
 		},
 		created() {
 			this.filterEvents()
@@ -47,6 +47,6 @@
 
 <template>
 	<ul v-if="events.length !== 0">
-		<SearchResultItem :id="event.id" :key="event.id" v-for="event in events" />
+		<FilterItem :id="event.id" :key="event.id" v-for="event in events" />
 	</ul>
 </template>
