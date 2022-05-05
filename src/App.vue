@@ -3,6 +3,7 @@
 	import SearchResultList from './components/SearchResultList.vue'
 
 	import TagContainer from './components/TagContainer.vue'
+	import EventView from './views/EventView.vue'
 
 	export default {
 		created() {},
@@ -16,7 +17,8 @@
 		components: {
 			EventTagRelations,
 			SearchResultList,
-			TagContainer
+			TagContainer,
+			EventView
 		}
 	}
 </script>
@@ -28,7 +30,7 @@
 
 	<EventTagRelations />
 	<SearchResultList />
-
+	<EventView />
 	<main>
 		<RouterView />
 	</main>
