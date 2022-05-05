@@ -12,14 +12,11 @@
 </script>
 
 <template>
-	<nav
-		v-if="links.length !== 0"
-		class="navbar navbar-expand-lg navbar-light bg-light"
-	>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">
-				<img src="/favicon-196.png" alt="" width="30" height="24" />
-			</a>
+			<RouterLink class="navbar-brand" to="/">
+				<img src="/favicon-196.png" alt="Logo" />
+			</RouterLink>
 			<button
 				class="navbar-toggler"
 				type="button"
@@ -29,9 +26,13 @@
 				aria-expanded="false"
 				aria-label="Toggle navigation"
 			>
-				<span class="navbar-toggler-icon" />
+				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
+			<div
+				v-if="links.length !== 0"
+				class="collapse navbar-collapse"
+				id="navbarNav"
+			>
 				<ul class="navbar-nav">
 					<li class="nav-item" :key="link.address" v-for="link in links">
 						<RouterLink class="nav-link" :to="link.address">{{
@@ -42,12 +43,4 @@
 			</div>
 		</div>
 	</nav>
-
-	<!-- <nav v-if="links.length !== 0">
-		<ul>
-			<li :key="link.address" v-for="link in links">
-				<RouterLink :to="link.address">{{ link.title }}</RouterLink>
-			</li>
-		</ul>
-	</nav> -->
 </template>
