@@ -38,7 +38,7 @@
 <template>
 	<li v-if="event !== undefined">
 		<RouterLink :to="link"
-			><h4 class="title">{{ event.name }}</h4>
+			><h5 class="title">{{ event.name }}</h5>
 			<!-- p>{{ event.name }}</p --></RouterLink
 		>
 	</li>
