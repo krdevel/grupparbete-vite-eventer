@@ -27,17 +27,17 @@
 				const filteredEvents = []
 
 				// Loop through the events.
-				for (let i = 0; i < this.$store.state.events.length; i++) {
+				this.$store.state.events.forEach((event) => {
 					// Count and store the number of matching tags.
-					const tagCounter = this.$store.state.events[i].tags.filter((value) =>
+					const tagCounter = event.tags.filter((value) =>
 						this.$store.state.filteredTags.includes(value)
 					).length
 
 					// When the number of found event tags match the number of supplied tags, save the event.
 					if (tagCounter === this.$store.state.filteredTags.length) {
-						filteredEvents.push(this.$store.state.events[i])
+						filteredEvents.push(event)
 					}
-				}
+				})
 
 				this.events = filteredEvents
 			}

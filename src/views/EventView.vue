@@ -1,3 +1,5 @@
 <template>
-	<h1>Event! id: {{ $route.params.id }}</h1>
+	<main>
+		<h1>Event! id: {{ $route.params.id }}</h1>
+	</main>
 </template>
