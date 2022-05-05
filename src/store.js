@@ -1,6 +1,8 @@
 import { createStore } from 'vuex'
 import { v4 as uuidv4 } from 'uuid'
 
+import dayjs from 'dayjs'
+
 const mutations = {
 		addTagToEvent(state, payload) {
 			// console.log('addTagToEvent payload: ', payload)
@@ -69,7 +71,8 @@ const mutations = {
 			// Date tags
 			{
 				type: 'date',
-				text: '2022-06-16',
+				text: dayjs().format(),
+				// text: '2022-06-16',
 				id: uuidv4()
 			},
 			{
