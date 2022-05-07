@@ -29,6 +29,7 @@ function resetStateData() {
 
 const assignTagsToEvents = function () {
 	console.log('JavaScript: assignTagsToEvents ____')
+	printAssignedTags()
 
 	if (reAssignTagsToEvents) {
 		// resetStateData()
@@ -54,6 +55,14 @@ const assignTagsToEvents = function () {
 
 	// // Print out Events with tags in the console:
 	printEventsWithTagsToConsole()
+}
+
+const printAssignedTags = function () {
+	for (let i = 0; i < storeAreaForRead.events.length; i++) {
+		console.log(
+			'eventTagRelations Assigned tags: ' + storeAreaForRead.events[i].tags
+		)
+	}
 }
 
 const printEventsWithTagsToConsole = function () {
