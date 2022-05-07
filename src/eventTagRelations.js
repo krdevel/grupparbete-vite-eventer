@@ -32,22 +32,24 @@ const assignTagsToEvents = function () {
 
 	if (reAssignTagsToEvents) {
 		// resetStateData()
-		window.localStorage.removeItem('vuex')
+		// window.localStorage.removeItem('vuex')
 
-		// assignTagsToEvent(0, 0)
-		// assignTagsToEvent(0, 2)
-		// assignTagsToEvent(0, 5)
-		// assignTagsToEvent(0, 13)
+		storeAreaForWrite.commit('resetEventsTags')
 
-		// assignTagsToEvent(1, 1)
-		// assignTagsToEvent(1, 3)
-		// assignTagsToEvent(1, 5)
-		// assignTagsToEvent(1, 9)
+		assignTagsToEvent(0, 0)
+		assignTagsToEvent(0, 2)
+		assignTagsToEvent(0, 5)
+		assignTagsToEvent(0, 13)
 
-		// assignTagsToEvent(2, 1)
-		// assignTagsToEvent(2, 4)
-		// assignTagsToEvent(2, 7)
-		// assignTagsToEvent(2, 12)
+		assignTagsToEvent(1, 1)
+		assignTagsToEvent(1, 3)
+		assignTagsToEvent(1, 5)
+		assignTagsToEvent(1, 9)
+
+		assignTagsToEvent(2, 1)
+		assignTagsToEvent(2, 4)
+		assignTagsToEvent(2, 7)
+		assignTagsToEvent(2, 12)
 	}
 
 	// // Print out Events with tags in the console:
