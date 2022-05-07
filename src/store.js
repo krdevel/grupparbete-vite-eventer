@@ -23,12 +23,8 @@ const mutations = {
 		},
 		resetEventsTags(state) {
 			console.log('resetEventsTags')
-
 			for (let i = 0; i < state.events.length; i++) {
-				console.log('state.events[i].tags BEFORE: ' + state.events[i].tags)
-
 				state.events[i].tags = []
-				console.log('state.events[i].tags AFTER: ' + state.events[i].tags)
 			}
 		}
 	},

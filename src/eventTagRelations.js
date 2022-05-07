@@ -1,17 +1,16 @@
 import store from './store'
 
-let reAssignTagsToEvents = false
+let reAssignEventsTags = false
 
 let storeAreaForRead = store.state
 let storeAreaForWrite = store
 
 const getTagById = function (id) {
-	// console.log('JavaScript: getTagFromId ____')
 	return storeAreaForRead.tags.find((element) => element.id == id)
 }
 
 const assignTagsToEvent = function (eventIndex, tagIndex) {
-	console.log('JavaScript: assignTagsToEvents')
+	// console.log('JavaScript: assignTagsToEvents')
 	storeAreaForWrite.commit('addTagToEvent', {
 		eventIndex: eventIndex,
 		tagIndex: tagIndex
@@ -19,28 +18,11 @@ const assignTagsToEvent = function (eventIndex, tagIndex) {
 }
 
 // Ad Hoc setup during development:
-
-function resetStateData() {
-	// let newState = store.initialState
-	// store.state = store.replaceState()
-	// store.replaceState()
-	// store.makeNewStore()
-}
-
 const assignTagsToEvents = function () {
-	console.log('JavaScript: assignTagsToEvents ____')
-	// printAssignedTags()
+	// assignTagsToEvent(0, 12)
 
-	// assignTagsToEvent(0, 1)
-	// assignTagsToEvent(0, 4)
-	// assignTagsToEvent(0, 6)
-	// assignTagsToEvent(0, 8)
-
-	if (reAssignTagsToEvents) {
-		console.log('Nyyyyyyyyyyyyyy')
-
-		// resetStateData()
-		// window.localStorage.removeItem('vuex')
+	if (reAssignEventsTags) {
+		// console.log('Nyyyyyyyyyyyyyy')
 
 		storeAreaForWrite.commit('resetEventsTags')
 
@@ -62,14 +44,6 @@ const assignTagsToEvents = function () {
 
 	// // Print out Events with tags in the console:
 	printEventsWithTagsToConsole()
-}
-
-const printAssignedTags = function () {
-	for (let i = 0; i < storeAreaForRead.events.length; i++) {
-		console.log(
-			'eventTagRelations Assigned tags: ' + storeAreaForRead.events[i].tags
-		)
-	}
 }
 
 const printEventsWithTagsToConsole = function () {
