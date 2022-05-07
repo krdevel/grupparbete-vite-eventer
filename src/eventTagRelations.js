@@ -31,7 +31,14 @@ const assignTagsToEvents = function () {
 	console.log('JavaScript: assignTagsToEvents ____')
 	// printAssignedTags()
 
+	// assignTagsToEvent(0, 1)
+	// assignTagsToEvent(0, 4)
+	// assignTagsToEvent(0, 6)
+	// assignTagsToEvent(0, 8)
+
 	if (reAssignTagsToEvents) {
+		console.log('Nyyyyyyyyyyyyyy')
+
 		// resetStateData()
 		// window.localStorage.removeItem('vuex')
 
