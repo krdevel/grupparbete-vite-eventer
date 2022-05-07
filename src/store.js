@@ -20,6 +20,11 @@ const mutations = {
 			} else {
 				state.filteredTags.push(tagId)
 			}
+		},
+		resetEventsTags() {
+			for (let i = 0; i < state.events.length; i++) {
+				state.events[i].tags = []
+			}
 		}
 	},
 	state = {
