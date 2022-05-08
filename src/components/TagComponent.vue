@@ -38,22 +38,8 @@
 </script>
 
 <style lang="scss" scoped>
-	div {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	p {
-		color: black;
-		margin: 0;
-	}
-
 	.btn {
 		margin: 5px;
 		$badge-color: black;
-	}
-
-	.selected {
 	}
 </style>
