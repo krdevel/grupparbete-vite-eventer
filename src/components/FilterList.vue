@@ -16,6 +16,8 @@
 		watch: {
 			'$store.state.filteredTags': {
 				handler: function () {
+					console.log('theFilteredTags: ' + this.theFilteredTags)
+
 					this.filterEvents()
 				},
 				deep: true
