@@ -4,7 +4,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { assignTagsToEvents } from './eventTagRelations'
-import { getAllEvents } from './persistanceManager'
+// import { getAllEvents } from './persistanceManager'
 
 createApp(App).use(router).use(store).mount('#app')
 
@@ -12,5 +12,5 @@ createApp(App).use(router).use(store).mount('#app')
 //Later, this should be fetched from a backend with a persistent store
 assignTagsToEvents()
 
-const allEvents = getAllEvents()
-console.log(allEvents)
+// const allEvents = getAllEvents()
+// console.log(allEvents)

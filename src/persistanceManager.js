@@ -102,31 +102,27 @@ const printEventsWithTagsToConsole = function () {
 	}
 }
 
-export {
-	getAllEvents,
-	theFilteredTags
-	// getAllTags,
-	// getFilteredTags,
-	// getEventById,
-	// getTagById,
-	// filteredTags,
-	// //
-	// // Ad Hoc setup during development:
-	// assignTagsToEvents
-}
-
-// export default {
-// 	install(app /* , options */) {
-// 		app.$db = {
-// 			getAllEvents,
-// 			getAllTags,
-// 			getFilteredTags,
-// 			getEventById,
-// 			getTagById,
-// 			filteredTags,
-// 			//
-// 			// Ad Hoc setup during development:
-// 			assignTagsToEvents
-// 		}
-// 	}
+// export {
+// 	getAllEvents,
+// 	theFilteredTags
+// 	// getAllTags,
+// 	// getFilteredTags,
+// 	// getEventById,
+// 	// getTagById,
+// 	// filteredTags,
+// 	// //
+// 	// // Ad Hoc setup during development:
+// 	// assignTagsToEvents
 // }
+
+export default {
+	install(app /* , options */) {
+		app.$db = {
+			// getAllEvents,
+			theFilteredTags,
+			//
+			// Ad Hoc setup during development:
+			assignTagsToEvents
+		}
+	}
+}
