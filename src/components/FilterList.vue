@@ -14,7 +14,7 @@
 			}
 		},
 		watch: {
-			theFilteredTags: {
+			'$db.theFilteredTags': {
 				handler: function () {
 					console.log('theFilteredTags: ' + this.theFilteredTags)
 					this.filterEvents()
