@@ -14,7 +14,7 @@
 			}
 		},
 		watch: {
-			'$store.state.filteredTags': {
+			'this.theFilteredTags': {
 				handler: function () {
 					console.log('theFilteredTags: ' + this.theFilteredTags)
 
