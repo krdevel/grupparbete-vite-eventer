@@ -14,10 +14,9 @@
 			}
 		},
 		watch: {
-			'this.theFilteredTags': {
+			theFilteredTags: {
 				handler: function () {
 					console.log('theFilteredTags: ' + this.theFilteredTags)
-
 					this.filterEvents()
 				},
 				deep: true
