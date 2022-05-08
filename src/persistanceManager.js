@@ -12,6 +12,19 @@ let filteredTags = store.state.filteredTags
 
 // const errors = Vue.observable({ errors: {} })
 
+const proxy = new Proxy(
+	{
+		count: 0
+	},
+	{
+		get(storeAreaForRead, property) {
+			console.log(`Trying to access ${property}.`)
+
+			return storeAreaForRead[property]
+		}
+	}
+)
+
 const getAllEvents = function () {
 	return storeAreaForRead.events
 }
