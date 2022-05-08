@@ -19,8 +19,13 @@ const proxy = new Proxy(
 	{
 		get(storeAreaForRead, property) {
 			console.log(`Trying to access ${property}.`)
-
 			return storeAreaForRead[property]
+		},
+		set(storeAreaForRead, property, value) {
+			console.log(`Trying to SET ${property}.`)
+			storeAreaForRead[property] = value
+
+			return true
 		}
 	}
 )
