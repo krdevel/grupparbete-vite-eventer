@@ -12,23 +12,27 @@ let filteredTags = store.state.filteredTags
 
 // const errors = Vue.observable({ errors: {} })
 
-const proxy = new Proxy(
-	{
-		count: 0
-	},
-	{
-		get(storeAreaForRead, property) {
-			console.log(`Trying to access ${property}.`)
-			return storeAreaForRead[property]
-		},
-		set(storeAreaForRead, property, value) {
-			console.log(`Trying to SET ${property}.`)
-			storeAreaForRead[property] = value
+const handler1 = {}
 
-			return true
-		}
-	}
-)
+const theFilteredTags = new Proxy(store.state.filteredTags, handler1)
+
+// const proxy = new Proxy(
+// 	{
+// 		count: 0
+// 	},
+// 	{
+// 		get(storeAreaForRead, property) {
+// 			console.log(`Trying to access ${property}.`)
+// 			return storeAreaForRead[property]
+// 		},
+// 		set(storeAreaForRead, property, value) {
+// 			console.log(`Trying to SET ${property}.`)
+// 			storeAreaForRead[property] = value
+
+// 			return true
+// 		}
+// 	}
+// )
 
 const getAllEvents = function () {
 	return storeAreaForRead.events
@@ -99,7 +103,8 @@ const printEventsWithTagsToConsole = function () {
 }
 
 export {
-	getAllEvents
+	getAllEvents,
+	theFilteredTags
 	// getAllTags,
 	// getFilteredTags,
 	// getEventById,
