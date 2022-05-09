@@ -16,6 +16,11 @@
 				selected: false
 			}
 		},
+		created() {
+			if (this.$store.state.filteredTags.includes(this.tagId)) {
+				this.selected = true
+			}
+		},
 		props: {
 			tag: {
 				required: true,
