@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<div v-if="this.type === 'event'" class="container">
-			<p>What kind of event?</p>
-			<div class="tags">
+		<div class="card" v-if="this.type === 'event'">
+			<h5 class="card-header">What kind of event?</h5>
+			<div class="card-body">
 				<TagComponent
 					v-for="tag in getTags('type')"
 					:key="tag.id"
@@ -11,9 +11,10 @@
 				/>
 			</div>
 		</div>
-		<div v-if="this.type === 'location'" class="container">
-			<p>Where?</p>
-			<div class="tags">
+
+		<div class="card" v-if="this.type === 'location'">
+			<h5 class="card-header">Where?</h5>
+			<div class="card-body">
 				<TagComponent
 					v-for="tag in getTags('location')"
 					:key="tag.id"
@@ -23,9 +24,9 @@
 			</div>
 		</div>
 
-		<div v-if="this.type === 'date'" class="container">
-			<p>When?</p>
-			<div class="tags">
+		<div class="card" v-if="this.type === 'date'">
+			<h5 class="card-header">Where?</h5>
+			<div class="card-body">
 				<TagComponent
 					v-for="tag in getTags('date')"
 					:key="tag.id"
@@ -68,27 +69,9 @@
 </script>
 
 <style scoped>
-	.container {
+	.card {
 		width: 500px;
-		min-height: 128px;
 		height: auto;
-		border-radius: 5vh;
-		background-color: rgb(195, 195, 195);
-		border: 1px solid grey;
-
-		-webkit-box-shadow: 0px 0px 29px -3px rgba(0, 0, 0, 0.81);
-		box-shadow: 0px 0px 29px -3px rgba(0, 0, 0, 0.81);
 		margin: 10px;
-	}
-
-	.container p {
-		text-align: center;
-	}
-
-	.tags {
-		display: flex;
-		flex-wrap: wrap;
-		align-content: flex-start;
-		justify-content: flex-start;
 	}
 </style>

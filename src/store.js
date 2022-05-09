@@ -1,4 +1,6 @@
 import { createStore } from 'vuex'
+import VuexPersistence from 'vuex-persist'
+
 import { v4 as uuidv4 } from 'uuid'
 
 const mutations = {
@@ -17,6 +19,12 @@ const mutations = {
 				state.filteredTags.splice(tagIndex, 1)
 			} else {
 				state.filteredTags.push(tagId)
+			}
+		},
+		resetEventsTags(state) {
+			console.log('resetEventsTags')
+			for (let i = 0; i < state.events.length; i++) {
+				state.events[i].tags = []
 			}
 		}
 	},
@@ -117,4 +125,9 @@ const mutations = {
 		filteredTags: []
 	}
 
-export default createStore({ mutations, state, strict: true })
+export default createStore({
+	mutations,
+	state,
+	plugins: [new VuexPersistence().plugin],
+	strict: true
+})

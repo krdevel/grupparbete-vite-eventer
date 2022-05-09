@@ -1,9 +1,12 @@
 <template>
-	<div :class="{ selected: selected }" @click="handleSelect">
-		<p>
-			{{ this.tag }}
-		</p>
-	</div>
+	<button
+		type="button"
+		:class="selected ? 'btn-primary' : 'btn-secondary'"
+		@click="handleSelect"
+		class="btn"
+	>
+		{{ this.tag }}
+	</button>
 </template>
 
 <script>
@@ -11,6 +14,11 @@
 		data() {
 			return {
 				selected: false
+			}
+		},
+		created() {
+			if (this.$store.state.filteredTags.includes(this.tagId)) {
+				this.selected = true
 			}
 		},
 		props: {
@@ -34,33 +42,9 @@
 	}
 </script>
 
-<style scoped>
-	div {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin: 10px 7.5px 10px 7.5px;
-		min-width: 50px;
-		width: auto;
-		height: 10px;
-		padding: 7px;
-		border: 1px solid #fff;
-		opacity: 0.9;
-		transition: 0.3s;
-		font-size: 0.8rem;
-		border-radius: 50vh;
-	}
-
-	div:hover {
-		cursor: pointer;
-	}
-
-	p {
-		color: #fff;
-		margin: 0;
-	}
-
-	.selected {
-		background-color: grey;
+<style lang="scss" scoped>
+	.btn {
+		margin: 5px;
+		$badge-color: black;
 	}
 </style>

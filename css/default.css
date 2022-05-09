@@ -1,3 +1,4 @@
+/*
 * {
 	box-sizing: border-box;
 }
@@ -37,13 +38,18 @@ nav > ul > li > a {
 	text-decoration: none;
 }
 
-#filter-view > div {
-	display: flex;
-}
-
 h1 {
 	font-weight: normal;
 	margin-left: 4rem;
+}
+*/
+
+.navbar-brand > img {
+	width: 1.875rem;
+}
+
+#filter-view > div {
+	display: flex;
 }
 
 #filter-view > div > div {
