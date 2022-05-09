@@ -1,5 +1,6 @@
 import store from './store'
 
+let reallyResetStore = true
 let reAssignEventsTags = false
 
 let storeAreaForRead = store.state
@@ -17,15 +18,24 @@ const assignTagsToEvent = function (eventIndex, tagIndex) {
 	})
 }
 
+const resetStore = function () {
+	reAssignEventsTags = false
+	window.localStorage.removeItem('vuex')
+	reAssignEventsTags = true
+}
+
 // Ad Hoc setup during development:
 const assignTagsToEvents = function () {
-	// assignTagsToEvent(0, 12)
+	// assignTagsToEvent(0, 13)
+
+	if (reallyResetStore) {
+		resetStore()
+	}
 
 	if (reAssignEventsTags) {
 		// console.log('Nyyyyyyyyyyyyyy')
 
 		storeAreaForWrite.commit('resetEventsTags')
-		// window.localStorage.removeItem('vuex')
 
 		assignTagsToEvent(0, 0)
 		assignTagsToEvent(0, 2)
