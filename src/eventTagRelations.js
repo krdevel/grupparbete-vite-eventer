@@ -1,16 +1,16 @@
 import store from './store'
 
-<<<<<<< HEAD
-let reallyResetStore = true
-let reAssignEventsTags = false
-
-=======
->>>>>>> 741947ed281a10e818870bf7078d27c470020916
 let storeAreaForRead = store.state
 let storeAreaForWrite = store
 
-let reAssignEventsTags = store.state.events[0].tags.length === 0
-//let reAssignEventsTags = true
+let reallyResetStore = false
+
+// Säkert supersmart. Men jag får det inte att funka med reallyResetStore (som pålitligare återställer Vuex till default).
+// Så jag bortkommenterar nästa rad så länge:
+
+// let reAssignEventsTags = store.state.events[0].tags.length === 0
+
+let reAssignEventsTags = false
 
 const getTagById = function (id) {
 	return storeAreaForRead.tags.find((element) => element.id == id)
@@ -32,7 +32,7 @@ const resetStore = function () {
 
 // Ad Hoc setup during development:
 const assignTagsToEvents = function () {
-	// assignTagsToEvent(0, 13)
+	// assignTagsToEvent(0, 11)
 
 	if (reallyResetStore) {
 		resetStore()
