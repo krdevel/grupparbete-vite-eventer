@@ -6,7 +6,6 @@
 		data() {
 			return {
 				name: 'Broke it!',
-				id: 0,
 				tagBox: []
 				//img:"",
 				//eventText:""
@@ -26,7 +25,6 @@
 								) {
 									//push till tagBox
 									this.tagBox.push(this.$store.state.tags[j].text)
-									this.id++
 									console.log(this.tagBox)
 								}
 							}
@@ -41,13 +39,16 @@
 	.nameData {
 		text-align: center;
 	}
+	.ulSs {
+		list-style: none;
+	}
 </style>
 <template>
 	<main>
 		<div class="eventStyle">
 			<!-- <img class="imgData" :src="img"> -->
 			<h1 class="nameData">{{ name }}</h1>
-			<ul>
+			<ul class="ulSs">
 				<li :key="tags" v-for="tags in tagBox">{{ tags }}</li>
 			</ul>
 		</div>
