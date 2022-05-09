@@ -55,12 +55,29 @@ h1 {
 #filter-view > div > div {
 	flex-grow: 1;
 	flex-basis: 0;
+	padding: 2rem;
 }
 
 #filter-list {
+	margin: 0;
+	padding: 0;
 	list-style-type: none;
 }
 
-#filter-list > li > a {
+#filter-list a {
+	display: flex;
 	text-decoration: none;
+	padding: 1rem;
+}
+
+#filter-list li:not(:last-child) {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+#filter-list img {
+	display: block;
+	width: 8rem;
+	height: 6rem;
+	object-fit: contain;
+	margin-right: 1rem;
 }

@@ -1,9 +1,10 @@
 import store from './store'
 
-let reAssignEventsTags = false
-
 let storeAreaForRead = store.state
 let storeAreaForWrite = store
+
+let reAssignEventsTags = store.state.events[0].tags.length === 0
+//let reAssignEventsTags = true
 
 const getTagById = function (id) {
 	return storeAreaForRead.tags.find((element) => element.id == id)
@@ -65,5 +66,6 @@ const printEventsWithTagsToConsole = function () {
 export {
 	//
 	// Ad Hoc setup during development:
+	getTagById,
 	assignTagsToEvents
 }

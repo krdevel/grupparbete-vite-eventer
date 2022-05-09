@@ -31,33 +31,34 @@ const mutations = {
 	state = {
 		events: [
 			{
-				name: 'Ett kul event',
+				name: 'Nine Inch Snails',
 				tags: [],
-				id: uuidv4()
+				id: uuidv4(),
+				image:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
+				description:
+					'En konsert är i allmänhet ett musikverk för ett (ibland några) soloinstrument och orkester. Den kallas då också solokonsert. Verken är oftast flersatsiga och med den första satsen i sonatform med en längd om minst 20–30 minuter. Solostämman är vanligen tekniskt avancerad, ofta virtuos. Musiken kan ha formen av antingen en dialog mellan solist och orkester eller mer av solo med ackompanjemang interfolierade av orkesterpartier. En dubbelkonsert är en konsert för två soloinstrument och orkester.'
 			},
 			{
-				name: 'Ett halvkul event',
+				name: 'Arsenal - Valencia',
 				tags: [],
-				id: uuidv4()
+				id: uuidv4(),
+				image:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Football_iu_1996.jpg/640px-Football_iu_1996.jpg',
+				description:
+					'Matcherna spelas normalt i två halvlekar på 45 minuter vardera med en halvtidspaus runt 15 min. Det lag som gjort flest mål då matchen är slut har vunnit. Om lagen har gjort samma antal mål när matchen är över blir resultatet oavgjort. I vissa turneringar, till exempel utslagningsturneringar, tillåts inte oavgjorda resultat och för att få ett avgörande tillgrips förlängning, straffsparksläggning eller omspel.'
 			},
 			{
 				name: 'Releaseparty',
 				tags: [],
-				id: uuidv4()
+				id: uuidv4(),
+				image:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hip%2C_Hip%2C_Hurrah%21_Artists%E2%80%99_Party%2C_Skagen_%28Peder_Severin_Kr%C3%B8yer%29_-_Gothenburg_Museum_of_Art_-_F_62.tif/lossy-page1-589px-Hip%2C_Hip%2C_Hurrah%21_Artists%E2%80%99_Party%2C_Skagen_%28Peder_Severin_Kr%C3%B8yer%29_-_Gothenburg_Museum_of_Art_-_F_62.tif.jpg',
+				description:
+					'Festligheterna pågår under sexton dagar före den första söndagen i oktober på Theresienwiese, som förr var en äng. År 2010 pågick oktoberfesten en dag längre än vanligt, nämligen till den 4 oktober. Detta har beslutats i samband med att festen firade 200-årsjubileum år 2010. Med anledning av festen bryggs ett särskilt oktoberfestöl. Ölet, som serveras i en typ av enliterskannor som kallas Maß, är bärnstensfärgat, och smakrikt. Det får bara tillverkas av lokala bryggerier i München. Ölutskänkningen sker i särskilda tält som rymmer upp till tiotusen gäster och kan ta två månader att resa.'
 			}
 		],
 		tags: [
-			{
-				// Location tags
-				type: 'location',
-				text: 'Stockholm',
-				id: uuidv4()
-			},
-			{
-				type: 'location',
-				text: 'Göteborg',
-				id: uuidv4()
-			},
 			{
 				// Type tags
 				type: 'type',
@@ -72,6 +73,17 @@ const mutations = {
 			{
 				type: 'type',
 				text: 'Party',
+				id: uuidv4()
+			},
+			{
+				// Location tags
+				type: 'location',
+				text: 'Stockholm',
+				id: uuidv4()
+			},
+			{
+				type: 'location',
+				text: 'Göteborg',
 				id: uuidv4()
 			},
 			// Date tags
