@@ -25,6 +25,7 @@ const assignTagsToEvents = function () {
 		// console.log('Nyyyyyyyyyyyyyy')
 
 		storeAreaForWrite.commit('resetEventsTags')
+		// window.localStorage.removeItem('vuex')
 
 		assignTagsToEvent(0, 0)
 		assignTagsToEvent(0, 2)

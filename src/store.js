@@ -61,17 +61,17 @@ const mutations = {
 			{
 				// Type tags
 				type: 'type',
-				text: 'Concert',
+				text: 'Konsert',
 				id: uuidv4()
 			},
 			{
 				type: 'type',
-				text: 'Football match',
+				text: 'Fotbollsmatch',
 				id: uuidv4()
 			},
 			{
 				type: 'type',
-				text: 'Party',
+				text: 'Fest',
 				id: uuidv4()
 			},
 			// Date tags
