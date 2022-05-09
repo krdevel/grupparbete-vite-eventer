@@ -1,26 +1,36 @@
 <script>
 	export default {
 		created() {
-			this.setDatabyId()
+			this.fillDatabyId()
 		},
 		data() {
 			return {
-				name: '',
-				tagLocation: this.$store.state.events[0].tags[0],
-				tagType: this.$store.state.tags[3].text,
-				tagTime: this.$store.state.tags[5].text
-				//img:""
+				name: 'Broke it!',
+				id: 0,
+				tagBox: []
+				//img:"",
+				//eventText:""
 			}
 		},
 		methods: {
-			setDatabyId() {
+			fillDatabyId() {
 				for (let i = 0; i < this.$store.state.events.length; i++) {
 					if (this.$route.params.id == this.$store.state.events[i].id) {
-						console.log(true)
+						//Name, img, text för event
 						this.name = this.$store.state.events[i].name
-						this.tagLocation = ''
-					} else {
-						console.log(false)
+						for (let k = 0; k < this.$store.state.events[i].tags.length; k++) {
+							for (let j = 0; j < this.$store.state.tags.length; j++) {
+								if (
+									this.$store.state.events[i].tags[k] ==
+									this.$store.state.tags[j].id
+								) {
+									//push till tagBox
+									this.tagBox.push(this.$store.state.tags[j].text)
+									this.id++
+									console.log(this.tagBox)
+								}
+							}
+						}
 					}
 				}
 			}
@@ -37,10 +47,9 @@
 		<div class="eventStyle">
 			<!-- <img class="imgData" :src="img"> -->
 			<h1 class="nameData">{{ name }}</h1>
-			<p class="tagLoc">
-				I {{ tagLocation }} och det är en {{ tagType }} och datumet är
-				{{ tagTime }}
-			</p>
+			<ul>
+				<li :key="tags" v-for="tags in tagBox">{{ tags }}</li>
+			</ul>
 		</div>
 	</main>
 </template>
