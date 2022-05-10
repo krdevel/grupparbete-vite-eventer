@@ -5,12 +5,22 @@
 	export default {
 		created() {},
 		//Programatisk Router exempel
-		/* ,
-		methods:{
-			tryClick(place){
-				this.$router.push('/event/'+place)
+
+		data() {
+			return {
+				// true/1 for list, false/0 for grid
+				listOrGrid: true
 			}
-		} */
+		},
+
+		methods: {
+			// tryClick(place){
+			// 	this.$router.push('/event/'+place)
+			// }
+			handleListOrGrid(value) {
+				value === 'list' ? (this.listOrGrid = true) : (this.listOrGrid = false)
+			}
+		},
 		components: {
 			FilterList,
 			TagContainer
@@ -39,6 +49,7 @@
 						id="btnradio1"
 						autocomplete="off"
 						checked
+						@click="handleListOrGrid('list')"
 					/>
 					<label class="btn btn-outline-primary" for="btnradio1"
 						><i class="bi bi-list"></i
@@ -50,12 +61,13 @@
 						name="btnradio"
 						id="btnradio2"
 						autocomplete="off"
+						@click="handleListOrGrid('grid')"
 					/>
 					<label class="btn btn-outline-primary" for="btnradio2"
 						><i class="bi bi-grid"></i
 					></label>
 				</div>
-				<FilterList />
+				<FilterList :is-list="this.listOrGrid" />
 			</div>
 		</div>
 	</main>

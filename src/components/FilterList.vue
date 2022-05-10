@@ -41,12 +41,20 @@
 
 				this.events = filteredEvents
 			}
+		},
+		props: {
+			isList: {
+				default: true,
+				type: Boolean
+			}
 		}
 	}
 </script>
 
 <template>
-	<ul id="filter-list" v-if="events.length !== 0">
+	<ul id="filter-list" v-if="events.length !== 0 && isList === true">
 		<FilterItem :id="event.id" :key="event.id" v-for="event in events" />
 	</ul>
+	<!-- Show grid if isList is set to false -->
+	<h1 v-else>Hej</h1>
 </template>
