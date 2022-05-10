@@ -81,5 +81,6 @@
 
 	.btn-group {
 		align-self: flex-end;
+		margin-bottom: 15px;
 	}
 </style>

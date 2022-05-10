@@ -1,9 +1,11 @@
 <script>
 	import FilterItem from './FilterItem.vue'
+	import GridItem from './GridItem.vue'
 
 	export default {
 		components: {
-			FilterItem
+			FilterItem,
+			GridItem
 		},
 		created() {
 			this.filterEvents()
@@ -52,9 +54,40 @@
 </script>
 
 <template>
-	<ul id="filter-list" v-if="events.length !== 0 && isList === true">
+	<ul
+		id="filter-list"
+		class="scroll"
+		v-if="events.length !== 0 && isList === true"
+	>
 		<FilterItem :id="event.id" :key="event.id" v-for="event in events" />
 	</ul>
 	<!-- Show grid if isList is set to false -->
-	<h1 v-else>Hej</h1>
+
+	<div v-else class="grid-container">
+		<GridItem
+			:event="event"
+			class="grid-item"
+			:key="event.id"
+			v-for="event in events"
+		/>
+	</div>
 </template>
+
+<style>
+	.scroll {
+		overflow: hidden;
+		overflow-y: scroll;
+		height: 100%;
+		width: 100%;
+	}
+	.grid-container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0px;
+		grid-auto-rows: minmax(100px, auto);
+	}
+
+	.grid-item {
+		grid-auto-columns: auto;
+	}
+</style>
