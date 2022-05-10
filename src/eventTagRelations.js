@@ -57,6 +57,26 @@ const assignTagsToEvents = function () {
 		assignTagsToEvent(2, 4)
 		assignTagsToEvent(2, 7)
 		assignTagsToEvent(2, 12)
+
+		assignTagsToEvent(3, 1)
+		assignTagsToEvent(3, 4)
+		assignTagsToEvent(3, 7)
+		assignTagsToEvent(3, 12)
+
+		assignTagsToEvent(4, 1)
+		assignTagsToEvent(4, 4)
+		assignTagsToEvent(4, 7)
+		assignTagsToEvent(4, 12)
+
+		assignTagsToEvent(5, 1)
+		assignTagsToEvent(5, 4)
+		assignTagsToEvent(5, 7)
+		assignTagsToEvent(5, 12)
+
+		assignTagsToEvent(6, 1)
+		assignTagsToEvent(6, 4)
+		assignTagsToEvent(6, 7)
+		assignTagsToEvent(6, 12)
 	}
 
 	// // Print out Events with tags in the console:

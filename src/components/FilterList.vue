@@ -75,19 +75,21 @@
 
 <style>
 	.scroll {
-		overflow: hidden;
+		/* overflow: hidden;
 		overflow-y: scroll;
-		height: 100%;
-		width: 100%;
+		height: 80%;
+		width: 100%; */
 	}
 	.grid-container {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 0px;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		/* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+		gap: 20px 0;
 		grid-auto-rows: minmax(100px, auto);
 	}
 
 	.grid-item {
 		grid-auto-columns: auto;
+		justify-self: center;
 	}
 </style>

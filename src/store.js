@@ -56,6 +56,39 @@ const mutations = {
 					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hip%2C_Hip%2C_Hurrah%21_Artists%E2%80%99_Party%2C_Skagen_%28Peder_Severin_Kr%C3%B8yer%29_-_Gothenburg_Museum_of_Art_-_F_62.tif/lossy-page1-589px-Hip%2C_Hip%2C_Hurrah%21_Artists%E2%80%99_Party%2C_Skagen_%28Peder_Severin_Kr%C3%B8yer%29_-_Gothenburg_Museum_of_Art_-_F_62.tif.jpg',
 				description:
 					'Festligheterna pågår under sexton dagar före den första söndagen i oktober på Theresienwiese, som förr var en äng. År 2010 pågick oktoberfesten en dag längre än vanligt, nämligen till den 4 oktober. Detta har beslutats i samband med att festen firade 200-årsjubileum år 2010. Med anledning av festen bryggs ett särskilt oktoberfestöl. Ölet, som serveras i en typ av enliterskannor som kallas Maß, är bärnstensfärgat, och smakrikt. Det får bara tillverkas av lokala bryggerier i München. Ölutskänkningen sker i särskilda tält som rymmer upp till tiotusen gäster och kan ta två månader att resa.'
+			},
+			{
+				name: 'Håkan Hellström',
+				tags: [],
+				id: uuidv4(),
+				image:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
+				description: 'Håkan kommer till Göteborg!'
+			},
+			{
+				name: 'Pubquiz i Vasa',
+				tags: [],
+				id: uuidv4(),
+				image:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
+				description: 'Pubquiz!'
+			},
+			{
+				name: 'Gabriels Änglar!',
+				tags: [],
+				id: uuidv4(),
+				image:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
+				description:
+					'Gabriels Änglar kommer äntligen till Göteborg för att sjunga!'
+			},
+			{
+				name: 'NFTs och sånt',
+				tags: [],
+				id: uuidv4(),
+				image:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
+				description: 'Krypto'
 			}
 		],
 		tags: [
@@ -76,6 +109,17 @@ const mutations = {
 				id: uuidv4()
 			},
 			{
+				type: 'type',
+				text: 'Quiz',
+				id: uuidv4()
+			},
+			{
+				type: 'type',
+				text: 'Krypto',
+				id: uuidv4()
+			},
+
+			{
 				// Location tags
 				type: 'location',
 				text: 'Stockholm',
@@ -84,6 +128,26 @@ const mutations = {
 			{
 				type: 'location',
 				text: 'Göteborg',
+				id: uuidv4()
+			},
+			{
+				type: 'location',
+				text: 'Malmö',
+				id: uuidv4()
+			},
+			{
+				type: 'location',
+				text: 'Helsingborg',
+				id: uuidv4()
+			},
+			{
+				type: 'location',
+				text: 'Köpenhamn',
+				id: uuidv4()
+			},
+			{
+				type: 'location',
+				text: 'London',
 				id: uuidv4()
 			},
 			// Date tags

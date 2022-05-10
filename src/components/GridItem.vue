@@ -1,5 +1,8 @@
 <template>
-	<RouterLink :to="'/event/' + event.id" style="text-decoration: none">
+	<RouterLink
+		:to="'/event/' + event.id"
+		style="text-decoration: none; color: inherit"
+	>
 		<div class="ui-card">
 			<h4>Fotbollsmatch</h4>
 			<img :src="event.image" class="ui-image" alt="..." width="300" />
