@@ -26,6 +26,9 @@ const mutations = {
 			for (let i = 0; i < state.events.length; i++) {
 				state.events[i].tags = []
 			}
+		},
+		insertEventsTags(state, data) {
+			state.dbEventsTags.push({ event: data.eventId, tag: data.tagId })
 		}
 	},
 	state = {
@@ -134,6 +137,127 @@ const mutations = {
 				id: uuidv4()
 			}
 		],
+		dbEvents: [
+			{
+				id: uuidv4(),
+				name: 'Nine Inch Snails',
+				type: null,
+				location: null,
+				date: null,
+				time: null,
+				image:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
+				description:
+					'En konsert är i allmänhet ett musikverk för ett (ibland några) soloinstrument och orkester. Den kallas då också solokonsert. Verken är oftast flersatsiga och med den första satsen i sonatform med en längd om minst 20–30 minuter. Solostämman är vanligen tekniskt avancerad, ofta virtuos. Musiken kan ha formen av antingen en dialog mellan solist och orkester eller mer av solo med ackompanjemang interfolierade av orkesterpartier. En dubbelkonsert är en konsert för två soloinstrument och orkester.'
+			},
+			{
+				id: uuidv4(),
+				name: 'Arsenal - Valencia',
+				type: null,
+				location: null,
+				date: null,
+				time: null,
+				image:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Football_iu_1996.jpg/640px-Football_iu_1996.jpg',
+				description:
+					'Matcherna spelas normalt i två halvlekar på 45 minuter vardera med en halvtidspaus runt 15 min. Det lag som gjort flest mål då matchen är slut har vunnit. Om lagen har gjort samma antal mål när matchen är över blir resultatet oavgjort. I vissa turneringar, till exempel utslagningsturneringar, tillåts inte oavgjorda resultat och för att få ett avgörande tillgrips förlängning, straffsparksläggning eller omspel.'
+			},
+			{
+				id: uuidv4(),
+				name: 'Releaseparty',
+				type: null,
+				location: null,
+				date: null,
+				time: null,
+				image:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hip%2C_Hip%2C_Hurrah%21_Artists%E2%80%99_Party%2C_Skagen_%28Peder_Severin_Kr%C3%B8yer%29_-_Gothenburg_Museum_of_Art_-_F_62.tif/lossy-page1-589px-Hip%2C_Hip%2C_Hurrah%21_Artists%E2%80%99_Party%2C_Skagen_%28Peder_Severin_Kr%C3%B8yer%29_-_Gothenburg_Museum_of_Art_-_F_62.tif.jpg',
+				description:
+					'Festligheterna pågår under sexton dagar före den första söndagen i oktober på Theresienwiese, som förr var en äng. År 2010 pågick oktoberfesten en dag längre än vanligt, nämligen till den 4 oktober. Detta har beslutats i samband med att festen firade 200-årsjubileum år 2010. Med anledning av festen bryggs ett särskilt oktoberfestöl. Ölet, som serveras i en typ av enliterskannor som kallas Maß, är bärnstensfärgat, och smakrikt. Det får bara tillverkas av lokala bryggerier i München. Ölutskänkningen sker i särskilda tält som rymmer upp till tiotusen gäster och kan ta två månader att resa.'
+			}
+		],
+		dbTypeTags: [
+			// Type tags
+			{
+				type: 'type',
+				text: 'Konsert',
+				id: uuidv4()
+			},
+			{
+				type: 'type',
+				text: 'Fotbollsmatch',
+				id: uuidv4()
+			},
+			{
+				type: 'type',
+				text: 'Fest',
+				id: uuidv4()
+			}
+		],
+		dbLocationTags: [
+			// Location tags
+			{
+				type: 'location',
+				text: 'Stockholm',
+				id: uuidv4()
+			},
+			{
+				type: 'location',
+				text: 'Göteborg',
+				id: uuidv4()
+			}
+		],
+		dbDateTags: [
+			// Date tags
+			{
+				type: 'date',
+				text: '2022-06-16',
+				id: uuidv4()
+			},
+			{
+				type: 'date',
+				text: '2022-06-17',
+				id: uuidv4()
+			},
+			{
+				type: 'date',
+				text: '2022-06-18',
+				id: uuidv4()
+			},
+			{
+				type: 'date',
+				text: '2022-06-19',
+				id: uuidv4()
+			}
+		],
+		dbTimeTags: [
+			// Time tags
+			{
+				type: 'time',
+				text: '17:00',
+				id: uuidv4()
+			},
+			{
+				type: 'time',
+				text: '18:00',
+				id: uuidv4()
+			},
+			{
+				type: 'time',
+				text: '18:30',
+				id: uuidv4()
+			},
+			{
+				type: 'time',
+				text: '19:00',
+				id: uuidv4()
+			},
+			{
+				type: 'time',
+				text: '20:00',
+				id: uuidv4()
+			}
+		],
+		dbEventsTags: [],
 		filteredTags: []
 	}
 
