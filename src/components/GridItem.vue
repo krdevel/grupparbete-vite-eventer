@@ -1,18 +1,20 @@
 <template>
-	<div class="ui-card">
-		<h4>Fotbollsmatch</h4>
-		<img :src="event.image" class="ui-image" alt="..." width="300" />
-		<div class="ui-card-body">
-			<span class="ui-card-content">
-				<p>MAY</p>
-				<p>02</p>
-			</span>
-			<span class="ui-card-content">
-				<p id="event-name">{{ event.name }}</p>
-				<p>Ullevi Arena</p>
-			</span>
+	<RouterLink :to="'/event/' + event.id" style="text-decoration: none">
+		<div class="ui-card">
+			<h4>Fotbollsmatch</h4>
+			<img :src="event.image" class="ui-image" alt="..." width="300" />
+			<div class="ui-card-body">
+				<span class="ui-card-content">
+					<p>MAY</p>
+					<p>02</p>
+				</span>
+				<span class="ui-card-content">
+					<p id="event-name">{{ event.name }}</p>
+					<p>Ullevi Arena</p>
+				</span>
+			</div>
 		</div>
-	</div>
+	</RouterLink>
 </template>
 
 <script>
