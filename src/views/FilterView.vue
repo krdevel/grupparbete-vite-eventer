@@ -9,7 +9,7 @@
 		data() {
 			return {
 				// true/1 for list, false/0 for grid
-				listOrGrid: true
+				listOrGrid: false
 			}
 		},
 
@@ -30,8 +30,8 @@
 
 <template>
 	<main id="filter-view">
-		<div>
-			<div>
+		<div class="responsive">
+			<div id="container">
 				<TagContainer type="event" />
 				<TagContainer type="location" />
 				<TagContainer type="date" />
@@ -48,7 +48,6 @@
 						name="btnradio"
 						id="btnradio1"
 						autocomplete="off"
-						checked
 						@click="handleListOrGrid('list')"
 					/>
 					<label class="btn btn-outline-primary" for="btnradio1"
@@ -61,6 +60,7 @@
 						name="btnradio"
 						id="btnradio2"
 						autocomplete="off"
+						checked
 						@click="handleListOrGrid('grid')"
 					/>
 					<label class="btn btn-outline-primary" for="btnradio2"
@@ -83,5 +83,17 @@
 	.btn-group {
 		align-self: flex-end;
 		margin-bottom: 15px;
+	}
+
+	@media screen and (max-width: 1024px) {
+		.responsive {
+			display: flex;
+			flex-direction: column;
+		}
+
+		#container {
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 </style>

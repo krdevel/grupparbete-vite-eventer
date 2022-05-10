@@ -23,7 +23,7 @@
 
 <template>
 	<li>
-		<RouterLink :to="link">
+		<RouterLink :to="link" style="color: inherit">
 			<img :alt="event.name" :src="event.image" />
 			<div>
 				<h5 class="title">{{ event.name }}</h5>
