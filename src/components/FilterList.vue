@@ -1,10 +1,10 @@
 <script>
-	import FilterItem from './FilterItem.vue'
 	import GridItem from './GridItem.vue'
+	import ListItem from './ListItem.vue'
 
 	export default {
 		components: {
-			FilterItem,
+			ListItem,
 			GridItem
 		},
 		created() {
@@ -59,7 +59,12 @@
 		class="scroll"
 		v-if="events.length !== 0 && isList === true"
 	>
-		<FilterItem :id="event.id" :key="event.id" v-for="event in events" />
+		<ListItem
+			:event="event"
+			:id="event.id"
+			:key="event.id"
+			v-for="event in events"
+		/>
 	</ul>
 	<!-- Show grid if isList is set to false -->
 
