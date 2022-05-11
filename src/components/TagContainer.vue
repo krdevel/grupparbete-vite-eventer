@@ -70,8 +70,14 @@
 
 <style scoped>
 	.card {
-		width: 500px;
+		width: 350px;
 		height: auto;
 		margin: 10px;
+	}
+
+	@media screen and (max-width: 1024px) {
+		.card {
+			width: auto;
+		}
 	}
 </style>

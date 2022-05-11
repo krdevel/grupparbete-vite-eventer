@@ -8,9 +8,9 @@ let reallyResetStore = false
 // Säkert supersmart. Men jag får det inte att funka med reallyResetStore (som pålitligare återställer Vuex till default).
 // Så jag bortkommenterar nästa rad så länge:
 
-// let reAssignEventsTags = store.state.events[0].tags.length === 0
+let reAssignEventsTags = store.state.events[0].tags.length === 0
 
-let reAssignEventsTags = false
+// let reAssignEventsTags = false
 
 const getTagById = function (id) {
 	return storeAreaForRead.tags.find((element) => element.id == id)
@@ -57,6 +57,26 @@ const assignTagsToEvents = function () {
 		assignTagsToEvent(2, 4)
 		assignTagsToEvent(2, 7)
 		assignTagsToEvent(2, 12)
+
+		assignTagsToEvent(3, 1)
+		assignTagsToEvent(3, 4)
+		assignTagsToEvent(3, 7)
+		assignTagsToEvent(3, 12)
+
+		assignTagsToEvent(4, 1)
+		assignTagsToEvent(4, 4)
+		assignTagsToEvent(4, 7)
+		assignTagsToEvent(4, 12)
+
+		assignTagsToEvent(5, 1)
+		assignTagsToEvent(5, 4)
+		assignTagsToEvent(5, 7)
+		assignTagsToEvent(5, 12)
+
+		assignTagsToEvent(6, 1)
+		assignTagsToEvent(6, 4)
+		assignTagsToEvent(6, 7)
+		assignTagsToEvent(6, 12)
 	}
 
 	// // Print out Events with tags in the console:
@@ -79,9 +99,74 @@ const printEventsWithTagsToConsole = function () {
 	}
 }
 
+// <!-- NEW AND IMPROVED(?)
+
+const dbInit = () => {
+	// Cancel if the relationship table is populated.
+	if (store.state.dbEventsTags.length !== 0) {
+		return
+	}
+
+	storeAreaForWrite.commit('insertEventsTags', {
+		eventId: storeAreaForRead.dbEvents[0].id,
+		tagId: storeAreaForRead.dbTypeTags[0].id
+	})
+	storeAreaForWrite.commit('insertEventsTags', {
+		eventId: storeAreaForRead.dbEvents[0].id,
+		tagId: storeAreaForRead.dbLocationTags[0].id
+	})
+	storeAreaForWrite.commit('insertEventsTags', {
+		eventId: storeAreaForRead.dbEvents[0].id,
+		tagId: storeAreaForRead.dbDateTags[0].id
+	})
+	storeAreaForWrite.commit('insertEventsTags', {
+		eventId: storeAreaForRead.dbEvents[0].id,
+		tagId: storeAreaForRead.dbTimeTags[4].id
+	})
+
+	storeAreaForWrite.commit('insertEventsTags', {
+		eventId: storeAreaForRead.dbEvents[1].id,
+		tagId: storeAreaForRead.dbTypeTags[1].id
+	})
+	storeAreaForWrite.commit('insertEventsTags', {
+		eventId: storeAreaForRead.dbEvents[1].id,
+		tagId: storeAreaForRead.dbLocationTags[1].id
+	})
+	storeAreaForWrite.commit('insertEventsTags', {
+		eventId: storeAreaForRead.dbEvents[1].id,
+		tagId: storeAreaForRead.dbDateTags[1].id
+	})
+	storeAreaForWrite.commit('insertEventsTags', {
+		eventId: storeAreaForRead.dbEvents[1].id,
+		tagId: storeAreaForRead.dbTimeTags[0].id
+	})
+
+	storeAreaForWrite.commit('insertEventsTags', {
+		eventId: storeAreaForRead.dbEvents[2].id,
+		tagId: storeAreaForRead.dbTypeTags[2].id
+	})
+	storeAreaForWrite.commit('insertEventsTags', {
+		eventId: storeAreaForRead.dbEvents[2].id,
+		tagId: storeAreaForRead.dbLocationTags[1].id
+	})
+	storeAreaForWrite.commit('insertEventsTags', {
+		eventId: storeAreaForRead.dbEvents[2].id,
+		tagId: storeAreaForRead.dbDateTags[3].id
+	})
+	storeAreaForWrite.commit('insertEventsTags', {
+		eventId: storeAreaForRead.dbEvents[2].id,
+		tagId: storeAreaForRead.dbTimeTags[1].id
+	})
+
+	console.log(store.state.dbEventsTags)
+}
+
+// NEW AND IMPROVED(?) -->
+
 export {
 	//
 	// Ad Hoc setup during development:
 	getTagById,
-	assignTagsToEvents
+	assignTagsToEvents,
+	dbInit
 }

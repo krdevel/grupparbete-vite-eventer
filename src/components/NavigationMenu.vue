@@ -7,6 +7,12 @@
 					{ address: '/filter', title: 'Filter' }
 				]
 			}
+		},
+		methods: {
+			resetStore() {
+				window.localStorage.removeItem('vuex')
+				location.reload()
+			}
 		}
 	}
 </script>
@@ -14,7 +20,7 @@
 <template>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
-			<RouterLink class="navbar-brand" to="/">
+			<RouterLink @click="resetStore" class="navbar-brand" to="/">
 				<img src="/favicon-196.png" alt="Logo" />
 			</RouterLink>
 			<button
