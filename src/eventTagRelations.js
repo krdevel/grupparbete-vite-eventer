@@ -112,13 +112,13 @@ const getEventById = (eventId) => {
 		(typeTag) => typeTag.id === event.type
 	).text
 	event.location = storeAreaForRead.dbLocationTags.find(
-		(locationTag) => locationTag.id === event.type
+		(locationTag) => locationTag.id === event.location
 	).text
 	event.date = storeAreaForRead.dbDateTags.find(
-		(dateTag) => dateTag.id === event.type
+		(dateTag) => dateTag.id === event.date
 	).text
 	event.time = storeAreaForRead.dbTimeTags.find(
-		(timeTag) => timeTag.id === event.type
+		(timeTag) => timeTag.id === event.time
 	).text
 
 	return event

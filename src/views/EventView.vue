@@ -1,10 +1,15 @@
 <script>
+	import { getEventById } from '../eventTagRelations'
+
 	export default {
 		created() {
 			this.fillDatabyId()
+
+			this.event = getEventById(this.$route.params.id)
 		},
 		data() {
 			return {
+				event: undefined,
 				name: 'Broke it!',
 				tagBox: [],
 				imgSource: '',
@@ -94,6 +99,23 @@
 </style>
 <template>
 	<div class="headerImg">
+		<img class="imgData" :src="event.image" height="300" />
+
+		<div class="imgText">
+			<h1 class="nameData">{{ event.name }}</h1>
+		</div>
+	</div>
+	<ul class="ulSs">
+		<li class="list">{{ event.type }}</li>
+		<li class="list">{{ event.location }}</li>
+		<li class="list">{{ event.date }}</li>
+		<li class="list">{{ event.time }}</li>
+	</ul>
+	<div class="textBox">
+		<p class="paraText">{{ event.description }}</p>
+	</div>
+
+	<!-- div class="headerImg">
 		<img class="imgData" :src="imgSource" height="300" />
 
 		<div class="imgText">
@@ -105,5 +127,5 @@
 	</ul>
 	<div class="textBox">
 		<p class="paraText">{{ eventText }}</p>
-	</div>
+	</div -->
 </template>
