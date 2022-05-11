@@ -1,37 +1,14 @@
 <template>
 	<div>
-		<div class="card" v-if="this.type === 'event'">
-			<h5 class="card-header">What kind of event?</h5>
+		<div class="card">
+			<h5 class="card-header">{{ heading }}</h5>
 			<div class="card-body">
 				<TagComponent
-					v-for="tag in getTags('type')"
+					v-for="tag in getTags()"
 					:key="tag.id"
-					:tag="tag.text"
+					:tag-name="tag.text"
 					:tag-id="tag.id"
-				/>
-			</div>
-		</div>
-
-		<div class="card" v-if="this.type === 'location'">
-			<h5 class="card-header">Where?</h5>
-			<div class="card-body">
-				<TagComponent
-					v-for="tag in getTags('location')"
-					:key="tag.id"
-					:tag="tag.text"
-					:tag-id="tag.id"
-				/>
-			</div>
-		</div>
-
-		<div class="card" v-if="this.type === 'date'">
-			<h5 class="card-header">Where?</h5>
-			<div class="card-body">
-				<TagComponent
-					v-for="tag in getTags('date')"
-					:key="tag.id"
-					:tag="tag.text"
-					:tag-id="tag.id"
+					:tag-type="this.type"
 				/>
 			</div>
 		</div>
@@ -55,14 +32,24 @@
 			type: {
 				required: true,
 				type: String,
-				default: 'event'
+				default: 'type'
+			},
+			heading: {
+				required: true,
+				type: String,
+				default: 'heading'
 			}
 		},
 		methods: {
-			getTags(type) {
-				let event = this.$store.state.tags
-				let newArr = event.filter((e) => e.type === type)
-				return newArr
+			getTags() {
+				//				let event = this.$store.state.tags
+				//				let newArr = event.filter((e) => e.type === type)
+				//				return newArr
+
+				const key =
+					'db' + this.type.charAt(0).toUpperCase() + this.type.slice(1) + 'Tags'
+
+				return this.$store.state[key]
 			}
 		}
 	}

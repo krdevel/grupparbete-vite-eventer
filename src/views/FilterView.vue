@@ -32,9 +32,9 @@
 	<main id="filter-view">
 		<div class="responsive">
 			<div id="container">
-				<TagContainer type="event" />
-				<TagContainer type="location" />
-				<TagContainer type="date" />
+				<TagContainer type="type" heading="What kind of event?" />
+				<TagContainer type="location" heading="Where?" />
+				<TagContainer type="date" heading="When?" />
 			</div>
 			<div id="list">
 				<div

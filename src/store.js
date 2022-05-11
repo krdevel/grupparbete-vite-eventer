@@ -21,14 +21,38 @@ const mutations = {
 				state.filteredTags.push(tagId)
 			}
 		},
+		newToggleTag(state, tag) {
+			// Check if the toggled tag is in the filtered tags list.
+			const tagIndex = state.dbFilteredTags[tag.type].indexOf(tag.id)
+
+			// Remove or add it as needed.
+			if (tagIndex !== -1) {
+				state.dbFilteredTags[tag.type].splice(tagIndex, 1)
+			} else {
+				state.dbFilteredTags[tag.type].push(tag.id)
+			}
+		},
 		resetEventsTags(state) {
 			console.log('resetEventsTags')
 			for (let i = 0; i < state.events.length; i++) {
 				state.events[i].tags = []
 			}
 		},
-		insertEventsTags(state, data) {
-			state.dbEventsTags.push({ event: data.eventId, tag: data.tagId })
+		dbSetEventTypeTag(state, data) {
+			state.dbEvents.find((event) => event.id === data.eventId).type =
+				data.typeTagId
+		},
+		dbSetEventLocationTag(state, data) {
+			state.dbEvents.find((event) => event.id === data.eventId).location =
+				data.locationTagId
+		},
+		dbSetEventDateTag(state, data) {
+			state.dbEvents.find((event) => event.id === data.eventId).date =
+				data.dateTagId
+		},
+		dbSetEventTimeTag(state, data) {
+			state.dbEvents.find((event) => event.id === data.eventId).time =
+				data.timeTagId
 		}
 	},
 	state = {
@@ -237,92 +261,148 @@ const mutations = {
 					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hip%2C_Hip%2C_Hurrah%21_Artists%E2%80%99_Party%2C_Skagen_%28Peder_Severin_Kr%C3%B8yer%29_-_Gothenburg_Museum_of_Art_-_F_62.tif/lossy-page1-589px-Hip%2C_Hip%2C_Hurrah%21_Artists%E2%80%99_Party%2C_Skagen_%28Peder_Severin_Kr%C3%B8yer%29_-_Gothenburg_Museum_of_Art_-_F_62.tif.jpg',
 				description:
 					'Festligheterna pågår under sexton dagar före den första söndagen i oktober på Theresienwiese, som förr var en äng. År 2010 pågick oktoberfesten en dag längre än vanligt, nämligen till den 4 oktober. Detta har beslutats i samband med att festen firade 200-årsjubileum år 2010. Med anledning av festen bryggs ett särskilt oktoberfestöl. Ölet, som serveras i en typ av enliterskannor som kallas Maß, är bärnstensfärgat, och smakrikt. Det får bara tillverkas av lokala bryggerier i München. Ölutskänkningen sker i särskilda tält som rymmer upp till tiotusen gäster och kan ta två månader att resa.'
+			},
+			{
+				id: uuidv4(),
+				name: 'Håkan Hellström',
+				type: null,
+				location: null,
+				date: null,
+				time: null,
+				image:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
+				description: 'Håkan kommer till Göteborg!'
+			},
+			{
+				id: uuidv4(),
+				name: 'Pubquiz i Vasa',
+				type: null,
+				location: null,
+				date: null,
+				time: null,
+				image:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
+				description: 'Pubquiz!'
+			},
+			{
+				id: uuidv4(),
+				name: 'Gabriels Änglar!',
+				type: null,
+				location: null,
+				date: null,
+				time: null,
+				image:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
+				description:
+					'Gabriels Änglar kommer äntligen till Göteborg för att sjunga!'
+			},
+			{
+				id: uuidv4(),
+				name: 'NFTs och sånt',
+				type: null,
+				location: null,
+				date: null,
+				time: null,
+				image:
+					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
+				description: 'Krypto'
 			}
 		],
 		dbTypeTags: [
-			// Type tags
 			{
-				type: 'type',
-				text: 'Konsert',
-				id: uuidv4()
+				id: uuidv4(),
+				text: 'Konsert'
 			},
 			{
-				type: 'type',
-				text: 'Fotbollsmatch',
-				id: uuidv4()
+				id: uuidv4(),
+				text: 'Fotbollsmatch'
 			},
 			{
-				type: 'type',
-				text: 'Fest',
-				id: uuidv4()
+				id: uuidv4(),
+				text: 'Fest'
+			},
+			{
+				id: uuidv4(),
+				text: 'Quiz'
+			},
+			{
+				id: uuidv4(),
+				text: 'Krypto'
 			}
 		],
 		dbLocationTags: [
-			// Location tags
 			{
-				type: 'location',
-				text: 'Stockholm',
-				id: uuidv4()
+				id: uuidv4(),
+				text: 'Stockholm'
 			},
 			{
-				type: 'location',
-				text: 'Göteborg',
-				id: uuidv4()
+				id: uuidv4(),
+				text: 'Göteborg'
+			},
+			{
+				id: uuidv4(),
+				text: 'Malmö'
+			},
+			{
+				id: uuidv4(),
+				text: 'Helsingborg'
+			},
+			{
+				id: uuidv4(),
+				text: 'Köpenhamn'
+			},
+			{
+				id: uuidv4(),
+				text: 'London'
 			}
 		],
 		dbDateTags: [
-			// Date tags
 			{
-				type: 'date',
-				text: '2022-06-16',
-				id: uuidv4()
+				id: uuidv4(),
+				text: '2022-06-16'
 			},
 			{
-				type: 'date',
-				text: '2022-06-17',
-				id: uuidv4()
+				id: uuidv4(),
+				text: '2022-06-17'
 			},
 			{
-				type: 'date',
-				text: '2022-06-18',
-				id: uuidv4()
+				id: uuidv4(),
+				text: '2022-06-18'
 			},
 			{
-				type: 'date',
-				text: '2022-06-19',
-				id: uuidv4()
+				id: uuidv4(),
+				text: '2022-06-19'
 			}
 		],
 		dbTimeTags: [
-			// Time tags
 			{
-				type: 'time',
-				text: '17:00',
-				id: uuidv4()
+				id: uuidv4(),
+				text: '17:00'
 			},
 			{
-				type: 'time',
-				text: '18:00',
-				id: uuidv4()
+				id: uuidv4(),
+				text: '18:00'
 			},
 			{
-				type: 'time',
-				text: '18:30',
-				id: uuidv4()
+				id: uuidv4(),
+				text: '18:30'
 			},
 			{
-				type: 'time',
-				text: '19:00',
-				id: uuidv4()
+				id: uuidv4(),
+				text: '19:00'
 			},
 			{
-				type: 'time',
-				text: '20:00',
-				id: uuidv4()
+				id: uuidv4(),
+				text: '20:00'
 			}
 		],
-		dbEventsTags: [],
-		filteredTags: []
+		filteredTags: [],
+		dbFilteredTags: {
+			type: [],
+			location: [],
+			date: [],
+			time: []
+		}
 	}
 
 export default createStore({

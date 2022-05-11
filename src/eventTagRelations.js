@@ -100,67 +100,155 @@ const printEventsWithTagsToConsole = function () {
 }
 
 // <!-- NEW AND IMPROVED(?)
+const getEventById = (eventId) => {
+	// Get the event reference.
+	let event = storeAreaForRead.dbEvents.find((event) => event.id === eventId)
+
+	// Deep copy the object.
+	event = JSON.parse(JSON.stringify(event))
+
+	// For each tag, replace its ID with the tag's text value.
+	event.type = storeAreaForRead.dbTypeTags.find(
+		(typeTag) => typeTag.id === event.type
+	).text
+	event.location = storeAreaForRead.dbLocationTags.find(
+		(locationTag) => locationTag.id === event.type
+	).text
+	event.date = storeAreaForRead.dbDateTags.find(
+		(dateTag) => dateTag.id === event.type
+	).text
+	event.time = storeAreaForRead.dbTimeTags.find(
+		(timeTag) => timeTag.id === event.type
+	).text
+
+	return event
+}
 
 const dbInit = () => {
-	// Cancel if the relationship table is populated.
-	if (store.state.dbEventsTags.length !== 0) {
+	// Only run this function once?
+	if (reAssignEventsTags === false) {
 		return
 	}
 
-	storeAreaForWrite.commit('insertEventsTags', {
+	storeAreaForWrite.commit('dbSetEventTypeTag', {
 		eventId: storeAreaForRead.dbEvents[0].id,
-		tagId: storeAreaForRead.dbTypeTags[0].id
+		typeTagId: storeAreaForRead.dbTypeTags[0].id
 	})
-	storeAreaForWrite.commit('insertEventsTags', {
+	storeAreaForWrite.commit('dbSetEventLocationTag', {
 		eventId: storeAreaForRead.dbEvents[0].id,
-		tagId: storeAreaForRead.dbLocationTags[0].id
+		locationTagId: storeAreaForRead.dbLocationTags[0].id
 	})
-	storeAreaForWrite.commit('insertEventsTags', {
+	storeAreaForWrite.commit('dbSetEventDateTag', {
 		eventId: storeAreaForRead.dbEvents[0].id,
-		tagId: storeAreaForRead.dbDateTags[0].id
+		dateTagId: storeAreaForRead.dbDateTags[0].id
 	})
-	storeAreaForWrite.commit('insertEventsTags', {
+	storeAreaForWrite.commit('dbSetEventTimeTag', {
 		eventId: storeAreaForRead.dbEvents[0].id,
-		tagId: storeAreaForRead.dbTimeTags[4].id
+		timeTagId: storeAreaForRead.dbTimeTags[4].id
 	})
 
-	storeAreaForWrite.commit('insertEventsTags', {
+	storeAreaForWrite.commit('dbSetEventTypeTag', {
 		eventId: storeAreaForRead.dbEvents[1].id,
-		tagId: storeAreaForRead.dbTypeTags[1].id
+		typeTagId: storeAreaForRead.dbTypeTags[1].id
 	})
-	storeAreaForWrite.commit('insertEventsTags', {
+	storeAreaForWrite.commit('dbSetEventLocationTag', {
 		eventId: storeAreaForRead.dbEvents[1].id,
-		tagId: storeAreaForRead.dbLocationTags[1].id
+		locationTagId: storeAreaForRead.dbLocationTags[1].id
 	})
-	storeAreaForWrite.commit('insertEventsTags', {
+	storeAreaForWrite.commit('dbSetEventDateTag', {
 		eventId: storeAreaForRead.dbEvents[1].id,
-		tagId: storeAreaForRead.dbDateTags[1].id
+		dateTagId: storeAreaForRead.dbDateTags[1].id
 	})
-	storeAreaForWrite.commit('insertEventsTags', {
+	storeAreaForWrite.commit('dbSetEventTimeTag', {
 		eventId: storeAreaForRead.dbEvents[1].id,
-		tagId: storeAreaForRead.dbTimeTags[0].id
+		timeTagId: storeAreaForRead.dbTimeTags[0].id
 	})
 
-	storeAreaForWrite.commit('insertEventsTags', {
+	storeAreaForWrite.commit('dbSetEventTypeTag', {
 		eventId: storeAreaForRead.dbEvents[2].id,
-		tagId: storeAreaForRead.dbTypeTags[2].id
+		typeTagId: storeAreaForRead.dbTypeTags[2].id
 	})
-	storeAreaForWrite.commit('insertEventsTags', {
+	storeAreaForWrite.commit('dbSetEventLocationTag', {
 		eventId: storeAreaForRead.dbEvents[2].id,
-		tagId: storeAreaForRead.dbLocationTags[1].id
+		locationTagId: storeAreaForRead.dbLocationTags[1].id
 	})
-	storeAreaForWrite.commit('insertEventsTags', {
+	storeAreaForWrite.commit('dbSetEventDateTag', {
 		eventId: storeAreaForRead.dbEvents[2].id,
-		tagId: storeAreaForRead.dbDateTags[3].id
+		dateTagId: storeAreaForRead.dbDateTags[3].id
 	})
-	storeAreaForWrite.commit('insertEventsTags', {
+	storeAreaForWrite.commit('dbSetEventTimeTag', {
 		eventId: storeAreaForRead.dbEvents[2].id,
-		tagId: storeAreaForRead.dbTimeTags[1].id
+		timeTagId: storeAreaForRead.dbTimeTags[1].id
 	})
 
-	console.log(store.state.dbEventsTags)
+	storeAreaForWrite.commit('dbSetEventTypeTag', {
+		eventId: storeAreaForRead.dbEvents[3].id,
+		typeTagId: storeAreaForRead.dbTypeTags[0].id
+	})
+	storeAreaForWrite.commit('dbSetEventLocationTag', {
+		eventId: storeAreaForRead.dbEvents[3].id,
+		locationTagId: storeAreaForRead.dbLocationTags[1].id
+	})
+	storeAreaForWrite.commit('dbSetEventDateTag', {
+		eventId: storeAreaForRead.dbEvents[3].id,
+		dateTagId: storeAreaForRead.dbDateTags[2].id
+	})
+	storeAreaForWrite.commit('dbSetEventTimeTag', {
+		eventId: storeAreaForRead.dbEvents[3].id,
+		timeTagId: storeAreaForRead.dbTimeTags[4].id
+	})
+
+	storeAreaForWrite.commit('dbSetEventTypeTag', {
+		eventId: storeAreaForRead.dbEvents[4].id,
+		typeTagId: storeAreaForRead.dbTypeTags[3].id
+	})
+	storeAreaForWrite.commit('dbSetEventLocationTag', {
+		eventId: storeAreaForRead.dbEvents[4].id,
+		locationTagId: storeAreaForRead.dbLocationTags[3].id
+	})
+	storeAreaForWrite.commit('dbSetEventDateTag', {
+		eventId: storeAreaForRead.dbEvents[4].id,
+		dateTagId: storeAreaForRead.dbDateTags[3].id
+	})
+	storeAreaForWrite.commit('dbSetEventTimeTag', {
+		eventId: storeAreaForRead.dbEvents[4].id,
+		timeTagId: storeAreaForRead.dbTimeTags[2].id
+	})
+
+	storeAreaForWrite.commit('dbSetEventTypeTag', {
+		eventId: storeAreaForRead.dbEvents[5].id,
+		typeTagId: storeAreaForRead.dbTypeTags[0].id
+	})
+	storeAreaForWrite.commit('dbSetEventLocationTag', {
+		eventId: storeAreaForRead.dbEvents[5].id,
+		locationTagId: storeAreaForRead.dbLocationTags[1].id
+	})
+	storeAreaForWrite.commit('dbSetEventDateTag', {
+		eventId: storeAreaForRead.dbEvents[5].id,
+		dateTagId: storeAreaForRead.dbDateTags[2].id
+	})
+	storeAreaForWrite.commit('dbSetEventTimeTag', {
+		eventId: storeAreaForRead.dbEvents[5].id,
+		timeTagId: storeAreaForRead.dbTimeTags[3].id
+	})
+
+	storeAreaForWrite.commit('dbSetEventTypeTag', {
+		eventId: storeAreaForRead.dbEvents[6].id,
+		typeTagId: storeAreaForRead.dbTypeTags[4].id
+	})
+	storeAreaForWrite.commit('dbSetEventLocationTag', {
+		eventId: storeAreaForRead.dbEvents[6].id,
+		locationTagId: storeAreaForRead.dbLocationTags[5].id
+	})
+	storeAreaForWrite.commit('dbSetEventDateTag', {
+		eventId: storeAreaForRead.dbEvents[6].id,
+		dateTagId: storeAreaForRead.dbDateTags[0].id
+	})
+	storeAreaForWrite.commit('dbSetEventTimeTag', {
+		eventId: storeAreaForRead.dbEvents[6].id,
+		timeTagId: storeAreaForRead.dbTimeTags[1].id
+	})
 }
-
 // NEW AND IMPROVED(?) -->
 
 export {
@@ -168,5 +256,6 @@ export {
 	// Ad Hoc setup during development:
 	getTagById,
 	assignTagsToEvents,
-	dbInit
+	dbInit,
+	getEventById
 }

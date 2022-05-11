@@ -16,7 +16,7 @@
 			}
 		},
 		watch: {
-			'$store.state.filteredTags': {
+			'$store.state.dbFilteredTags': {
 				handler: function () {
 					this.filterEvents()
 				},
@@ -25,11 +25,55 @@
 		},
 		methods: {
 			filterEvents() {
+				const filteredTypeTags = this.$store.state.dbFilteredTags.type
+				const filteredLocationTags = this.$store.state.dbFilteredTags.location
+				const filteredDateTags = this.$store.state.dbFilteredTags.date
+				const filteredTimeTags = this.$store.state.dbFilteredTags.time
+
+				// First, the exception.
+				if (
+					filteredTypeTags.length === 0 &&
+					filteredLocationTags.length === 0 &&
+					filteredDateTags.length === 0 &&
+					filteredTimeTags.length === 0
+				) {
+					this.events = this.$store.state.dbEvents
+					return
+				}
+
 				// Create a temporary list so that this.events can be instantly replaced.
 				const filteredEvents = []
 
 				// Loop through the events.
-				this.$store.state.events.forEach((event) => {
+				this.$store.state.dbEvents.forEach((event) => {
+					if (
+						filteredTypeTags.length !== 0 &&
+						filteredTypeTags.includes(event.type) === false
+					) {
+						return
+					}
+					if (
+						filteredLocationTags.length !== 0 &&
+						filteredLocationTags.includes(event.location) === false
+					) {
+						return
+					}
+					if (
+						filteredDateTags.length !== 0 &&
+						filteredDateTags.includes(event.date) === false
+					) {
+						return
+					}
+					if (
+						filteredTimeTags.length !== 0 &&
+						filteredTimeTags.includes(event.time) === false
+					) {
+						return
+					}
+
+					filteredEvents.push(event)
+
+					/*
 					// Count and store the number of matching tags.
 					const tagCounter = event.tags.filter((value) =>
 						this.$store.state.filteredTags.includes(value)
@@ -39,6 +83,7 @@
 					if (tagCounter === this.$store.state.filteredTags.length) {
 						filteredEvents.push(event)
 					}
+					*/
 				})
 
 				this.events = filteredEvents

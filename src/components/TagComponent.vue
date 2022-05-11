@@ -5,7 +5,7 @@
 		@click="handleSelect"
 		class="btn"
 	>
-		{{ this.tag }}
+		{{ this.tagName }}
 	</button>
 </template>
 
@@ -17,12 +17,12 @@
 			}
 		},
 		created() {
-			if (this.$store.state.filteredTags.includes(this.tagId)) {
+			if (this.$store.state.dbFilteredTags[this.tagType].includes(this.tagId)) {
 				this.selected = true
 			}
 		},
 		props: {
-			tag: {
+			tagName: {
 				required: true,
 				type: String,
 				default: 'tagname'
@@ -31,12 +31,22 @@
 				required: true,
 				type: String,
 				default: 'id'
+			},
+			tagType: {
+				required: true,
+				type: String,
+				default: ''
 			}
 		},
 		methods: {
 			handleSelect() {
 				this.selected = !this.selected
-				this.$store.commit('toggleTag', this.tagId)
+				//				this.$store.commit('toggleTag', this.tagId)
+
+				this.$store.commit('newToggleTag', {
+					type: this.tagType,
+					id: this.tagId
+				})
 			}
 		}
 	}
