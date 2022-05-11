@@ -17,9 +17,8 @@
 					if (this.$route.params.id == this.$store.state.events[i].id) {
 						//Name, img, text för event
 						this.name = this.$store.state.events[i].name
-						//this.imgSource = this.$store.state.events[i].image
-						//this.imgSource = '../../../assets/Naruto.jpg'
-						this.imgSource = '../../../assets/Touka.png'
+						this.imgSource = this.$store.state.events[i].image
+
 						this.eventText = this.$store.state.events[i].description
 						for (let k = 0; k < this.$store.state.events[i].tags.length; k++) {
 							for (let j = 0; j < this.$store.state.tags.length; j++) {
@@ -41,7 +40,8 @@
 </script>
 <style lang="scss" scoped>
 	.nameData {
-		color: black;
+		color: white;
+		text-shadow: 2px 2px 4px #000000;
 	}
 	.headerImg {
 		background-position: center;
@@ -55,9 +55,10 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		opacity: 0.6;
+		//En annan stil!
+		/* opacity: 0.7;
 		background-color: #ffffff;
-		border: 1px solid black;
+		border: 1px solid black; */
 	}
 	.ulSs {
 		margin-top: 10px;
@@ -73,11 +74,22 @@
 		padding: 5px;
 		margin-right: 3em;
 		color: #ffffff;
+		text-shadow: 2px 2px 4px #000000;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
 	.imgData {
 		border-radius: 8px;
 		width: 50%;
-		height: 50%;
+		height: auto;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+	.paraText {
+		text-align: center;
+		font-weight: bold;
+	}
+	.textBox {
+		margin-left: 2em;
+		margin-right: 2em;
 	}
 </style>
 <template>
@@ -91,7 +103,7 @@
 	<ul class="ulSs">
 		<li class="list" :key="tags" v-for="tags in tagBox">{{ tags }}</li>
 	</ul>
-	<div>
-		<p>{{ eventText }}</p>
+	<div class="textBox">
+		<p class="paraText">{{ eventText }}</p>
 	</div>
 </template>
