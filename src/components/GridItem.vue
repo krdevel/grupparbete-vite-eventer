@@ -1,19 +1,19 @@
 <template>
 	<RouterLink
-		:to="'/event/' + event.id"
+		:to="'/event/' + fullEvent.id"
 		style="text-decoration: none; color: inherit"
 	>
 		<div class="ui-card">
-			<h4>Fotbollsmatch</h4>
-			<img :src="event.image" class="ui-image" alt="..." width="300" />
+			<h4>{{ fullEvent.type }}</h4>
+			<img :src="fullEvent.image" class="ui-image" alt="..." width="300" />
 			<div class="ui-card-body">
 				<span class="ui-card-content">
 					<p>MAY</p>
 					<p>02</p>
 				</span>
 				<span class="ui-card-content">
-					<p id="event-name">{{ event.name }}</p>
-					<p>Ullevi Arena</p>
+					<p id="event-name">{{ fullEvent.name }}</p>
+					<p>{{ fullEvent.location }}</p>
 				</span>
 			</div>
 		</div>
@@ -21,7 +21,15 @@
 </template>
 
 <script>
+	import { getEventById } from '../eventTagRelations'
+
 	export default {
+		data() {
+			return { fullEvent: undefined }
+		},
+		created() {
+			this.fullEvent = getEventById(this.event.id)
+		},
 		props: {
 			event: {
 				default: null,
