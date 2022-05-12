@@ -3,8 +3,8 @@
 		data() {
 			return {
 				links: [
-					{ address: '/', title: 'Home' },
-					{ address: '/filter', title: 'Filter' }
+					{ address: '/', title: 'Home' } /*,
+					{ address: '/filter', title: 'Filter' }*/
 				]
 			}
 		},
