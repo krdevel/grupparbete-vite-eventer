@@ -132,10 +132,10 @@
 	}
 	.grid-container {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 		/* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
-		gap: 20px 0;
-		grid-auto-rows: minmax(100px, auto);
+		gap: 3rem;
+		/* grid-auto-rows: minmax(100px, auto); */
 	}
 
 	.grid-item {

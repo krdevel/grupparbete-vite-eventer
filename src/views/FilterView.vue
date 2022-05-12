@@ -82,7 +82,10 @@
 
 	.btn-group {
 		align-self: flex-end;
-		margin-bottom: 15px;
+	}
+
+	.btn-group + * {
+		margin: 2rem 0;
 	}
 
 	@media screen and (max-width: 1024px) {
