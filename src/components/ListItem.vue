@@ -1,33 +1,26 @@
 <script>
-	//import { getTagById } from '../eventTagRelations'
 	import { getEventById } from '../eventTagRelations'
 
 	export default {
-		data() {
-			return {
-				fullEvent: undefined
+		props: {
+			eventId: {
+				required: true,
+				default: null,
+				type: String
 			}
 		},
-		created() {
-			this.fullEvent = getEventById(this.event.id)
-		},
-		props: {
-			event: {
-				default: null,
-				type: Object
+		data() {
+			return {
+				event: undefined
 			}
 		},
 		computed: {
 			link() {
-				return '/event/' + this.fullEvent.id
+				return '/event/' + this.event.id
 			}
 		},
-		methods: {
-			/*
-			getTags(id) {
-				return getTagById(id)
-			}
-			*/
+		created() {
+			this.event = getEventById(this.eventId)
 		}
 	}
 </script>
@@ -35,13 +28,11 @@
 <template>
 	<li>
 		<RouterLink :to="link" style="color: inherit">
-			<img :alt="fullEvent.name" :src="fullEvent.image" />
+			<img :alt="event.name" :src="event.image" />
 			<div>
-				<h5 class="title">{{ fullEvent.name }}</h5>
-				<!-- p>{{ getTags(event.tags[1]).text }}</p>
-				<p>{{ getTags(event.tags[3]).text }}</p -->
-				<p>{{ fullEvent.location }}</p>
-				<p>{{ fullEvent.time }}</p>
+				<h5 class="title">{{ event.name }}</h5>
+				<p>{{ event.location }}</p>
+				<p>{{ event.time }}</p>
 			</div>
 		</RouterLink>
 	</li>

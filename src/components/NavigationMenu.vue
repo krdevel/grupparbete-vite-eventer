@@ -2,10 +2,7 @@
 	export default {
 		data() {
 			return {
-				links: [
-					{ address: '/', title: 'Home' },
-					{ address: '/filter', title: 'Filter' }
-				]
+				links: [{ address: '/', title: 'Home' }]
 			}
 		},
 		methods: {
@@ -20,7 +17,7 @@
 <template>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
-			<RouterLink @click="resetStore" class="navbar-brand" to="/">
+			<RouterLink class="navbar-brand" to="/" @click="resetStore">
 				<img src="/favicon-196.png" alt="Logo" />
 			</RouterLink>
 			<button
@@ -36,11 +33,11 @@
 			</button>
 			<div
 				v-if="links.length !== 0"
-				class="collapse navbar-collapse"
 				id="navbarNav"
+				class="collapse navbar-collapse"
 			>
 				<ul class="navbar-nav">
-					<li class="nav-item" :key="link.address" v-for="link in links">
+					<li v-for="link in links" :key="link.address" class="nav-item">
 						<RouterLink class="nav-link" :to="link.address">{{
 							link.title
 						}}</RouterLink>
@@ -50,3 +47,9 @@
 		</div>
 	</nav>
 </template>
+
+<style scoped>
+	img {
+		width: 1.875rem;
+	}
+</style>

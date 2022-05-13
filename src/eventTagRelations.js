@@ -3,19 +3,22 @@ import store from './store'
 let storeAreaForRead = store.state
 let storeAreaForWrite = store
 
-let reallyResetStore = false
+//let reallyResetStore = false
 
 // Säkert supersmart. Men jag får det inte att funka med reallyResetStore (som pålitligare återställer Vuex till default).
 // Så jag bortkommenterar nästa rad så länge:
 
-let reAssignEventsTags = store.state.events[0].tags.length === 0
+//let reAssignEventsTags = store.state.events[0].tags.length === 0
 
 // let reAssignEventsTags = false
 
+/*
 const getTagById = function (id) {
 	return storeAreaForRead.tags.find((element) => element.id == id)
 }
+*/
 
+/*
 const assignTagsToEvent = function (eventIndex, tagIndex) {
 	// console.log('JavaScript: assignTagsToEvents')
 	storeAreaForWrite.commit('addTagToEvent', {
@@ -23,14 +26,18 @@ const assignTagsToEvent = function (eventIndex, tagIndex) {
 		tagIndex: tagIndex
 	})
 }
+*/
 
+/*
 const resetStore = function () {
 	reAssignEventsTags = false
 	window.localStorage.removeItem('vuex')
 	reAssignEventsTags = true
 }
+*/
 
 // Ad Hoc setup during development:
+/*
 const assignTagsToEvents = function () {
 	// assignTagsToEvent(0, 11)
 
@@ -82,7 +89,9 @@ const assignTagsToEvents = function () {
 	// // Print out Events with tags in the console:
 	printEventsWithTagsToConsole()
 }
+*/
 
+/*
 const printEventsWithTagsToConsole = function () {
 	let events = storeAreaForRead.events
 	for (let i = 0; i < events.length; i++) {
@@ -98,8 +107,8 @@ const printEventsWithTagsToConsole = function () {
 		}
 	}
 }
+*/
 
-// <!-- NEW AND IMPROVED(?)
 const getEventById = (eventId) => {
 	// Get the event reference.
 	let event = storeAreaForRead.dbEvents.find((event) => event.id === eventId)
@@ -125,137 +134,75 @@ const getEventById = (eventId) => {
 }
 
 const dbInit = () => {
-	// Only run this function once?
-	if (reAssignEventsTags === false) {
+	// Only run this function once!
+	if (storeAreaForRead.dbLoaded === true) {
 		return
 	}
 
-	storeAreaForWrite.commit('dbSetEventTypeTag', {
-		eventId: storeAreaForRead.dbEvents[0].id,
-		typeTagId: storeAreaForRead.dbTypeTags[0].id
-	})
-	storeAreaForWrite.commit('dbSetEventLocationTag', {
-		eventId: storeAreaForRead.dbEvents[0].id,
-		locationTagId: storeAreaForRead.dbLocationTags[0].id
-	})
-	storeAreaForWrite.commit('dbSetEventDateTag', {
-		eventId: storeAreaForRead.dbEvents[0].id,
-		dateTagId: storeAreaForRead.dbDateTags[0].id
-	})
-	storeAreaForWrite.commit('dbSetEventTimeTag', {
-		eventId: storeAreaForRead.dbEvents[0].id,
-		timeTagId: storeAreaForRead.dbTimeTags[4].id
+	storeAreaForWrite.commit('dbSetEventTags', {
+		eventName: 'Nine Inch Snails',
+		typeTagText: 'Musik',
+		locationTagText: 'Stockholm',
+		dateTagText: '2022-06-16',
+		timeTagText: '20:00'
 	})
 
-	storeAreaForWrite.commit('dbSetEventTypeTag', {
-		eventId: storeAreaForRead.dbEvents[1].id,
-		typeTagId: storeAreaForRead.dbTypeTags[1].id
-	})
-	storeAreaForWrite.commit('dbSetEventLocationTag', {
-		eventId: storeAreaForRead.dbEvents[1].id,
-		locationTagId: storeAreaForRead.dbLocationTags[1].id
-	})
-	storeAreaForWrite.commit('dbSetEventDateTag', {
-		eventId: storeAreaForRead.dbEvents[1].id,
-		dateTagId: storeAreaForRead.dbDateTags[1].id
-	})
-	storeAreaForWrite.commit('dbSetEventTimeTag', {
-		eventId: storeAreaForRead.dbEvents[1].id,
-		timeTagId: storeAreaForRead.dbTimeTags[0].id
+	storeAreaForWrite.commit('dbSetEventTags', {
+		eventName: 'Arsenal - Valencia',
+		typeTagText: 'Fotboll',
+		locationTagText: 'Göteborg',
+		dateTagText: '2022-06-17',
+		timeTagText: '17:00'
 	})
 
-	storeAreaForWrite.commit('dbSetEventTypeTag', {
-		eventId: storeAreaForRead.dbEvents[2].id,
-		typeTagId: storeAreaForRead.dbTypeTags[2].id
-	})
-	storeAreaForWrite.commit('dbSetEventLocationTag', {
-		eventId: storeAreaForRead.dbEvents[2].id,
-		locationTagId: storeAreaForRead.dbLocationTags[1].id
-	})
-	storeAreaForWrite.commit('dbSetEventDateTag', {
-		eventId: storeAreaForRead.dbEvents[2].id,
-		dateTagId: storeAreaForRead.dbDateTags[3].id
-	})
-	storeAreaForWrite.commit('dbSetEventTimeTag', {
-		eventId: storeAreaForRead.dbEvents[2].id,
-		timeTagId: storeAreaForRead.dbTimeTags[1].id
+	storeAreaForWrite.commit('dbSetEventTags', {
+		eventName: 'Releaseparty',
+		typeTagText: 'Fest',
+		locationTagText: 'Göteborg',
+		dateTagText: '2022-06-19',
+		timeTagText: '18:00'
 	})
 
-	storeAreaForWrite.commit('dbSetEventTypeTag', {
-		eventId: storeAreaForRead.dbEvents[3].id,
-		typeTagId: storeAreaForRead.dbTypeTags[0].id
-	})
-	storeAreaForWrite.commit('dbSetEventLocationTag', {
-		eventId: storeAreaForRead.dbEvents[3].id,
-		locationTagId: storeAreaForRead.dbLocationTags[1].id
-	})
-	storeAreaForWrite.commit('dbSetEventDateTag', {
-		eventId: storeAreaForRead.dbEvents[3].id,
-		dateTagId: storeAreaForRead.dbDateTags[2].id
-	})
-	storeAreaForWrite.commit('dbSetEventTimeTag', {
-		eventId: storeAreaForRead.dbEvents[3].id,
-		timeTagId: storeAreaForRead.dbTimeTags[4].id
+	storeAreaForWrite.commit('dbSetEventTags', {
+		eventName: 'Håkan Hellström',
+		typeTagText: 'Musik',
+		locationTagText: 'Göteborg',
+		dateTagText: '2022-06-18',
+		timeTagText: '20:00'
 	})
 
-	storeAreaForWrite.commit('dbSetEventTypeTag', {
-		eventId: storeAreaForRead.dbEvents[4].id,
-		typeTagId: storeAreaForRead.dbTypeTags[3].id
-	})
-	storeAreaForWrite.commit('dbSetEventLocationTag', {
-		eventId: storeAreaForRead.dbEvents[4].id,
-		locationTagId: storeAreaForRead.dbLocationTags[3].id
-	})
-	storeAreaForWrite.commit('dbSetEventDateTag', {
-		eventId: storeAreaForRead.dbEvents[4].id,
-		dateTagId: storeAreaForRead.dbDateTags[3].id
-	})
-	storeAreaForWrite.commit('dbSetEventTimeTag', {
-		eventId: storeAreaForRead.dbEvents[4].id,
-		timeTagId: storeAreaForRead.dbTimeTags[2].id
+	storeAreaForWrite.commit('dbSetEventTags', {
+		eventName: 'Pubquiz i Vasa',
+		typeTagText: 'Quiz',
+		locationTagText: 'Helsingborg',
+		dateTagText: '2022-06-19',
+		timeTagText: '18:30'
 	})
 
-	storeAreaForWrite.commit('dbSetEventTypeTag', {
-		eventId: storeAreaForRead.dbEvents[5].id,
-		typeTagId: storeAreaForRead.dbTypeTags[0].id
-	})
-	storeAreaForWrite.commit('dbSetEventLocationTag', {
-		eventId: storeAreaForRead.dbEvents[5].id,
-		locationTagId: storeAreaForRead.dbLocationTags[1].id
-	})
-	storeAreaForWrite.commit('dbSetEventDateTag', {
-		eventId: storeAreaForRead.dbEvents[5].id,
-		dateTagId: storeAreaForRead.dbDateTags[2].id
-	})
-	storeAreaForWrite.commit('dbSetEventTimeTag', {
-		eventId: storeAreaForRead.dbEvents[5].id,
-		timeTagId: storeAreaForRead.dbTimeTags[3].id
+	storeAreaForWrite.commit('dbSetEventTags', {
+		eventName: 'Gabriels Änglar!',
+		typeTagText: 'Musik',
+		locationTagText: 'Göteborg',
+		dateTagText: '2022-06-18',
+		timeTagText: '19:00'
 	})
 
-	storeAreaForWrite.commit('dbSetEventTypeTag', {
-		eventId: storeAreaForRead.dbEvents[6].id,
-		typeTagId: storeAreaForRead.dbTypeTags[4].id
+	storeAreaForWrite.commit('dbSetEventTags', {
+		eventName: 'NFTs och sånt',
+		typeTagText: 'Krypto',
+		locationTagText: 'London',
+		dateTagText: '2022-06-16',
+		timeTagText: '18:00'
 	})
-	storeAreaForWrite.commit('dbSetEventLocationTag', {
-		eventId: storeAreaForRead.dbEvents[6].id,
-		locationTagId: storeAreaForRead.dbLocationTags[5].id
-	})
-	storeAreaForWrite.commit('dbSetEventDateTag', {
-		eventId: storeAreaForRead.dbEvents[6].id,
-		dateTagId: storeAreaForRead.dbDateTags[0].id
-	})
-	storeAreaForWrite.commit('dbSetEventTimeTag', {
-		eventId: storeAreaForRead.dbEvents[6].id,
-		timeTagId: storeAreaForRead.dbTimeTags[1].id
-	})
+
+	storeAreaForWrite.commit('enableDatabase')
 }
-// NEW AND IMPROVED(?) -->
 
 export {
 	//
 	// Ad Hoc setup during development:
-	getTagById,
-	assignTagsToEvents,
+	//	getTagById,
+	//	assignTagsToEvents,
 	dbInit,
 	getEventById
 }

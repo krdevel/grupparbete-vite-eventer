@@ -7,8 +7,11 @@
 			ListItem,
 			GridItem
 		},
-		created() {
-			this.filterEvents()
+		props: {
+			isList: {
+				default: true,
+				type: Boolean
+			}
 		},
 		data() {
 			return {
@@ -22,6 +25,9 @@
 				},
 				deep: true
 			}
+		},
+		created() {
+			this.filterEvents()
 		},
 		methods: {
 			filterEvents() {
@@ -72,70 +78,62 @@
 					}
 
 					filteredEvents.push(event)
-
-					/*
-					// Count and store the number of matching tags.
-					const tagCounter = event.tags.filter((value) =>
-						this.$store.state.filteredTags.includes(value)
-					).length
-
-					// When the number of found event tags match the number of supplied tags, save the event.
-					if (tagCounter === this.$store.state.filteredTags.length) {
-						filteredEvents.push(event)
-					}
-					*/
 				})
 
 				this.events = filteredEvents
-			}
-		},
-		props: {
-			isList: {
-				default: true,
-				type: Boolean
 			}
 		}
 	}
 </script>
 
 <template>
-	<ul
-		id="filter-list"
-		class="scroll"
-		v-if="events.length !== 0 && isList === true"
-	>
+	<ul v-if="events.length !== 0 && isList === true" id="filter-list">
 		<ListItem
-			:event="event"
+			v-for="event in events"
 			:id="event.id"
 			:key="event.id"
-			v-for="event in events"
+			:event-id="event.id"
 		/>
 	</ul>
 	<!-- Show grid if isList is set to false -->
-
 	<div v-else class="grid-container">
 		<GridItem
-			:event="event"
-			class="grid-item"
-			:key="event.id"
 			v-for="event in events"
+			:key="event.id"
+			:event-id="event.id"
+			class="grid-item"
 		/>
 	</div>
 </template>
 
 <style>
-	.scroll {
-		/* overflow: hidden;
-		overflow-y: scroll;
-		height: 80%;
-		width: 100%; */
+	#filter-list {
+		padding: 0;
+		list-style-type: none;
 	}
+
+	#filter-list a {
+		display: flex;
+		text-decoration: none;
+		padding: 1rem;
+	}
+
+	#filter-list li:not(:last-child) {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+	}
+
+	#filter-list img {
+		display: block;
+		width: 8rem;
+		height: 6rem;
+		object-fit: contain;
+		margin-right: 1rem;
+	}
+
 	.grid-container {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-		/* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
-		gap: 20px 0;
-		grid-auto-rows: minmax(100px, auto);
+		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+		gap: 3rem;
 	}
 
 	.grid-item {

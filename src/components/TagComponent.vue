@@ -2,25 +2,15 @@
 	<button
 		type="button"
 		:class="selected ? 'btn-primary' : 'btn-secondary'"
-		@click="handleSelect"
 		class="btn"
+		@click="handleSelect"
 	>
-		{{ this.tagName }}
+		{{ tagName }}
 	</button>
 </template>
 
 <script>
 	export default {
-		data() {
-			return {
-				selected: false
-			}
-		},
-		created() {
-			if (this.$store.state.dbFilteredTags[this.tagType].includes(this.tagId)) {
-				this.selected = true
-			}
-		},
 		props: {
 			tagName: {
 				required: true,
@@ -38,12 +28,21 @@
 				default: ''
 			}
 		},
+		data() {
+			return {
+				selected: false
+			}
+		},
+		created() {
+			if (this.$store.state.dbFilteredTags[this.tagType].includes(this.tagId)) {
+				this.selected = true
+			}
+		},
 		methods: {
 			handleSelect() {
 				this.selected = !this.selected
-				//				this.$store.commit('toggleTag', this.tagId)
 
-				this.$store.commit('newToggleTag', {
+				this.$store.commit('toggleTag', {
 					type: this.tagType,
 					id: this.tagId
 				})

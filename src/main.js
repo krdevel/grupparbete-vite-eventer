@@ -3,7 +3,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-//import { assignTagsToEvents, dbInit } from './eventTagRelations'
+//import { assignTagsToEvents } from './eventTagRelations'
 import { dbInit } from './eventTagRelations'
 
 createApp(App).use(router).use(store).mount('#app')
