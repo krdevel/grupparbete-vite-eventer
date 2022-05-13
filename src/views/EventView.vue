@@ -3,42 +3,11 @@
 
 	export default {
 		created() {
-			this.fillDatabyId()
-
 			this.event = getEventById(this.$route.params.id)
 		},
 		data() {
 			return {
-				event: undefined,
-				name: 'Broke it!',
-				tagBox: [],
-				imgSource: '',
-				eventText: 'asdsadasd'
-			}
-		},
-		methods: {
-			fillDatabyId() {
-				for (let i = 0; i < this.$store.state.events.length; i++) {
-					if (this.$route.params.id == this.$store.state.events[i].id) {
-						//Name, img, text för event
-						this.name = this.$store.state.events[i].name
-						this.imgSource = this.$store.state.events[i].image
-
-						this.eventText = this.$store.state.events[i].description
-						for (let k = 0; k < this.$store.state.events[i].tags.length; k++) {
-							for (let j = 0; j < this.$store.state.tags.length; j++) {
-								if (
-									this.$store.state.events[i].tags[k] ==
-									this.$store.state.tags[j].id
-								) {
-									//push till tagBox
-									this.tagBox.push(this.$store.state.tags[j].text)
-									console.log(this.tagBox)
-								}
-							}
-						}
-					}
-				}
+				event: undefined
 			}
 		}
 	}
@@ -60,10 +29,6 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		//En annan stil!
-		/* opacity: 0.7;
-		background-color: #ffffff;
-		border: 1px solid black; */
 	}
 	.ulSs {
 		margin-top: 10px;
@@ -84,8 +49,7 @@
 	}
 	.imgData {
 		border-radius: 8px;
-		width: 50%;
-		height: auto;
+		object-fit: contain;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
 	.paraText {
@@ -96,10 +60,13 @@
 		margin-left: 2em;
 		margin-right: 2em;
 	}
+	i:hover {
+		color: red;
+	}
 </style>
 <template>
 	<div class="headerImg">
-		<img class="imgData" :src="event.image" height="300" />
+		<img class="imgData" :src="event.image" />
 
 		<div class="imgText">
 			<h1 class="nameData">{{ event.name }}</h1>
@@ -115,17 +82,5 @@
 		<p class="paraText">{{ event.description }}</p>
 	</div>
 
-	<!-- div class="headerImg">
-		<img class="imgData" :src="imgSource" height="300" />
-
-		<div class="imgText">
-			<h1 class="nameData">{{ name }}</h1>
-		</div>
-	</div>
-	<ul class="ulSs">
-		<li class="list" :key="tags" v-for="tags in tagBox">{{ tags }}</li>
-	</ul>
-	<div class="textBox">
-		<p class="paraText">{{ eventText }}</p>
-	</div -->
+	<i class="bi bi-heart" type="button"></i>
 </template>
