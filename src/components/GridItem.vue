@@ -1,19 +1,19 @@
 <template>
 	<RouterLink
-		:to="'/event/' + fullEvent.id"
+		:to="'/event/' + event.id"
 		style="text-decoration: none; color: inherit"
 	>
 		<div class="ui-card">
-			<h4>{{ fullEvent.type }}</h4>
-			<img :src="fullEvent.image" class="ui-image" alt="..." width="300" />
+			<h4>{{ event.type }}</h4>
+			<img :src="event.image" class="ui-image" alt="..." width="300" />
 			<div class="ui-card-body">
 				<span class="ui-card-content">
 					<p>MAY</p>
 					<p>02</p>
 				</span>
 				<span class="ui-card-content">
-					<p class="event-name">{{ fullEvent.name }}</p>
-					<p>{{ fullEvent.location }}</p>
+					<p class="event-name">{{ event.name }}</p>
+					<p>{{ event.location }}</p>
 				</span>
 			</div>
 		</div>
@@ -24,17 +24,18 @@
 	import { getEventById } from '../eventTagRelations'
 
 	export default {
+		props: {
+			eventId: {
+				required: true,
+				default: null,
+				type: String
+			}
+		},
 		data() {
-			return { fullEvent: undefined }
+			return { event: undefined }
 		},
 		created() {
-			this.fullEvent = getEventById(this.event.id)
-		},
-		props: {
-			event: {
-				default: null,
-				type: Object
-			}
+			this.event = getEventById(this.eventId)
 		}
 	}
 </script>
@@ -51,14 +52,6 @@
 		/* AE Shadow 1 */
 		box-shadow: -2px 4px 15px rgba(0, 0, 0, 0.5);
 		border-radius: 20px;
-
-		/* Inside auto layout */
-		/*
-		flex: none;
-		order: 0;
-		flex-grow: 0;
-		margin: 0px 10px;
-		*/
 	}
 
 	.ui-card h4 {

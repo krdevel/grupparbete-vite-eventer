@@ -4,24 +4,18 @@ import VuexPersistence from 'vuex-persist'
 import { v4 as uuidv4 } from 'uuid'
 
 const mutations = {
+		enableDatabase(state) {
+			state.dbLoaded = true
+		},
+		/*
 		addTagToEvent(state, payload) {
 			// console.log('addTagToEvent payload: ', payload)
 			state.events[payload.eventIndex].tags.push(
 				state.tags[payload.tagIndex].id
 			)
 		},
-		toggleTag(state, tagId) {
-			// Check if the toggled tag is in the filtered tags list.
-			const tagIndex = state.filteredTags.indexOf(tagId)
-
-			// Remove or add it as needed.
-			if (tagIndex !== -1) {
-				state.filteredTags.splice(tagIndex, 1)
-			} else {
-				state.filteredTags.push(tagId)
-			}
-		},
-		newToggleTag(state, tag) {
+		*/
+		toggleTag(state, tag) {
 			// Check if the toggled tag is in the filtered tags list.
 			const tagIndex = state.dbFilteredTags[tag.type].indexOf(tag.id)
 
@@ -32,30 +26,36 @@ const mutations = {
 				state.dbFilteredTags[tag.type].push(tag.id)
 			}
 		},
+		/*
 		resetEventsTags(state) {
 			console.log('resetEventsTags')
 			for (let i = 0; i < state.events.length; i++) {
 				state.events[i].tags = []
 			}
 		},
-		dbSetEventTypeTag(state, data) {
-			state.dbEvents.find((event) => event.id === data.eventId).type =
-				data.typeTagId
-		},
-		dbSetEventLocationTag(state, data) {
-			state.dbEvents.find((event) => event.id === data.eventId).location =
-				data.locationTagId
-		},
-		dbSetEventDateTag(state, data) {
-			state.dbEvents.find((event) => event.id === data.eventId).date =
-				data.dateTagId
-		},
-		dbSetEventTimeTag(state, data) {
-			state.dbEvents.find((event) => event.id === data.eventId).time =
-				data.timeTagId
+		*/
+		dbSetEventTags(state, data) {
+			const event = state.dbEvents.find(
+				(event) => event.name === data.eventName
+			)
+
+			event.type = state.dbTypeTags.find(
+				(tag) => tag.text === data.typeTagText
+			).id
+			event.location = state.dbLocationTags.find(
+				(tag) => tag.text === data.locationTagText
+			).id
+			event.date = state.dbDateTags.find(
+				(tag) => tag.text === data.dateTagText
+			).id
+			event.time = state.dbTimeTags.find(
+				(tag) => tag.text === data.timeTagText
+			).id
 		}
 	},
 	state = {
+		dbLoaded: false,
+		/*
 		events: [
 			{
 				name: 'Nine Inch Snails',
@@ -225,6 +225,7 @@ const mutations = {
 				id: uuidv4()
 			}
 		],
+		*/
 		dbEvents: [
 			{
 				id: uuidv4(),
@@ -403,7 +404,7 @@ const mutations = {
 				text: '20:00'
 			}
 		],
-		filteredTags: [],
+		//filteredTags: [],
 		dbFilteredTags: {
 			type: [],
 			location: [],

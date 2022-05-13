@@ -3,27 +3,22 @@
 	import TagContainer from '../components/TagContainer.vue'
 
 	export default {
-		created() {},
+		components: {
+			FilterList,
+			TagContainer
+		},
 		//Programatisk Router exempel
-
 		data() {
 			return {
 				// true/1 for list, false/0 for grid
 				listOrGrid: false
 			}
 		},
-
+		created() {},
 		methods: {
-			// tryClick(place){
-			// 	this.$router.push('/event/'+place)
-			// }
 			handleListOrGrid(value) {
 				value === 'list' ? (this.listOrGrid = true) : (this.listOrGrid = false)
 			}
-		},
-		components: {
-			FilterList,
-			TagContainer
 		}
 	}
 </script>
@@ -43,10 +38,10 @@
 					aria-label="Basic radio toggle button group"
 				>
 					<input
+						id="btnradio1"
 						type="radio"
 						class="btn-check"
 						name="btnradio"
-						id="btnradio1"
 						autocomplete="off"
 						@click="handleListOrGrid('list')"
 					/>
@@ -55,10 +50,10 @@
 					></label>
 
 					<input
+						id="btnradio2"
 						type="radio"
 						class="btn-check"
 						name="btnradio"
-						id="btnradio2"
 						autocomplete="off"
 						checked
 						@click="handleListOrGrid('grid')"
@@ -67,13 +62,21 @@
 						><i class="bi bi-grid"></i
 					></label>
 				</div>
-				<FilterList :is-list="this.listOrGrid" />
+				<FilterList :is-list="listOrGrid" />
 			</div>
 		</div>
 	</main>
 </template>
 
 <style>
+	#filter-view > div {
+		display: flex;
+	}
+
+	#filter-view > div > div {
+		padding: 2rem;
+	}
+
 	#list {
 		display: flex;
 		flex-direction: column;
