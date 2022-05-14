@@ -3,15 +3,20 @@
 $body-color: rgba(255, 255, 255, 0.9);
 
 $theme-colors: (
-  'primary': #166285,
-  'secondary': #4f4f52,
+  'primary': #ffff81,
+  'secondary': #ffff81,
   'success': #577717,
   'info': #3f7679,
   'warning': #ac5b2c,
   'danger': #88193a,
   'light': #c8c8c8,
   'dark': #2f2f2f
-); */
+);
+ */
+
+// $btn-padding-y: 100px;
+$btn-border-radius: 40px;
+$btn-font-size: 10px;
 
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
