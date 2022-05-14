@@ -1,28 +1,3 @@
-<script>
-	import FilterList from '../components/FilterList.vue'
-	import TagContainer from '../components/TagContainer.vue'
-
-	export default {
-		components: {
-			FilterList,
-			TagContainer
-		},
-		//Programatisk Router exempel
-		data() {
-			return {
-				// true/1 for list, false/0 for grid
-				listOrGrid: false
-			}
-		},
-		created() {},
-		methods: {
-			handleListOrGrid(value) {
-				value === 'list' ? (this.listOrGrid = true) : (this.listOrGrid = false)
-			}
-		}
-	}
-</script>
-
 <template>
 	<main id="filter-view">
 		<div class="responsive">
@@ -67,6 +42,31 @@
 		</div>
 	</main>
 </template>
+
+<script>
+	import FilterList from '../components/FilterList.vue'
+	import TagContainer from '../components/TagContainer.vue'
+
+	export default {
+		components: {
+			FilterList,
+			TagContainer
+		},
+		//Programatisk Router exempel
+		data() {
+			return {
+				// true/1 for list, false/0 for grid
+				listOrGrid: false
+			}
+		},
+		created() {},
+		methods: {
+			handleListOrGrid(value) {
+				value === 'list' ? (this.listOrGrid = true) : (this.listOrGrid = false)
+			}
+		}
+	}
+</script>
 
 <style>
 	#filter-view > div {

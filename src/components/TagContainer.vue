@@ -1,3 +1,20 @@
+<template>
+	<div>
+		<div class="card">
+			<h5 class="card-header">{{ heading }}</h5>
+			<div class="card-body">
+				<TagComponent
+					v-for="tag in getTags()"
+					:key="tag.id"
+					:tag-name="tag.text"
+					:tag-id="tag.id"
+					:tag-type="type"
+				/>
+			</div>
+		</div>
+	</div>
+</template>
+
 <script>
 	import TagComponent from './TagComponent.vue'
 
@@ -33,23 +50,6 @@
 		}
 	}
 </script>
-
-<template>
-	<div>
-		<div class="card">
-			<h5 class="card-header">{{ heading }}</h5>
-			<div class="card-body">
-				<TagComponent
-					v-for="tag in getTags()"
-					:key="tag.id"
-					:tag-name="tag.text"
-					:tag-id="tag.id"
-					:tag-type="type"
-				/>
-			</div>
-		</div>
-	</div>
-</template>
 
 <style scoped>
 	.card {

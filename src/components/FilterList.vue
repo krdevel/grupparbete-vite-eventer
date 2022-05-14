@@ -1,3 +1,23 @@
+<template>
+	<ul v-if="events.length !== 0 && isList === true" id="filter-list">
+		<ListItem
+			v-for="event in events"
+			:id="event.id"
+			:key="event.id"
+			:event-id="event.id"
+		/>
+	</ul>
+	<!-- Show grid if isList is set to false -->
+	<div v-else class="grid-container">
+		<GridItem
+			v-for="event in events"
+			:key="event.id"
+			:event-id="event.id"
+			class="grid-item"
+		/>
+	</div>
+</template>
+
 <script>
 	import GridItem from './GridItem.vue'
 	import ListItem from './ListItem.vue'
@@ -85,26 +105,6 @@
 		}
 	}
 </script>
-
-<template>
-	<ul v-if="events.length !== 0 && isList === true" id="filter-list">
-		<ListItem
-			v-for="event in events"
-			:id="event.id"
-			:key="event.id"
-			:event-id="event.id"
-		/>
-	</ul>
-	<!-- Show grid if isList is set to false -->
-	<div v-else class="grid-container">
-		<GridItem
-			v-for="event in events"
-			:key="event.id"
-			:event-id="event.id"
-			class="grid-item"
-		/>
-	</div>
-</template>
 
 <style>
 	#filter-list {

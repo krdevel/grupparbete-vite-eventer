@@ -11,6 +11,12 @@
 	],
 	"root": true,
 	"rules": {
+		"vue/component-tags-order": [
+			"error",
+			{
+				"order": ["template", "script", "style"]
+			}
+		],
 		"vue/html-closing-bracket-newline": "off",
 		"vue/html-indent": "off",
 		"vue/html-self-closing": [

@@ -1,19 +1,3 @@
-<script>
-	export default {
-		data() {
-			return {
-				links: [{ address: '/', title: 'Home' }]
-			}
-		},
-		methods: {
-			resetStore() {
-				window.localStorage.removeItem('vuex')
-				location.reload()
-			}
-		}
-	}
-</script>
-
 <template>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
@@ -47,6 +31,22 @@
 		</div>
 	</nav>
 </template>
+
+<script>
+	export default {
+		data() {
+			return {
+				links: [{ address: '/', title: 'Home' }]
+			}
+		},
+		methods: {
+			resetStore() {
+				window.localStorage.removeItem('vuex')
+				location.reload()
+			}
+		}
+	}
+</script>
 
 <style scoped>
 	img {

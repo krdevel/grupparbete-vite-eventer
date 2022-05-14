@@ -1,18 +1,3 @@
-<script>
-	import { getEventById } from '../eventTagRelations'
-
-	export default {
-		data() {
-			return {
-				event: undefined
-			}
-		},
-		created() {
-			this.event = getEventById(this.$route.params.id)
-		}
-	}
-</script>
-
 <template>
 	<div class="headerImg">
 		<img class="imgData" :src="event.image" height="300" />
@@ -31,6 +16,21 @@
 		<p class="paraText">{{ event.description }}</p>
 	</div>
 </template>
+
+<script>
+	import { getEventById } from '../eventTagRelations'
+
+	export default {
+		data() {
+			return {
+				event: undefined
+			}
+		},
+		created() {
+			this.event = getEventById(this.$route.params.id)
+		}
+	}
+</script>
 
 <style lang="scss" scoped>
 	.nameData {
