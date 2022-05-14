@@ -2,9 +2,9 @@
 	<main>
 		<div class="responsive">
 			<div class="container-box">
-				<TagContainer type="type" heading="What kind of event?" />
-				<TagContainer type="location" heading="Where?" />
-				<TagContainer type="date" heading="When?" />
+				<TagContainer type="type" heading="Category" />
+				<TagContainer type="location" heading="Location" />
+				<TagContainer type="date" heading="Date" />
 			</div>
 			<div class="list-container">
 				<div

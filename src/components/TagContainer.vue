@@ -53,8 +53,16 @@
 	}
 
 	.tag-container > h4 {
+		font: 32px 'Inter';
+		margin-left: 10px;
 		margin-bottom: 1rem;
 	}
+
+	/* .tag-container h4 {
+		font: 32px 'Inter';
+		margin-left: 10px;
+		margin-bottom: 1rem;
+	} */
 
 	.tag-container:not(:last-child) {
 		margin-bottom: 2rem;
