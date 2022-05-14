@@ -52,6 +52,9 @@
 </script>
 
 <style scoped>
+	h5 {
+		font-size: 4px;
+	}
 	.card {
 		width: 350px;
 		height: auto;

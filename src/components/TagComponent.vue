@@ -57,16 +57,11 @@
 		width: 130px;
 		height: 44px;
 		border-radius: 40px;
-		// border-width: -10px;
-		// border-color: #88193a;
-		// border-width: 0;
+
 		// $badge-color: black;
 	}
 
-	.btn-primary:focus {
-		box-shadow: 0 0 0 0;
-	}
-	.btn-secondary:focus {
+	.btn:focus {
 		box-shadow: 0 0 0 0;
 	}
 </style>
