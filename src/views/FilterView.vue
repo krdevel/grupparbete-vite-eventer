@@ -2,7 +2,7 @@
 	<main id="filter-view">
 		<div class="responsive">
 			<div id="container">
-				<TagContainer type="type" heading="What kind of event?" />
+				<TagContainer type="type" heading="Category" />
 				<TagContainer type="location" heading="Where?" />
 				<TagContainer type="date" heading="When?" />
 			</div>
