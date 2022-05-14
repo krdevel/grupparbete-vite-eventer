@@ -45,6 +45,7 @@
 		display: flex;
 		color: inherit;
 		padding: 1rem;
+		padding-left: 0;
 	}
 
 	img {

@@ -61,7 +61,7 @@
 		padding: 0.75rem;
 		width: 8rem;
 
-		margin: 5px;
+		margin: 10px;
 		$badge-color: black;
 	}
 

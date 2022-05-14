@@ -49,12 +49,14 @@
 
 <style scoped>
 	.tag-container {
-		width: 26rem;
+		width: 28rem;
 	}
 
 	.tag-container > h4 {
 		font: 32px 'Inter';
 		margin-left: 10px;
+		margin-right: 0;
+
 		margin-bottom: 1rem;
 	}
 
