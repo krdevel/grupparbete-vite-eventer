@@ -53,7 +53,10 @@
 
 <style lang="scss" scoped>
 	.btn {
-		margin: 5px;
-		$badge-color: black;
+		margin: 10px;
+		width: 130px;
+		height: 44px;
+		border-radius: 40px;
+		// $badge-color: black;
 	}
 </style>

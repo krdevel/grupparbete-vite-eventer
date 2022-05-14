@@ -26,36 +26,36 @@ $theme-colors: (
 );
 
 
-$btn-padding: 10px;
-$btn-gap: 10px;
-$btn-border-radius: 40px;
+// $btn-padding: 10px;
+// $btn-gap: 10px;
+// $btn-border-radius: 40px;
 // $btn-font-size: 10px;
 
 // $btn-width: 130px;
-// $btn-height: 44px;
+// $btn-height: 440px;
 
 // $box-sizing: border-box;
 
-$card-bodybox-sizing: border-box;
+// $card-bodybox-sizing: border-box;
 
-.card-body {
+// .card-body {
    // Enable `flex-grow: 1` for decks and groups so that card blocks take up
    // as much space as possible, ensuring footers are aligned to the bottom.
    // sizing: border-box;;
    // flex: 1 1 auto;
    // padding: $card-spacer-x;
-   sizing: border-box;
-   display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 10px;
-gap: 10px;
+//    sizing: border-box;
+//    display: flex;
+// flex-direction: row;
+// justify-content: center;
+// align-items: center;
+// padding: 10px;
+// gap: 10px;
 // width: 130px;
 // height: 44px;
- }
+//  }
 
-// $card-height: 400px;
+// $card-height: 40px;
 
 // $card-body: {
 // 'display': flex;
