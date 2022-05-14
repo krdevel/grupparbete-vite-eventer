@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="card">
-			<h5 class="card-header">{{ heading }}</h5>
+			<h5 class="card-header bg-transparent border-0">{{ heading }}</h5>
 			<div class="card-body">
 				<TagComponent
 					v-for="tag in getTags()"

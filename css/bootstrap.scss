@@ -27,7 +27,17 @@ $theme-colors: (
 
 h1, h2, h3, h4, h5, h6 {
   font: 32px/42px 'Inter';
+
 }
+
+.card-header {
+   // background-color: bg-transparent;
+   margin-left: 10px;
+}
+
+// $card-header: {
+
+// }
 
 
 // $btn-padding: 10px;
