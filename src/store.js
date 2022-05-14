@@ -274,8 +274,8 @@ const mutations = {
 				date: null,
 				time: null,
 				image:
-					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
-				description: 'Håkan kommer till Göteborg!',
+					'https://www.gp.se/image/policy:1.4500232:1501763025/hakanullevi2.jpg?f=Regular&w=960&$p$f$w=c02bdc1',
+				description: 'Håkan dyker upp igen!',
 				likes: 1029
 			},
 			{
@@ -286,7 +286,7 @@ const mutations = {
 				date: null,
 				time: null,
 				image:
-					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
+					'https://www.iamsterdam.com/media/blog/posts-nl/2018/sacha/diversen/hoogendam-pubquiz.jpg',
 				description: 'Pubquiz!',
 				likes: 50
 			},
@@ -298,7 +298,7 @@ const mutations = {
 				date: null,
 				time: null,
 				image:
-					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
+					'https://assetsnffrgf-a.akamaihd.net/assets/m/502016247/univ/art/502016247_univ_lsr_lg.jpg',
 				description:
 					'Gabriels Änglar kommer äntligen till Göteborg för att sjunga!',
 				likes: 0
@@ -311,7 +311,7 @@ const mutations = {
 				date: null,
 				time: null,
 				image:
-					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
+					'https://kopakrypto.se/wp-content/uploads/sites/6/2021/12/olika-kryptovalutor.jpg',
 				description: 'Krypto',
 				likes: 187
 			}

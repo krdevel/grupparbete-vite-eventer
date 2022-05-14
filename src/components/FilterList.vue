@@ -1,20 +1,18 @@
 <template>
-	<ul v-if="events.length !== 0 && isList === true" id="filter-list">
-		<ListItem
-			v-for="event in events"
-			:id="event.id"
-			:key="event.id"
-			:event-id="event.id"
-		/>
-	</ul>
-	<!-- Show grid if isList is set to false -->
-	<div v-else class="grid-container">
-		<GridItem
-			v-for="event in events"
-			:key="event.id"
-			:event-id="event.id"
-			class="grid-item"
-		/>
+	<div id="filter-list">
+		<ul v-if="events.length !== 0 && isList === true">
+			<ListItem
+				v-for="event in events"
+				:id="event.id"
+				:key="event.id"
+				:event-id="event.id"
+			/>
+		</ul>
+
+		<!-- Show grid if isList is set to false -->
+		<div v-else class="grid-container">
+			<GridItem v-for="event in events" :key="event.id" :event-id="event.id" />
+		</div>
 	</div>
 </template>
 
@@ -107,37 +105,22 @@
 </script>
 
 <style>
-	#filter-list {
+	#filter-list > ul {
 		padding: 0;
 		list-style-type: none;
 	}
 
 	#filter-list a {
-		display: flex;
 		text-decoration: none;
-		padding: 1rem;
 	}
 
 	#filter-list li:not(:last-child) {
 		border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 	}
 
-	#filter-list img {
-		display: block;
-		width: 8rem;
-		height: 6rem;
-		object-fit: contain;
-		margin-right: 1rem;
-	}
-
-	.grid-container {
+	#filter-list .grid-container {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 		gap: 3rem;
-	}
-
-	.grid-item {
-		grid-auto-columns: auto;
-		justify-self: center;
 	}
 </style>
