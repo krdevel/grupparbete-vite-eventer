@@ -8,8 +8,8 @@
 			<img :src="event.image" class="ui-image" alt="..." width="300" />
 			<div class="ui-card-body">
 				<span class="ui-card-content">
-					<p>MAY</p>
-					<p>02</p>
+					<p class="event-month">{{ eventMonth }}</p>
+					<p>{{ eventDay }}</p>
 				</span>
 				<span class="ui-card-content">
 					<p class="event-name">{{ event.name }}</p>
@@ -32,10 +32,22 @@
 			}
 		},
 		data() {
-			return { event: undefined }
+			return { event: undefined, eventMonth: '', eventDay: '' }
 		},
 		created() {
 			this.event = getEventById(this.eventId)
+
+			const date = new Date(this.event.date)
+
+			this.eventMonth = date
+				.toLocaleDateString('sv-SE', {
+					month: 'long'
+				})
+				.substring(0, 3)
+
+			this.eventDay = date.toLocaleDateString('sv-SE', {
+				day: 'numeric'
+			})
 		}
 	}
 </script>
@@ -79,5 +91,9 @@
 
 	.event-name {
 		font-weight: bold;
+	}
+
+	.event-month {
+		text-transform: uppercase;
 	}
 </style>
