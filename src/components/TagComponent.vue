@@ -52,14 +52,14 @@
 </script>
 
 <style lang="scss" scoped>
-	.btn {
-		margin: 10px;
-		width: 130px;
-		height: 44px;
-		border-radius: 40px;
+	// .btn {
+	// 	margin: 10px;
+	// 	width: 130px;
+	// 	height: 44px;
+	// 	border-radius: 40px;
 
-		// $badge-color: black;
-	}
+	// 	// $badge-color: black;
+	// }
 
 	.btn:focus {
 		box-shadow: 0 0 0 0;
