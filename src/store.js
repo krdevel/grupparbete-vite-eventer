@@ -51,6 +51,25 @@ const mutations = {
 			event.time = state.dbTimeTags.find(
 				(tag) => tag.text === data.timeTagText
 			).id
+		},
+		likeAdd(state, Id) {
+			let event = state.dbEvents.find((event) => event.id === Id)
+
+			event.likes++
+			console.log(event.likes)
+		},
+		likeMin(state, Id) {
+			let event = state.dbEvents.find((event) => event.id === Id)
+			event.likes--
+			console.log(event.likes)
+		},
+		likeTrue(state, Id) {
+			let event = state.dbEvents.find((event) => event.id === Id)
+			event.likeBool = true
+		},
+		likeFalse(state, Id) {
+			let event = state.dbEvents.find((event) => event.id === Id)
+			event.likeBool = false
 		}
 	},
 	state = {
@@ -238,7 +257,8 @@ const mutations = {
 					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
 				description:
 					'En konsert är i allmänhet ett musikverk för ett (ibland några) soloinstrument och orkester. Den kallas då också solokonsert. Verken är oftast flersatsiga och med den första satsen i sonatform med en längd om minst 20–30 minuter. Solostämman är vanligen tekniskt avancerad, ofta virtuos. Musiken kan ha formen av antingen en dialog mellan solist och orkester eller mer av solo med ackompanjemang interfolierade av orkesterpartier. En dubbelkonsert är en konsert för två soloinstrument och orkester.',
-				likes: 328
+				likes: 328,
+				likeBool: false
 			},
 			{
 				id: uuidv4(),
@@ -251,7 +271,8 @@ const mutations = {
 					'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Football_iu_1996.jpg/640px-Football_iu_1996.jpg',
 				description:
 					'Matcherna spelas normalt i två halvlekar på 45 minuter vardera med en halvtidspaus runt 15 min. Det lag som gjort flest mål då matchen är slut har vunnit. Om lagen har gjort samma antal mål när matchen är över blir resultatet oavgjort. I vissa turneringar, till exempel utslagningsturneringar, tillåts inte oavgjorda resultat och för att få ett avgörande tillgrips förlängning, straffsparksläggning eller omspel.',
-				likes: 92883
+				likes: 92883,
+				likeBool: false
 			},
 			{
 				id: uuidv4(),
@@ -264,7 +285,8 @@ const mutations = {
 					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hip%2C_Hip%2C_Hurrah%21_Artists%E2%80%99_Party%2C_Skagen_%28Peder_Severin_Kr%C3%B8yer%29_-_Gothenburg_Museum_of_Art_-_F_62.tif/lossy-page1-589px-Hip%2C_Hip%2C_Hurrah%21_Artists%E2%80%99_Party%2C_Skagen_%28Peder_Severin_Kr%C3%B8yer%29_-_Gothenburg_Museum_of_Art_-_F_62.tif.jpg',
 				description:
 					'Festligheterna pågår under sexton dagar före den första söndagen i oktober på Theresienwiese, som förr var en äng. År 2010 pågick oktoberfesten en dag längre än vanligt, nämligen till den 4 oktober. Detta har beslutats i samband med att festen firade 200-årsjubileum år 2010. Med anledning av festen bryggs ett särskilt oktoberfestöl. Ölet, som serveras i en typ av enliterskannor som kallas Maß, är bärnstensfärgat, och smakrikt. Det får bara tillverkas av lokala bryggerier i München. Ölutskänkningen sker i särskilda tält som rymmer upp till tiotusen gäster och kan ta två månader att resa.',
-				likes: 2
+				likes: 2,
+				likeBool: false
 			},
 			{
 				id: uuidv4(),
@@ -276,7 +298,8 @@ const mutations = {
 				image:
 					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
 				description: 'Håkan kommer till Göteborg!',
-				likes: 1029
+				likes: 1029,
+				likeBool: false
 			},
 			{
 				id: uuidv4(),
@@ -288,7 +311,8 @@ const mutations = {
 				image:
 					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
 				description: 'Pubquiz!',
-				likes: 50
+				likes: 50,
+				likeBool: false
 			},
 			{
 				id: uuidv4(),
@@ -301,7 +325,8 @@ const mutations = {
 					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
 				description:
 					'Gabriels Änglar kommer äntligen till Göteborg för att sjunga!',
-				likes: 0
+				likes: 0,
+				likeBool: false
 			},
 			{
 				id: uuidv4(),
@@ -313,7 +338,8 @@ const mutations = {
 				image:
 					'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Muse_in_Sydney.jpg/640px-Muse_in_Sydney.jpg',
 				description: 'Krypto',
-				likes: 187
+				likes: 187,
+				likeBool: false
 			}
 		],
 		dbTypeTags: [
