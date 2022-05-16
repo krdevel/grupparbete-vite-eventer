@@ -1,25 +1,10 @@
-<script>
-	export default {
-		data() {
-			return {
-				links: [{ address: '/', title: 'Home' }]
-			}
-		},
-		methods: {
-			resetStore() {
-				window.localStorage.removeItem('vuex')
-				location.reload()
-			}
-		}
-	}
-</script>
-
 <template>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
-			<RouterLink class="navbar-brand" to="/" @click="resetStore">
+			<!-- RouterLink class="navbar-brand" to="/" @click="resetStore">
 				<img src="/favicon-196.png" alt="Logo" />
-			</RouterLink>
+			</RouterLink -->
+			<img src="/favicon-196.png" alt="Logo" @click="resetStore" />
 			<button
 				class="navbar-toggler"
 				type="button"
@@ -48,8 +33,26 @@
 	</nav>
 </template>
 
+<script>
+	export default {
+		data() {
+			return {
+				links: [{ address: '/', title: 'Home' }]
+			}
+		},
+		methods: {
+			resetStore() {
+				window.localStorage.removeItem('vuex')
+				location.reload()
+			}
+		}
+	}
+</script>
+
 <style scoped>
 	img {
+		cursor: pointer;
 		width: 1.875rem;
+		margin: 0.5rem 0.75rem 0.5rem 0;
 	}
 </style>

@@ -1,3 +1,48 @@
+<template>
+	<main>
+		<div class="responsive">
+			<div class="container-box">
+				<TagContainer type="type" heading="What kind of event?" />
+				<TagContainer type="location" heading="Where?" />
+				<TagContainer type="date" heading="When?" />
+			</div>
+			<div class="list-container">
+				<div
+					class="btn-group"
+					role="group"
+					aria-label="Basic radio toggle button group"
+				>
+					<input
+						id="btnradio1"
+						type="radio"
+						class="btn-check"
+						name="btnradio"
+						autocomplete="off"
+						@click="handleListOrGrid('list')"
+					/>
+					<label class="btn btn-outline-primary shadow-none" for="btnradio1"
+						><i class="bi bi-list"></i
+					></label>
+
+					<input
+						id="btnradio2"
+						type="radio"
+						class="btn-check shadow-none"
+						name="btnradio"
+						autocomplete="off"
+						checked
+						@click="handleListOrGrid('grid')"
+					/>
+					<label class="btn btn-outline-primary shadow-none" for="btnradio2"
+						><i class="bi bi-grid"></i
+					></label>
+				</div>
+				<FilterList :is-list="listOrGrid" />
+			</div>
+		</div>
+	</main>
+</template>
+
 <script>
 	import FilterList from '../components/FilterList.vue'
 	import TagContainer from '../components/TagContainer.vue'
@@ -23,81 +68,71 @@
 	}
 </script>
 
-<template>
-	<main id="filter-view">
-		<div class="responsive">
-			<div id="container">
-				<TagContainer type="type" heading="What kind of event?" />
-				<TagContainer type="location" heading="Where?" />
-				<TagContainer type="date" heading="When?" />
-			</div>
-			<div id="list">
-				<div
-					class="btn-group"
-					role="group"
-					aria-label="Basic radio toggle button group"
-				>
-					<input
-						id="btnradio1"
-						type="radio"
-						class="btn-check"
-						name="btnradio"
-						autocomplete="off"
-						@click="handleListOrGrid('list')"
-					/>
-					<label class="btn btn-outline-primary" for="btnradio1"
-						><i class="bi bi-list"></i
-					></label>
-
-					<input
-						id="btnradio2"
-						type="radio"
-						class="btn-check"
-						name="btnradio"
-						autocomplete="off"
-						checked
-						@click="handleListOrGrid('grid')"
-					/>
-					<label class="btn btn-outline-primary" for="btnradio2"
-						><i class="bi bi-grid"></i
-					></label>
-				</div>
-				<FilterList :is-list="listOrGrid" />
-			</div>
-		</div>
-	</main>
-</template>
-
 <style>
-	#filter-view > div {
+	#filter-view nav.navbar {
+		border: 0.125rem solid #000;
+		margin: 1rem;
+		padding: 0;
+	}
+
+	#filter-view nav.navbar.bg-light {
+		background-color: #fff !important;
+	}
+
+	#filter-view nav .nav-link {
+		font-size: 1.25rem;
+		font-weight: 550;
+		color: #000;
+		text-transform: uppercase;
+		padding: 0 2rem;
+	}
+
+	#filter-view .responsive {
 		display: flex;
 	}
 
-	#filter-view > div > div {
+	#filter-view .responsive > div {
 		padding: 2rem;
 	}
 
-	#list {
+	#filter-view .list-container {
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
 	}
 
-	.btn-group {
+	/* This overrides Bootstrap */
+	#filter-view .list-container .btn-outline-primary {
+		border-color: #1f3868;
+		color: #1f3868;
+	}
+
+	/* This overrides Bootstrap */
+	#filter-view .list-container .btn-outline-primary:hover {
+		background-color: #f1f6ff;
+	}
+
+	/* This overrides Bootstrap */
+	#filter-view .list-container .btn-check:checked + .btn-outline-primary {
+		border-color: #1f3868;
+		background-color: #1f3868;
+		color: #fff;
+	}
+
+	#filter-view .btn-group {
 		align-self: flex-end;
 	}
 
-	.btn-group + * {
+	#filter-view .btn-group + * {
 		margin: 2rem 0;
 	}
 
 	@media screen and (max-width: 1024px) {
-		.responsive {
-			display: flex;
+		#filter-view .responsive {
 			flex-direction: column;
 		}
 
-		#container {
+		#filter-view .container-box {
 			margin-left: auto;
 			margin-right: auto;
 		}

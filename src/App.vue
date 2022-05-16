@@ -1,3 +1,10 @@
+<template>
+	<div :id="$route.name">
+		<NavigationMenu />
+		<RouterView />
+	</div>
+</template>
+
 <script>
 	import NavigationMenu from './components/NavigationMenu.vue'
 
@@ -7,10 +14,3 @@
 		}
 	}
 </script>
-
-<template>
-	<div>
-		<NavigationMenu />
-		<RouterView />
-	</div>
-</template>

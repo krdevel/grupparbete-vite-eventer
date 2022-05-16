@@ -1,3 +1,39 @@
+<template>
+	<div class="headerImg">
+		<img class="imgData" :src="event.image" height="300" />
+
+		<div class="imgText">
+			<h1 class="nameData">{{ event.name }}</h1>
+		</div>
+	</div>
+	<div id="likeIcon" class="container">
+		<div v-if="likeCheck">
+			<i
+				id="iconOne"
+				class="bi bi-heart-fill"
+				type="button"
+				@click="likeBtnF"
+			></i>
+		</div>
+		<div v-else>
+			<i id="iconTwo" class="bi bi-heart" type="button" @click="likeBtnT"></i>
+		</div>
+	</div>
+
+	<div id="btnTags" class="container">
+		<button id="btnTest" class="btn-primary" disabled>{{ event.type }}</button>
+		<button id="btnTest" class="btn-primary" disabled>
+			{{ event.location }}
+		</button>
+		<button id="btnTest" class="btn-primary" disabled>{{ event.date }}</button>
+		<button id="btnTest" class="btn-primary" disabled>{{ event.time }}</button>
+	</div>
+	<div class="container">
+		<p>{{ event.description }}</p>
+		<p id="likeIcon">{{ likedEvent }} people liked this event</p>
+		<div v-if="likeCheck" id="likeIcon"><p>You like this event</p></div>
+	</div>
+</template>
 <script>
 	import { getEventById } from '../eventTagRelations'
 
@@ -39,41 +75,22 @@
 	}
 </script>
 
-<template>
-	<div class="headerImg">
-		<img class="imgData" :src="event.image" height="300" />
-
-		<div class="imgText">
-			<h1 class="nameData">{{ event.name }}</h1>
-		</div>
-	</div>
-	<div id="likeIcon" class="container">
-		<div v-if="likeCheck">
-			<i
-				id="iconOne"
-				class="bi bi-heart-fill"
-				type="button"
-				@click="likeBtnF"
-			></i>
-		</div>
-		<div v-else>
-			<i id="iconTwo" class="bi bi-heart" type="button" @click="likeBtnT"></i>
-		</div>
-	</div>
-	<ul class="ulSs">
-		<li class="list">{{ event.type }}</li>
-		<li class="list">{{ event.location }}</li>
-		<li class="list">{{ event.date }}</li>
-		<li class="list">{{ event.time }}</li>
-	</ul>
-	<div class="container">
-		<p>{{ event.description }}</p>
-		<p id="likeIcon">{{ likedEvent }} people liked this event</p>
-		<div v-if="likeCheck" id="likeIcon"><p>You like this event</p></div>
-	</div>
-</template>
-
 <style lang="scss" scoped>
+	#btnTags {
+		display: flex;
+		justify-content: center;
+	}
+	#btnTest {
+		background-color: #1f3868;
+		color: #f1f6ff;
+		border: 0;
+		border-radius: 1.5rem;
+		padding: 0.75rem;
+		width: 8rem;
+
+		margin: 5px;
+		$badge-color: black;
+	}
 	#likeIcon {
 		display: flex;
 		justify-content: center;
@@ -95,35 +112,10 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 	}
-
-	.ulSs {
-		margin-top: 10px;
-		text-align: center;
-		list-style: none;
-	}
-
-	.list {
-		display: inline-block;
-		border: 0.1rem solid #000;
-		border-radius: 8%;
-		border-color: black;
-		background-color: #6c757d;
-		padding: 0.5rem;
-		margin-right: 2rem;
-		color: #ffffff;
-		text-shadow: 2px 2px 4px #000000;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	}
-
 	.imgData {
 		border-radius: 8px;
 		object-fit: cover;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	}
-
-	.textBox {
-		margin-left: 2em;
-		margin-right: 2em;
 	}
 	#iconTwo {
 		color: red;

@@ -8,10 +8,12 @@ export default createRouter({
 	routes: [
 		{
 			component: EventView,
+			name: 'event-view',
 			path: '/event/:id?'
 		},
 		{
 			component: FilterView,
+			name: 'filter-view',
 			path: '/'
 		}
 	]
