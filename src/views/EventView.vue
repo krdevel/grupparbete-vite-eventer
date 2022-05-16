@@ -35,7 +35,7 @@
 				{{ event.time }}
 			</button>
 		</div>
-		<p>{{ event.description }}</p>
+		<p class="descText">{{ event.description }}</p>
 		<p id="likeIcon">{{ likedEvent }} people liked this event</p>
 		<div v-if="likeCheck" id="likeIcon"><p>You like this event</p></div>
 	</div>
@@ -131,5 +131,8 @@
 	}
 	#iconOne {
 		color: red;
+	}
+	.descText {
+		text-align: center;
 	}
 </style>
