@@ -1,6 +1,6 @@
 <template>
 	<div class="headerImg">
-		<img class="imgData" :src="event.image" height="300" />
+		<img class="imgData" :src="event.image" />
 
 		<div class="imgText">
 			<h1 class="nameData">{{ event.name }}</h1>
@@ -101,12 +101,10 @@
 		justify-content: center;
 	}
 	.nameData {
-		color: white;
-		text-shadow: 2px 2px 4px #000000;
+		color: black;
 	}
 
 	.headerImg {
-		background-repeat: no-repeat;
 		position: relative;
 	}
 
@@ -125,6 +123,7 @@
 		border-radius: 8px;
 		object-fit: contain;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		opacity: 0.7;
 	}
 	#iconTwo {
 		color: red;
