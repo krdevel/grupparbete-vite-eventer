@@ -93,7 +93,6 @@
 		border-radius: 1.5rem;
 		padding: 0.75rem;
 		width: 8rem;
-
 		margin: 5px;
 		$badge-color: black;
 	}
@@ -109,7 +108,6 @@
 	.headerImg {
 		background-repeat: no-repeat;
 		position: relative;
-		text-align: center;
 	}
 
 	.imgText {
@@ -119,8 +117,13 @@
 		transform: translate(-50%, -50%);
 	}
 	.imgData {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 100%;
+		height: auto;
 		border-radius: 8px;
-		object-fit: cover;
+		object-fit: contain;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
 	#iconTwo {
