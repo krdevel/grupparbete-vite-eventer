@@ -6,29 +6,35 @@
 			<h1 class="nameData">{{ event.name }}</h1>
 		</div>
 	</div>
-	<div id="likeIcon" class="container">
-		<div v-if="likeCheck">
-			<i
-				id="iconOne"
-				class="bi bi-heart-fill"
-				type="button"
-				@click="likeBtnF"
-			></i>
-		</div>
-		<div v-else>
-			<i id="iconTwo" class="bi bi-heart" type="button" @click="likeBtnT"></i>
-		</div>
-	</div>
-
-	<div id="btnTags" class="container">
-		<button id="btnTest" class="btn-primary" disabled>{{ event.type }}</button>
-		<button id="btnTest" class="btn-primary" disabled>
-			{{ event.location }}
-		</button>
-		<button id="btnTest" class="btn-primary" disabled>{{ event.date }}</button>
-		<button id="btnTest" class="btn-primary" disabled>{{ event.time }}</button>
-	</div>
 	<div class="container">
+		<div id="likeIcon">
+			<div v-if="likeCheck">
+				<i
+					id="iconOne"
+					class="bi bi-heart-fill"
+					type="button"
+					@click="likeBtnF"
+				></i>
+			</div>
+			<div v-else>
+				<i id="iconTwo" class="bi bi-heart" type="button" @click="likeBtnT"></i>
+			</div>
+		</div>
+
+		<div id="btnTags">
+			<button id="btnTest" class="btn-primary" disabled>
+				{{ event.type }}
+			</button>
+			<button id="btnTest" class="btn-primary" disabled>
+				{{ event.location }}
+			</button>
+			<button id="btnTest" class="btn-primary" disabled>
+				{{ event.date }}
+			</button>
+			<button id="btnTest" class="btn-primary" disabled>
+				{{ event.time }}
+			</button>
+		</div>
 		<p>{{ event.description }}</p>
 		<p id="likeIcon">{{ likedEvent }} people liked this event</p>
 		<div v-if="likeCheck" id="likeIcon"><p>You like this event</p></div>
