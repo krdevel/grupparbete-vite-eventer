@@ -48,10 +48,6 @@
 </script>
 
 <style scoped>
-	.tag-container {
-		width: 26rem;
-	}
-
 	.tag-container > h4 {
 		margin-bottom: 1rem;
 	}

@@ -1,44 +1,42 @@
 <template>
 	<main>
-		<div class="responsive">
-			<div class="container-box">
-				<TagContainer type="type" heading="What kind of event?" />
-				<TagContainer type="location" heading="Where?" />
-				<TagContainer type="date" heading="When?" />
-			</div>
-			<div class="list-container">
-				<div
-					class="btn-group"
-					role="group"
-					aria-label="Basic radio toggle button group"
-				>
-					<input
-						id="btnradio1"
-						type="radio"
-						class="btn-check"
-						name="btnradio"
-						autocomplete="off"
-						@click="handleListOrGrid('list')"
-					/>
-					<label class="btn btn-outline-primary shadow-none" for="btnradio1"
-						><i class="bi bi-list"></i
-					></label>
+		<div class="tag-container-box">
+			<TagContainer type="type" heading="What kind of event?" />
+			<TagContainer type="location" heading="Where?" />
+			<TagContainer type="date" heading="When?" />
+		</div>
+		<div class="list-box">
+			<div
+				class="btn-group"
+				role="group"
+				aria-label="Basic radio toggle button group"
+			>
+				<input
+					id="btnradio1"
+					type="radio"
+					class="btn-check"
+					name="btnradio"
+					autocomplete="off"
+					@click="handleListOrGrid('list')"
+				/>
+				<label class="btn btn-outline-primary shadow-none" for="btnradio1"
+					><i class="bi bi-list"></i
+				></label>
 
-					<input
-						id="btnradio2"
-						type="radio"
-						class="btn-check shadow-none"
-						name="btnradio"
-						autocomplete="off"
-						checked
-						@click="handleListOrGrid('grid')"
-					/>
-					<label class="btn btn-outline-primary shadow-none" for="btnradio2"
-						><i class="bi bi-grid"></i
-					></label>
-				</div>
-				<FilterList :is-list="listOrGrid" />
+				<input
+					id="btnradio2"
+					type="radio"
+					class="btn-check shadow-none"
+					name="btnradio"
+					autocomplete="off"
+					checked
+					@click="handleListOrGrid('grid')"
+				/>
+				<label class="btn btn-outline-primary shadow-none" for="btnradio2"
+					><i class="bi bi-grid"></i
+				></label>
 			</div>
+			<FilterList :is-list="listOrGrid" />
 		</div>
 	</main>
 </template>
@@ -84,36 +82,50 @@
 		font-weight: 550;
 		color: #000;
 		text-transform: uppercase;
+		margin: 0.5rem 0;
 		padding: 0 2rem;
 	}
 
-	#filter-view .responsive {
-		display: flex;
+	#filter-view .navbar-light .navbar-toggler {
+		border-color: transparent;
+		color: #868686;
 	}
 
-	#filter-view .responsive > div {
+	#filter-view main {
+		display: flex;
+		justify-content: space-evenly;
+	}
+
+	#filter-view .tag-container-box {
+		width: 35%;
+	}
+
+	#filter-view .list-box {
+		width: 50%;
+	}
+
+	#filter-view main > div {
 		padding: 2rem;
 	}
 
-	#filter-view .list-container {
+	#filter-view .list-box {
 		display: flex;
 		flex-direction: column;
-		flex-grow: 1;
 	}
 
 	/* This overrides Bootstrap */
-	#filter-view .list-container .btn-outline-primary {
+	#filter-view .list-box .btn-outline-primary {
 		border-color: #1f3868;
 		color: #1f3868;
 	}
 
 	/* This overrides Bootstrap */
-	#filter-view .list-container .btn-outline-primary:hover {
+	#filter-view .list-box .btn-outline-primary:hover {
 		background-color: #f1f6ff;
 	}
 
 	/* This overrides Bootstrap */
-	#filter-view .list-container .btn-check:checked + .btn-outline-primary {
+	#filter-view .list-box .btn-check:checked + .btn-outline-primary {
 		border-color: #1f3868;
 		background-color: #1f3868;
 		color: #fff;
@@ -128,13 +140,13 @@
 	}
 
 	@media screen and (max-width: 1024px) {
-		#filter-view .responsive {
+		#filter-view main {
 			flex-direction: column;
 		}
 
-		#filter-view .container-box {
-			margin-left: auto;
-			margin-right: auto;
+		#filter-view main > .tag-container-box,
+		#filter-view main > .list-box {
+			width: 100%;
 		}
 	}
 </style>
