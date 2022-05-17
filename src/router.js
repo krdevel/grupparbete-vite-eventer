@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import EventView from './views/EventView.vue'
 import FilterView from './views/FilterView.vue'
+import AdminView from './views/AdminView.vue'
 
 export default createRouter({
 	history: createWebHashHistory(),
@@ -15,6 +16,11 @@ export default createRouter({
 			component: FilterView,
 			name: 'filter-view',
 			path: '/'
+		},
+		{
+			component: AdminView,
+			name: 'admin-view',
+			path: '/admin'
 		}
 	]
 })
