@@ -1,12 +1,9 @@
 <template>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
-			<!-- RouterLink class="navbar-brand" to="/" @click="resetStore">
-				<img src="/favicon-196.png" alt="Logo" />
-			</RouterLink -->
 			<img src="/favicon-196.png" alt="Logo" @click="resetStore" />
 			<button
-				class="navbar-toggler"
+				class="navbar-toggler shadow-none"
 				type="button"
 				data-bs-toggle="collapse"
 				data-bs-target="#navbarNav"
