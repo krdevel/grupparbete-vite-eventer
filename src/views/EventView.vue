@@ -22,16 +22,16 @@
 		</div>
 
 		<div id="btnTags">
-			<button id="btnTest" class="btn-primary" disabled>
+			<button id="btnTag" class="btn-primary" disabled>
 				{{ event.type }}
 			</button>
-			<button id="btnTest" class="btn-primary" disabled>
+			<button id="btnTag" class="btn-primary" disabled>
 				{{ event.location }}
 			</button>
-			<button id="btnTest" class="btn-primary" disabled>
+			<button id="btnTag" class="btn-primary" disabled>
 				{{ event.date }}
 			</button>
-			<button id="btnTest" class="btn-primary" disabled>
+			<button id="btnTag" class="btn-primary" disabled>
 				{{ event.time }}
 			</button>
 		</div>
@@ -86,14 +86,14 @@
 		display: flex;
 		justify-content: center;
 	}
-	#btnTest {
+	#btnTag {
 		background-color: #1f3868;
 		color: #f1f6ff;
 		border: 0;
 		border-radius: 1.5rem;
 		padding: 0.75rem;
 		width: 8rem;
-		margin: 5px;
+		margin: 0.5rem;
 		$badge-color: black;
 	}
 	#likeIcon {
@@ -118,7 +118,7 @@
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
-		max-width: 100%;
+		max-width: 60%;
 		height: auto;
 		border-radius: 8px;
 		object-fit: contain;
