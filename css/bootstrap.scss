@@ -16,11 +16,14 @@ $theme-colors: (
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
+$pink: #FE74DF;
+$pink-faint: #FAE8F5;
+$pink-dark: #FC09C6;
 
 .btn {
     /* This overrides Bootstrap */
-    background-color: #f1f6ff;
-    color: #1f3868;
+    background-color: $pink-faint;
+    color: $pink;
     border: 0;
     border-radius: 1.5rem;
     padding: 0.75rem;
@@ -37,6 +40,6 @@ $theme-colors: (
 
 /* This overrides Bootstrap */
 .btn.btn-primary {
-    background-color: #1f3868;
-    color: #f1f6ff;
+    background-color: $pink-dark;
+    color: $pink-faint;
 }
