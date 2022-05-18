@@ -116,6 +116,7 @@ const getEventById = (eventId) => {
 	// Deep copy the object.
 	event = JSON.parse(JSON.stringify(event))
 
+	console.log(event)
 	// For each tag, replace its ID with the tag's text value.
 	event.type = storeAreaForRead.dbTypeTags.find(
 		(typeTag) => typeTag.id === event.type

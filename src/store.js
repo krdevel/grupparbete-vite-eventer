@@ -5,6 +5,9 @@ import VuexPersistence from 'vuex-persist'
 //uuidv4()
 
 const mutations = {
+		createEvent(state, payload) {
+			state.dbEvents.push(payload)
+		},
 		enableDatabase(state) {
 			state.dbLoaded = true
 		},
@@ -43,6 +46,9 @@ const mutations = {
 			event.type = state.dbTypeTags.find(
 				(tag) => tag.text === data.typeTagText
 			).id
+
+			console.log(state.dbTypeTags.find((tag) => tag.text === data.typeTagText))
+
 			event.location = state.dbLocationTags.find(
 				(tag) => tag.text === data.locationTagText
 			).id
