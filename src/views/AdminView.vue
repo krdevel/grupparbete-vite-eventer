@@ -40,7 +40,7 @@
 			}
 		},
 		methods: {
-			submit(eventName) {
+			submit() {
 				this.event = {
 					id: 'a33abc11-264e-4bbb-82e8-b87226bb4383',
 					name: this.eventName,
