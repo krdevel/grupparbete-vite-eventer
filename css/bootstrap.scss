@@ -25,10 +25,19 @@ $pink-dark: #FC09C6;
     src: url(./fonts/IBMPlexSans-Medium.ttf) format('ttf');
    }
 
-$body-font-family: "IBM Plex Sans", sans-serif;
+   @font-face {
+    font-family: 'Pacifico';
+    src: url(./fonts/Pacifico-Regular.ttf) format('.ttf');
+   }
+
+
+
+
+$body-font-family: "Pacifico", sans-serif;
 
 .btn {
     /* This overrides Bootstrap */
+    font-family: 'Pacifico';
     background-color: $pink-faint;
     color: $pink;
     border: 0;
