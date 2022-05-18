@@ -24,10 +24,10 @@
 				event: {
 					id: 'a33abc11-264e-4bbb-82e8-b87226bb4383',
 					name: 'test',
-					type: 'Musik',
-					location: 'Stockholm',
-					date: '2022-06-16',
-					time: '20:00',
+					type: null,
+					location: null,
+					date: null,
+					time: null,
 					image: 'https://www.google.com',
 					description: 'asd',
 					likes: 0,
@@ -42,7 +42,7 @@
 			submit(eventName) {
 				this.$store.commit('createEvent', this.event)
 				this.$store.commit('dbSetEventTags', {
-					eventName: 'Test',
+					eventName: 'test',
 					typeTagText: 'Musik',
 					locationTagText: 'Stockholm',
 					dateTagText: '2022-06-16',
