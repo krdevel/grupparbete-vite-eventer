@@ -20,6 +20,11 @@ $pink: #FE74DF;
 $pink-faint: #FAE8F5;
 $pink-dark: #FC09C6;
 
+@font-face {
+    font-family: 'IBM Plex Sans';
+    src: url(../fonts/IBMPlexSans-Medium.ttf) format('ttf');
+   }
+
 .btn {
     /* This overrides Bootstrap */
     background-color: $pink-faint;
