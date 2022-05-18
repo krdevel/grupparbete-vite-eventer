@@ -46,8 +46,8 @@
 	}
 </script>
 
-<style scoped>
-	img {
+<style>
+	nav.navbar img {
 		cursor: pointer;
 		width: 1.875rem;
 		margin: 0.5rem 0.75rem 0.5rem 0;
