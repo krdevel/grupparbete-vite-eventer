@@ -22,8 +22,10 @@ $pink-dark: #FC09C6;
 
 @font-face {
     font-family: 'IBM Plex Sans';
-    src: url(../fonts/IBMPlexSans-Medium.ttf) format('ttf');
+    src: url(./fonts/IBMPlexSans-Medium.ttf) format('ttf');
    }
+
+$body-font-family: "IBM Plex Sans", sans-serif;
 
 .btn {
     /* This overrides Bootstrap */
