@@ -13,11 +13,47 @@ $theme-colors: (
   'dark': #2f2f2f
 ); */
 
-$body-font-family: "IBM Plex Sans", sans-serif;
+// $body-font-family: "IBM Plex Sans", sans-serif;
 $body-font-style: normal;
 $body-font-weight: 500;
 $body-font-size: 16px;
 $body-line-height: 150%;
+
+$btn-link-color:              #166285;
+// $btn-link-hover-color:        $link-hover-color;
+// $btn-link-disabled-color:     $gray-600;
+
+// // Allows for customizing button radius independently from global border radius
+// $btn-border-radius:           $border-radius;
+// $btn-border-radius-sm:        $border-radius-sm;
+// $btn-border-radius-lg:        $border-radius-lg;
+
+// $btn {
+//     /* This overrides Bootstrap */
+//     background-color: #f1f6ff;
+//     color: #1f3868;
+//     border: 0;
+//     border-radius: 1.5rem;
+//     padding: 0.75rem;
+//     width: 8rem;
+
+//     margin: 10px;
+//     $badge-color: black;
+// }
+
+// /* This overrides Bootstrap */
+// .btn:focus {
+//     box-shadow: none;
+// }
+
+// /* This overrides Bootstrap */
+// .btn.btn-primary {
+//     // background-color: #1f3868;
+//     // color: #f1f6ff;
+// }
+
+
+
 
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
