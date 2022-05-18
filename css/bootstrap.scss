@@ -22,29 +22,20 @@ $theme-colors: (
 
 $body-font-family: "IBM Plex Sans", sans-serif;
 
-// body > h4 {
-//     font: 500 Inter, sans-serif;
-//     color: #868686;
-//     text-transform: uppercase;
-//     line-height: 1.75rem;
-//     padding: 0.5rem 1rem;
+
+// .tag-container {
+//     background-color: #fff;;
 // }
 
-.tag-container {
-    background-color: #fff;;
-}
-
-.tag-container-box {
-    background-image: url(/images/background.png);
-    background-repeat: no-repeat;
-}
+// .tag-container-box {
+//     background-image: url(/images/background.png);
+//     background-repeat: no-repeat;
+// }
 
 .tag-container h4 {
     font-family: Inter, sans-serif;
     font-weight: 700;
     margin-left: 1rem;
-
-    // font-size: 20rem/1.5;
 }
 
 //Colors:
