@@ -43,3 +43,10 @@ $pink-dark: #FC09C6;
     background-color: $pink-dark;
     color: $pink-faint;
 }
+
+body > h4 {
+    color: #868686;
+    text-transform: uppercase;
+    line-height: 1.75rem;
+    padding: 0.5rem 1rem;
+}
