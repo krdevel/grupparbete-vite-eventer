@@ -141,6 +141,10 @@
 		border-radius: 0.5rem;
 	}
 
+	#filter-view .btn-outline-primary {
+		background-color: #deeaff;
+	}
+
 	@media screen and (max-width: 1024px) {
 		#filter-view main {
 			flex-direction: column;
