@@ -10,27 +10,38 @@
 		</div>
 		<div>
 			<ul>
-				<li><a>Contact</a></li>
-				<li><a>FAQ</a></li>
-				<li><a>Facebook</a></li>
-				<li><a>Find us</a></li>
-				<li><a>Instagram</a></li>
-				<li><a>Careers</a></li>
+				<li v-for="(link, index) in links" :key="index">
+					<a :href="'https://duckduckgo.com/?q=\\' + link">{{ link }}</a>
+				</li>
 			</ul>
 		</div>
 	</footer>
 </template>
 
-<script></script>
+<script>
+	export default {
+		data() {
+			return {
+				links: ['Contact', 'FAQ', 'Facebook', 'Find us', 'Instagram', 'Careers']
+			}
+		},
+		created() {},
+		methods: {
+			handleListOrGrid(value) {
+				value === 'list' ? (this.listOrGrid = true) : (this.listOrGrid = false)
+			}
+		}
+	}
+</script>
 
 <style>
 	footer {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background-color: #1f3868;
+		background-color: #27ae60;
 		color: #fff;
-		margin: 0 1rem 1rem 1rem;
+		margin: 2rem 1rem 1rem 1rem;
 		padding: 3rem 5rem;
 	}
 
@@ -60,14 +71,16 @@
 	}
 
 	footer a {
-		cursor: pointer;
+		color: #fff;
 		font-size: 1.25rem;
 		line-height: 5rem;
+		text-decoration: none;
 	}
 
 	@media screen and (max-width: 1024px) {
 		footer {
 			flex-direction: column;
+			margin-top: 1;
 			padding: 3rem 2.5rem;
 		}
 

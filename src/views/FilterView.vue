@@ -1,9 +1,9 @@
 <template>
 	<main>
 		<div class="tag-container-box">
-			<TagContainer type="type" heading="What kind of event?" />
-			<TagContainer type="location" heading="Where?" />
-			<TagContainer type="date" heading="When?" />
+			<TagContainer type="type" heading="Category" />
+			<TagContainer type="location" heading="Location" />
+			<TagContainer type="date" heading="Time" />
 		</div>
 		<div class="list-box">
 			<div
@@ -98,12 +98,12 @@
 
 	#filter-view .tag-container-box {
 		width: 35%;
-		padding: 2rem 1rem 2rem 2rem;
+		padding: 2rem 1rem 0 2rem;
 	}
 
 	#filter-view .list-box {
 		width: 50%;
-		padding: 2rem 2rem 2rem 1rem;
+		padding: 2rem 2rem 0 1rem;
 	}
 
 	#filter-view .list-box {
@@ -145,7 +145,7 @@
 		#filter-view main > .tag-container-box,
 		#filter-view main > .list-box {
 			width: 100%;
-			padding: 1rem;
+			padding: 1rem 1rem 0 1rem;
 		}
 	}
 </style>
