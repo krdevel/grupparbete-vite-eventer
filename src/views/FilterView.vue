@@ -96,7 +96,10 @@
 		justify-content: space-evenly;
 	}
 
-	#filter-view main > .tag-container-box,
+	#filter-view main > .tag-container-box {
+		width: 70%;
+	}
+
 	#filter-view main > .list-box {
 		width: 100%;
 		padding: 1rem 1rem 0 1rem;
