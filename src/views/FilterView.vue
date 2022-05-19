@@ -1,9 +1,11 @@
 <template>
 	<main>
-		<div class="tag-container-box">
-			<TagContainer type="type" heading="Category" />
-			<TagContainer type="location" heading="Location" />
-			<TagContainer type="date" heading="Time" />
+		<div class="search-and-tag-container">
+			<div class="tag-container-box">
+				<TagContainer type="type" heading="Category" />
+				<TagContainer type="location" heading="Location" />
+				<TagContainer type="date" heading="Time" />
+			</div>
 		</div>
 		<div class="list-box">
 			<div
@@ -96,9 +98,30 @@
 		justify-content: space-evenly;
 	}
 
-	#filter-view main > .tag-container-box {
-		width: 70%;
+	.search-and-tag-container {
+		width: 100%;
+
+		/* border-width: 4px;
+		border-style: solid;
+		border-color: #f00; */
+
+		display: flex;
+		flex-direction: column;
 	}
+
+	/* .tag-container-box {
+		width: 70%;
+		margin: 0 auto;
+	} */
+
+	/* #filter-view main > .tag-container-box {
+		width: 70%;
+		margin: 0 auto;
+
+		border-width: 4px;
+		border-style: solid;
+		border-color: #f00;
+	} */
 
 	#filter-view main > .list-box {
 		width: 100%;
@@ -106,7 +129,8 @@
 	}
 
 	#filter-view .tag-container-box {
-		width: 35%;
+		width: 75%;
+		margin: 0 auto;
 		padding: 2rem 1rem 0 2rem;
 	}
 
