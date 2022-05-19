@@ -98,12 +98,12 @@
 
 	#filter-view .tag-container-box {
 		width: 35%;
-		padding: 2rem 1rem 2rem 2rem;
+		padding: 2rem 1rem 0 2rem;
 	}
 
 	#filter-view .list-box {
 		width: 50%;
-		padding: 2rem 2rem 2rem 1rem;
+		padding: 2rem 2rem 0 1rem;
 	}
 
 	#filter-view .list-box {
@@ -145,7 +145,7 @@
 		#filter-view main > .tag-container-box,
 		#filter-view main > .list-box {
 			width: 100%;
-			padding: 1rem;
+			padding: 1rem 1rem 0 1rem;
 		}
 	}
 </style>
