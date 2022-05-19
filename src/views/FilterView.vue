@@ -137,6 +137,10 @@
 		margin: 2rem 0;
 	}
 
+	#filter-view .btn-group .btn {
+		border-radius: 0.5rem;
+	}
+
 	@media screen and (max-width: 1024px) {
 		#filter-view main {
 			flex-direction: column;
