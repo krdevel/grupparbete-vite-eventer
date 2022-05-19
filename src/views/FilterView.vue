@@ -133,10 +133,12 @@
 	}
 
 	#filter-view .tag-container-box {
-		background-color: rgb(131, 34, 34);
+		background-color: #fff;
 
 		width: 75%;
-		margin: 0 auto;
+		/* margin: 0 auto; */
+		margin: 2rem auto;
+
 		padding: 2rem 1rem 2rem;
 	}
 
