@@ -1,6 +1,7 @@
 <template>
 	<main>
 		<div class="search-and-tag-container">
+			<h1>FIND YOUR EVENT</h1>
 			<div class="tag-container-box">
 				<TagContainer type="type" heading="Category" />
 				<TagContainer type="location" heading="Location" />
@@ -69,6 +70,12 @@
 </script>
 
 <style>
+	#filter-view h1 {
+		font-size: 3rem;
+		margin: 0 auto;
+		padding: 4rem 0 0;
+	}
+
 	#filter-view nav.navbar {
 		border: 0.125rem solid #000;
 		margin: 1rem;

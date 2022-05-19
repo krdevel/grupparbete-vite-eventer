@@ -39,8 +39,12 @@ $body-font-family: "IBM Plex Sans", sans-serif;
 //     background-repeat: no-repeat;
 // }
 
-.tag-container h4 {
+h1, h2, h3, h4 {
     font-family: Inter, sans-serif;
+
+}
+
+.tag-container h4 {
     font-weight: 700;
     margin-left: 1rem;
 }
