@@ -100,6 +100,8 @@
 
 	.search-and-tag-container {
 		width: 100%;
+		background-image: url(/images/background.png);
+		background-repeat: no-repeat;
 
 		/* border-width: 4px;
 		border-style: solid;
@@ -129,6 +131,8 @@
 	}
 
 	#filter-view .tag-container-box {
+		background-color: #fff;
+
 		width: 75%;
 		margin: 0 auto;
 		padding: 2rem 1rem 0 2rem;
