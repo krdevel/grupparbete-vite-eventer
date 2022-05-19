@@ -100,6 +100,14 @@
 		color: #868686;
 	}
 
+	.navbar,
+	.navbar-expand-lg,
+	.navbar-light,
+	.bg-light {
+		margin: 0;
+		padding: 0;
+	}
+
 	#filter-view main {
 		display: column;
 		justify-content: space-evenly;
@@ -107,6 +115,7 @@
 
 	.search-and-tag-container {
 		width: 100%;
+		margin: 0;
 		background-image: url(/images/background.png);
 		background-repeat: no-repeat;
 		background-attachment: fixed;
