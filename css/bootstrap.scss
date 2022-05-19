@@ -22,11 +22,11 @@ $theme-colors: (
 
 $body-font-family: "IBM Plex Sans", sans-serif;
 
-* {
-border-width: 1px;
-border-style: solid;
-border-color: #000;
-}
+// * {
+// border-width: 1px;
+// border-style: solid;
+// border-color: #000;
+// }
 
 
 
@@ -46,9 +46,9 @@ border-color: #000;
 }
 
 //Colors:
-// $pink: #FE74DF;
-// $pink-faint: #FAE8F5;
-// $pink-dark: #FC09C6;
+$pink: #FE74DF;
+$pink-faint: #FAE8F5;
+$pink-dark: #FC09C6;
 
 
 
@@ -56,24 +56,24 @@ border-color: #000;
 .btn {
 //     /* This overrides Bootstrap */
     font-family: $body-font-family;
-//     background-color: $pink-faint;
-//     color: $pink;
-//     border: 0;
-//     border-radius: 1.5rem;
-//     padding: 0.75rem;
-//     width: 8rem;
+    background-color: $pink-faint;
+    color: $pink;
+    border: 0;
+    border-radius: 1.5rem;
+    padding: 0.75rem;
+    width: 8rem;
 
-//     margin: 0.5rem;
-//     $badge-color: black;
+    margin: 0.5rem;
+    $badge-color: black;
 }
 
-// /* This overrides Bootstrap */
-// .btn:focus {
-//     box-shadow: none;
-// }
+/* This overrides Bootstrap */
+.btn:focus {
+    box-shadow: none;
+}
 
-// /* This overrides Bootstrap */
-// .btn.btn-primary {
-//     background-color: $pink-dark;
-//     color: $pink-faint;
-// }
+/* This overrides Bootstrap */
+.btn.btn-primary {
+    background-color: $pink-dark;
+    color: $pink-faint;
+}

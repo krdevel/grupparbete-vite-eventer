@@ -103,7 +103,7 @@
 		background-image: url(/images/background.png);
 		background-repeat: no-repeat;
 		background-attachment: fixed;
-		background-size: contain;
+		background-size: cover;
 
 		/* border-width: 4px;
 		border-style: solid;
@@ -139,7 +139,7 @@
 		/* margin: 0 auto; */
 		margin: 2rem auto;
 
-		padding: 2rem 1rem 2rem;
+		padding: 2rem 3rem 2rem;
 	}
 
 	#filter-view .list-box {
