@@ -102,6 +102,8 @@
 		width: 100%;
 		background-image: url(/images/background.png);
 		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: contain;
 
 		/* border-width: 4px;
 		border-style: solid;
@@ -131,11 +133,11 @@
 	}
 
 	#filter-view .tag-container-box {
-		background-color: #fff;
+		background-color: rgb(131, 34, 34);
 
 		width: 75%;
 		margin: 0 auto;
-		padding: 2rem 1rem 0 2rem;
+		padding: 2rem 1rem 2rem;
 	}
 
 	#filter-view .list-box {
