@@ -146,7 +146,8 @@
 		/* margin: 0 auto; */
 		margin: 2rem auto;
 
-		padding: 2rem 3rem 2rem;
+		padding: 3rem 3rem 2rem;
+		border-radius: 1.5rem;
 	}
 
 	#filter-view .list-box {
