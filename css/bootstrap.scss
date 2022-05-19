@@ -13,13 +13,6 @@ $theme-colors: (
 	// 'dark': #2f2f2f
 );
 
-<<<<<<< HEAD
-@function theme-color($key: 'primary') {
-	@return map-get($theme-colors, $key);
-}
-
-=======
->>>>>>> main
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
@@ -27,8 +20,7 @@ $theme-colors: (
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap');
 
-$body-font-family: "IBM Plex Sans", sans-serif;
-
+$body-font-family: 'IBM Plex Sans', sans-serif;
 
 // .tag-container {
 //     background-color: #fff;;
@@ -40,9 +32,9 @@ $body-font-family: "IBM Plex Sans", sans-serif;
 // }
 
 .tag-container h4 {
-    font-family: Inter, sans-serif;
-    font-weight: 700;
-    margin-left: 1rem;
+	font-family: Inter, sans-serif;
+	font-weight: 700;
+	margin-left: 1rem;
 }
 
 //Colors:
@@ -50,21 +42,18 @@ $body-font-family: "IBM Plex Sans", sans-serif;
 // $pink-faint: #FAE8F5;
 // $pink-dark: #FC09C6;
 
-
-
-
 .btn {
-//     /* This overrides Bootstrap */
-    font-family: $body-font-family;
-//     background-color: $pink-faint;
-//     color: $pink;
-//     border: 0;
-//     border-radius: 1.5rem;
-//     padding: 0.75rem;
-//     width: 8rem;
+	//     /* This overrides Bootstrap */
+	font-family: $body-font-family;
+	//     background-color: $pink-faint;
+	//     color: $pink;
+	//     border: 0;
+	//     border-radius: 1.5rem;
+	//     padding: 0.75rem;
+	//     width: 8rem;
 
-//     margin: 0.5rem;
-//     $badge-color: black;
+	//     margin: 0.5rem;
+	//     $badge-color: black;
 }
 
 // /* This overrides Bootstrap */

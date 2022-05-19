@@ -103,7 +103,6 @@
 
 <style lang="scss" scoped>
 	nav.navbar {
-		border: 0.125rem solid #000;
 		margin: 1rem;
 		padding: 0;
 	}

@@ -68,7 +68,6 @@
 
 <style>
 	#filter-view nav.navbar {
-		border: 0.125rem solid #000;
 		margin: 1rem;
 		padding: 0;
 	}
