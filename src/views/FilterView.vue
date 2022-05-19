@@ -77,7 +77,7 @@
 	}
 
 	#filter-view nav.navbar {
-		border: 0.125rem solid #000;
+		/* border: 0.125rem solid #000; */
 		margin: 1rem;
 		padding: 0;
 	}
@@ -98,14 +98,6 @@
 	#filter-view .navbar-light .navbar-toggler {
 		border-color: transparent;
 		color: #868686;
-	}
-
-	.navbar,
-	.navbar-expand-lg,
-	.navbar-light,
-	.bg-light {
-		margin: 0;
-		padding: 0;
 	}
 
 	#filter-view main {
@@ -143,6 +135,11 @@
 		border-color: #f00;
 	} */
 
+	#filter-view .btn-outline-primary {
+		border-radius: 0.5rem;
+		padding: 1rem 1rem 0 1rem;
+	}
+
 	#filter-view main > .list-box {
 		width: 100%;
 		padding: 1rem 1rem 0 1rem;
@@ -173,6 +170,8 @@
 	#filter-view .list-box .btn-outline-primary {
 		border-color: #1f3868;
 		color: #1f3868;
+		border-radius: 0.5rem;
+		padding: 1rem 1rem;
 	}
 
 	/* This overrides Bootstrap */
