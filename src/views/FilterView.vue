@@ -168,10 +168,14 @@
 
 	/* This overrides Bootstrap */
 	#filter-view .list-box .btn-outline-primary {
+		background-color: #ffffff00;
 		border-color: #1f3868;
 		color: #1f3868;
-		border-radius: 0.5rem;
-		padding: 1rem 1rem;
+		border-radius: 0.25rem;
+		width: auto;
+		height: auto;
+		margin: 0;
+		padding: 0.5rem 1rem;
 	}
 
 	/* This overrides Bootstrap */
@@ -182,7 +186,7 @@
 	/* This overrides Bootstrap */
 	#filter-view .list-box .btn-check:checked + .btn-outline-primary {
 		border-color: #1f3868;
-		background-color: #1f3868;
+		background-color: #27ae60;
 		color: #fff;
 	}
 
