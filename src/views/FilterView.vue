@@ -82,7 +82,7 @@
 		font-weight: 550;
 		color: #000;
 		text-transform: uppercase;
-		margin: 0.5rem 0;
+
 		padding: 0 2rem;
 	}
 
