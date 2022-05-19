@@ -92,8 +92,14 @@
 	}
 
 	#filter-view main {
-		display: flex;
+		display: column;
 		justify-content: space-evenly;
+	}
+
+	#filter-view main > .tag-container-box,
+	#filter-view main > .list-box {
+		width: 100%;
+		padding: 1rem 1rem 0 1rem;
 	}
 
 	#filter-view .tag-container-box {
@@ -137,7 +143,7 @@
 		margin: 2rem 0;
 	}
 
-	@media screen and (max-width: 1024px) {
+	/* @media screen and (max-width: 1024px) {
 		#filter-view main {
 			flex-direction: column;
 		}
@@ -147,5 +153,5 @@
 			width: 100%;
 			padding: 1rem 1rem 0 1rem;
 		}
-	}
+	} */
 </style>
