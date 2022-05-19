@@ -1,9 +1,13 @@
 import { createStore } from 'vuex'
 import VuexPersistence from 'vuex-persist'
 
-import { v4 as uuidv4 } from 'uuid'
+//import { v4 as uuidv4 } from 'uuid'
+//uuidv4()
 
 const mutations = {
+		createEvent(state, payload) {
+			state.dbEvents.push(payload)
+		},
 		enableDatabase(state) {
 			state.dbLoaded = true
 		},
@@ -42,6 +46,9 @@ const mutations = {
 			event.type = state.dbTypeTags.find(
 				(tag) => tag.text === data.typeTagText
 			).id
+
+			console.log(state.dbTypeTags.find((tag) => tag.text === data.typeTagText))
+
 			event.location = state.dbLocationTags.find(
 				(tag) => tag.text === data.locationTagText
 			).id
@@ -247,7 +254,7 @@ const mutations = {
 		*/
 		dbEvents: [
 			{
-				id: uuidv4(),
+				id: '2068f9ac-d543-4ac7-9def-9a61cd901059',
 				name: 'Nine Inch Snails',
 				type: null,
 				location: null,
@@ -261,7 +268,7 @@ const mutations = {
 				likeBool: false
 			},
 			{
-				id: uuidv4(),
+				id: '4bfef29a-ac10-4f04-82a7-e0a6d0174058',
 				name: 'Arsenal - Valencia',
 				type: null,
 				location: null,
@@ -275,7 +282,7 @@ const mutations = {
 				likeBool: false
 			},
 			{
-				id: uuidv4(),
+				id: '1024a86b-687e-433e-b368-a6963e8b9967',
 				name: 'Releaseparty',
 				type: null,
 				location: null,
@@ -289,7 +296,7 @@ const mutations = {
 				likeBool: false
 			},
 			{
-				id: uuidv4(),
+				id: 'b0c77d22-1868-4386-aad4-d7eac95eb45f',
 				name: 'Håkan Hellström',
 				type: null,
 				location: null,
@@ -302,7 +309,7 @@ const mutations = {
 				likeBool: false
 			},
 			{
-				id: uuidv4(),
+				id: '18a89d26-1fa3-4a40-b117-015163f1548f',
 				name: 'Pubquiz i Vasa',
 				type: null,
 				location: null,
@@ -315,7 +322,7 @@ const mutations = {
 				likeBool: false
 			},
 			{
-				id: uuidv4(),
+				id: '6e905917-04c9-4118-8933-bf77ca2dd91c',
 				name: 'Gabriels Änglar!',
 				type: null,
 				location: null,
@@ -325,11 +332,11 @@ const mutations = {
 					'https://assetsnffrgf-a.akamaihd.net/assets/m/502016247/univ/art/502016247_univ_lsr_lg.jpg',
 				description:
 					'Gabriels Änglar kommer äntligen till Göteborg för att sjunga!',
-				likes: 0,
+				likes: 666,
 				likeBool: false
 			},
 			{
-				id: uuidv4(),
+				id: 'e9ac0683-176a-42be-b119-70dc0fe66fc1',
 				name: 'NFTs och sånt',
 				type: null,
 				location: null,
@@ -344,89 +351,89 @@ const mutations = {
 		],
 		dbTypeTags: [
 			{
-				id: uuidv4(),
+				id: '1f03c836-b8e4-408a-84f0-18828e60b154',
 				text: 'Musik'
 			},
 			{
-				id: uuidv4(),
+				id: 'a98e5587-9a9a-40f5-9972-f171a947a807',
 				text: 'Fotboll'
 			},
 			{
-				id: uuidv4(),
+				id: 'bef4402c-cd75-421c-903d-632a1652694d',
 				text: 'Fest'
 			},
 			{
-				id: uuidv4(),
+				id: '30b71b04-bb92-492c-986d-974884dc55a9',
 				text: 'Quiz'
 			},
 			{
-				id: uuidv4(),
+				id: '8d05dc19-339c-4fe1-99d0-ffa3980d07da',
 				text: 'Krypto'
 			}
 		],
 		dbLocationTags: [
 			{
-				id: uuidv4(),
+				id: '6a8b3a05-783d-471f-8781-7d9db2e7fa22',
 				text: 'Stockholm'
 			},
 			{
-				id: uuidv4(),
+				id: 'bdb7efe9-3517-474e-a259-55f3dea85a5b',
 				text: 'Göteborg'
 			},
 			{
-				id: uuidv4(),
+				id: '32ec40a2-faa0-4f30-85e2-eb79abe049b1',
 				text: 'Malmö'
 			},
 			{
-				id: uuidv4(),
+				id: '1b8201be-d3c1-4c3b-8bc4-99d9ee217a9c',
 				text: 'Helsingborg'
 			},
 			{
-				id: uuidv4(),
+				id: '3beb3448-e43c-4b82-be6e-b1bf2aae755b',
 				text: 'Köpenhamn'
 			},
 			{
-				id: uuidv4(),
+				id: 'cdaa5efc-be1e-47ca-b45f-1d0c17a1c774',
 				text: 'London'
 			}
 		],
 		dbDateTags: [
 			{
-				id: uuidv4(),
+				id: '966f3c2a-e954-483c-a294-5ff44be886a9',
 				text: '2022-06-16'
 			},
 			{
-				id: uuidv4(),
+				id: 'e57d245b-dc86-477c-b04f-a3a6de393af0',
 				text: '2022-06-17'
 			},
 			{
-				id: uuidv4(),
+				id: 'e566f9dd-3c44-421b-aaf4-e5d872336c9e',
 				text: '2022-06-18'
 			},
 			{
-				id: uuidv4(),
+				id: '9d79f00b-e15f-4fd0-b5f2-89e6704fda8e',
 				text: '2022-06-19'
 			}
 		],
 		dbTimeTags: [
 			{
-				id: uuidv4(),
+				id: '8c7825be-61da-41c0-bcff-382649441e8e',
 				text: '17:00'
 			},
 			{
-				id: uuidv4(),
+				id: '61b0abdc-3d64-4409-96f2-c88e33580f34',
 				text: '18:00'
 			},
 			{
-				id: uuidv4(),
+				id: '2633d9c2-86c8-428b-bb98-74288462b3c5',
 				text: '18:30'
 			},
 			{
-				id: uuidv4(),
+				id: 'd39801da-e35f-4867-b09f-15b3b22390b5',
 				text: '19:00'
 			},
 			{
-				id: uuidv4(),
+				id: '0f7b0ee7-1719-4cc2-8f57-d82009c4ac05',
 				text: '20:00'
 			}
 		],
