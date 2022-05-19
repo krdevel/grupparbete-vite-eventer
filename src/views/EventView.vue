@@ -1,12 +1,13 @@
 <template>
-	<div class="headerImg">
-		<img class="imgData" :src="event.image" />
-
-		<div class="imgText">
-			<h1 class="nameData">{{ event.name }}</h1>
-		</div>
-	</div>
 	<div class="container">
+		<div class="headerImg">
+			<img class="imgData" :src="event.image" />
+
+			<div class="imgText">
+				<h1 class="nameData">{{ event.name }}</h1>
+			</div>
+		</div>
+
 		<div id="likeIcon">
 			<div v-if="likeCheck">
 				<i
@@ -20,24 +21,23 @@
 				<i id="iconTwo" class="bi bi-heart" type="button" @click="likeBtnT"></i>
 			</div>
 		</div>
+		<p id="likeIcon">{{ likedEvent }}</p>
 
 		<div id="btnTags">
-			<button id="btnTag" class="btn-primary" disabled>
+			<button class="btnTag" disabled>
 				{{ event.type }}
 			</button>
-			<button id="btnTag" class="btn-primary" disabled>
+			<button class="btnTag" disabled>
 				{{ event.location }}
 			</button>
-			<button id="btnTag" class="btn-primary" disabled>
+			<button class="btnTag" disabled>
 				{{ event.date }}
 			</button>
-			<button id="btnTag" class="btn-primary" disabled>
+			<button class="btnTag" disabled>
 				{{ event.time }}
 			</button>
 		</div>
 		<p class="descText">{{ event.description }}</p>
-		<p id="likeIcon">{{ likedEvent }} people liked this event</p>
-		<div v-if="likeCheck" id="likeIcon"><p>You like this event</p></div>
 	</div>
 </template>
 <script>
@@ -83,10 +83,11 @@
 
 <style lang="scss" scoped>
 	#btnTags {
-		display: flex;
-		justify-content: center;
+		width: auto;
+
+		text-align: center;
 	}
-	#btnTag {
+	.btnTag {
 		background-color: #1f3868;
 		color: #f1f6ff;
 		border: 0;
@@ -94,6 +95,7 @@
 		padding: 0.75rem;
 		width: 8rem;
 		margin: 0.5rem;
+		//height: 3rem;
 		$badge-color: black;
 	}
 	#likeIcon {
@@ -102,6 +104,7 @@
 	}
 	.nameData {
 		color: black;
+		text-align: center;
 	}
 
 	.headerImg {
@@ -118,15 +121,16 @@
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
-		max-width: 60%;
-		height: auto;
+
+		//height: auto;
 		border-radius: 8px;
-		object-fit: contain;
+		object-fit: fill;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		opacity: 0.7;
 	}
 	#iconTwo {
 		color: red;
+		//background: rgba(242, 78, 30, 0.15);
 	}
 	#iconTwo:hover {
 		color: black;
