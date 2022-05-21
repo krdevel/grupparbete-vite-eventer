@@ -70,14 +70,7 @@
 </script>
 
 <style>
-	#filter-view h1 {
-		font-size: 3rem;
-		margin: 0 auto;
-		padding: 4rem 0 0;
-	}
-
 	#filter-view nav.navbar {
-		/* border: 0.125rem solid #000; */
 		margin: 1rem;
 		padding: 0;
 	}
@@ -91,13 +84,19 @@
 		font-weight: 550;
 		color: #000;
 		text-transform: uppercase;
-		margin: 0.5rem 0;
+
 		padding: 0 2rem;
 	}
 
 	#filter-view .navbar-light .navbar-toggler {
 		border-color: transparent;
 		color: #868686;
+	}
+
+	#filter-view h1 {
+		font-size: 3rem;
+		margin: 0 auto;
+		padding: 4rem 0 0;
 	}
 
 	#filter-view main {
