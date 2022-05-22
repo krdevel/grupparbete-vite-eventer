@@ -75,7 +75,7 @@
 			}
 		},
 		watch: {
-			windowWidth(newWidth, oldWidth) {
+			windowWidth(newWidth) {
 				if (newWidth >= 768) {
 					this.isMobile = false
 				} else {

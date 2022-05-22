@@ -27,6 +27,7 @@
 				<TagContainer type="type" heading="Category" />
 				<TagContainer type="location" heading="Location" />
 				<TagContainer type="date" heading="Time" />
+				<a class="clear-filters" @click="clearFilters">Clear filters</a>
 			</div>
 		</div>
 		<div class="list-box">
@@ -91,6 +92,9 @@
 			this.toggleButtonPath = this.revealPath
 		},
 		methods: {
+			clearFilters() {
+				this.$store.commit('resetTags')
+			},
 			handleListOrGrid(value) {
 				value === 'list' ? (this.listOrGrid = true) : (this.listOrGrid = false)
 			},
@@ -144,6 +148,12 @@
 	#filter-view main {
 		display: column;
 		justify-content: space-evenly;
+	}
+
+	#filter-view .clear-filters {
+		cursor: pointer;
+		color: #ff523a;
+		margin-left: 1rem;
 	}
 
 	.search-and-tag-container {
