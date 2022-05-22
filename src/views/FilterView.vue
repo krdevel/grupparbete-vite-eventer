@@ -7,8 +7,9 @@
 					class="btn toggle-tags-button"
 					data-toggle="collapse"
 					data-target=".collapse"
+					@click="toggleTagToggleButtonText"
 				>
-					Show filter
+					{{ tagToggleButtonText }}
 				</button>
 			</div>
 			<div class="tag-container-box collapse">
@@ -74,6 +75,13 @@
 		methods: {
 			handleListOrGrid(value) {
 				value === 'list' ? (this.listOrGrid = true) : (this.listOrGrid = false)
+			}
+		},
+		toggleTagToggleButtonText() {
+			if (this.tagToggleButtonText == 'Show tags') {
+				this.tagToggleButtonText == 'Close tags'
+			} else {
+				this.tagToggleButtonText == 'Show tags'
 			}
 		}
 	}
