@@ -138,7 +138,7 @@
 		width: auto;
 		height: 2rem;
 		line-height: 0.5rem;
-		margin: 1rem auto 0;
+		margin: 1.5rem auto 0;
 		/* padding-bottom: 10px; */
 		/* font-size: 1rem; */
 	}
