@@ -33,12 +33,23 @@
 				selected: false
 			}
 		},
-		created() {
-			if (this.$store.state.dbFilteredTags[this.tagType].includes(this.tagId)) {
-				this.selected = true
+		watch: {
+			'$store.state.dbFilteredTags': {
+				handler: function () {
+					this.refreshTag()
+				},
+				deep: true
 			}
 		},
+		created() {
+			this.refreshTag()
+		},
 		methods: {
+			refreshTag() {
+				this.selected = this.$store.state.dbFilteredTags[this.tagType].includes(
+					this.tagId
+				)
+			},
 			handleSelect() {
 				this.selected = !this.selected
 

@@ -2,10 +2,32 @@
 	<main>
 		<div class="search-and-tag-container">
 			<h1>FIND YOUR EVENT</h1>
-			<div class="tag-container-box">
+			<div class="toggle-tags-div">
+				<button
+					class="btn toggle-tags-button"
+					data-toggle="collapse"
+					data-target=".collapse"
+					@click="toggleTagToggleButtonText"
+				>
+					{{ tagToggleButtonText }}
+					<svg
+						id="toggleButtonSvg"
+						xmlns="http://www.w3.org/2000/svg"
+						width="16"
+						height="16"
+						fill="currentColor"
+						class="bi bi-sliders"
+						viewBox="0 0 16 16"
+					>
+						<path fill-rule="evenodd" :d="toggleButtonPath" />
+					</svg>
+				</button>
+			</div>
+			<div class="tag-container-box collapse">
 				<TagContainer type="type" heading="Category" />
 				<TagContainer type="location" heading="Location" />
 				<TagContainer type="date" heading="Time" />
+				<a class="clear-filters" @click="clearFilters">Clear filters</a>
 			</div>
 		</div>
 		<div class="list-box">
@@ -56,13 +78,37 @@
 		data() {
 			return {
 				// true/1 for list, false/0 for grid
-				listOrGrid: false
+				listOrGrid: false,
+				tagToggleButtonText: 'Show tags',
+				revealPath:
+					'M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z',
+				hidePath:
+					'M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z',
+				toggleButtonPath: null
 			}
 		},
-		created() {},
+		created() {
+			this.toggleButtonPath = this.revealPath
+		},
 		methods: {
+			clearFilters() {
+				this.$store.commit('resetTags')
+			},
 			handleListOrGrid(value) {
 				value === 'list' ? (this.listOrGrid = true) : (this.listOrGrid = false)
+			},
+			toggleTagToggleButtonText() {
+				console.log(
+					'toggleTagToggleButtonTextthis.tagToggleButtonText: ' +
+						this.tagToggleButtonText
+				)
+				if (this.tagToggleButtonText == 'Show tags') {
+					this.tagToggleButtonText = 'Close tags'
+					this.toggleButtonPath = this.hidePath
+				} else {
+					this.tagToggleButtonText = 'Show tags'
+					this.toggleButtonPath = this.revealPath
+				}
 			}
 		}
 	}
@@ -103,6 +149,12 @@
 		justify-content: space-evenly;
 	}
 
+	#filter-view .clear-filters {
+		cursor: pointer;
+		color: #ff523a;
+		margin-left: 1rem;
+	}
+
 	.search-and-tag-container {
 		width: 100%;
 		margin: 0;
@@ -117,6 +169,37 @@
 
 		display: flex;
 		flex-direction: column;
+	}
+
+	.toggle-tags-div {
+		/* background-color: #000000; */
+
+		margin: 0 auto 2rem;
+		padding: 0;
+		/* padding-bottom: 10px; */
+		/* font-size: 1rem; */
+	}
+
+	.toggle-tags-button {
+		background-color: #27ae60;
+		color: #fff;
+		width: auto;
+		height: 2rem;
+		line-height: 0.5rem;
+		margin: 1.5rem auto 0;
+		padding-top: 0.68rem;
+		/* padding-bottom: 10px; */
+		/* font-size: 1rem; */
+	}
+
+	.toggle-tags-button:hover {
+		color: rgb(119, 119, 119);
+	}
+
+	#toggleButtonSvg {
+		margin-left: 1rem;
+		margin-top: -0.2rem;
+		padding-top: 0;
 	}
 
 	/* .tag-container-box {
@@ -148,7 +231,7 @@
 
 		width: 75%;
 		/* margin: 0 auto; */
-		margin: 2rem auto;
+		margin: 1rem auto;
 
 		padding: 3rem 3rem 2rem;
 		border-radius: 1.5rem;

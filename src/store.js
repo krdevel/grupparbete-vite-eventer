@@ -19,6 +19,12 @@ const mutations = {
 			)
 		},
 		*/
+		resetTags(state) {
+			state.dbFilteredTags.type = []
+			state.dbFilteredTags.location = []
+			state.dbFilteredTags.date = []
+			state.dbFilteredTags.time = []
+		},
 		toggleTag(state, tag) {
 			// Check if the toggled tag is in the filtered tags list.
 			const tagIndex = state.dbFilteredTags[tag.type].indexOf(tag.id)
