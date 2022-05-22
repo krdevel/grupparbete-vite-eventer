@@ -183,6 +183,10 @@
 		/* font-size: 1rem; */
 	}
 
+	.toggle-tags-button:hover {
+		color: rgb(119, 119, 119);
+	}
+
 	#toggleButtonSvg {
 		margin-left: 1rem;
 		margin-top: -0.2rem;
