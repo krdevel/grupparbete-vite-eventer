@@ -3,9 +3,15 @@
 		<div class="search-and-tag-container">
 			<h1>FIND YOUR EVENT</h1>
 			<div class="toggle-tags-div">
-				<button class="btn toggle-tags-button">Show filter</button>
+				<button
+					class="btn toggle-tags-button"
+					data-toggle="collapse"
+					data-target=".collapse"
+				>
+					Show filter
+				</button>
 			</div>
-			<div class="tag-container-box">
+			<div class="tag-container-box collapse">
 				<TagContainer type="type" heading="Category" />
 				<TagContainer type="location" heading="Location" />
 				<TagContainer type="date" heading="Time" />
