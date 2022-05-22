@@ -2,6 +2,9 @@
 	<main>
 		<div class="search-and-tag-container">
 			<h1>FIND YOUR EVENT</h1>
+			<div class="toggle-tags-div">
+				<button class="btn toggle-tags-button">Show filter</button>
+			</div>
 			<div class="tag-container-box">
 				<TagContainer type="type" heading="Category" />
 				<TagContainer type="location" heading="Location" />
@@ -120,6 +123,26 @@
 		flex-direction: column;
 	}
 
+	.toggle-tags-div {
+		/* background-color: #000000; */
+
+		margin: 0 auto;
+		padding: 0;
+		/* padding-bottom: 10px; */
+		/* font-size: 1rem; */
+	}
+
+	.toggle-tags-button {
+		background-color: #27ae60;
+		color: #fff;
+		width: auto;
+		height: 2rem;
+		line-height: 0.5rem;
+		margin: 1rem auto 0;
+		/* padding-bottom: 10px; */
+		/* font-size: 1rem; */
+	}
+
 	/* .tag-container-box {
 		width: 70%;
 		margin: 0 auto;
@@ -149,7 +172,7 @@
 
 		width: 75%;
 		/* margin: 0 auto; */
-		margin: 2rem auto;
+		margin: 1rem auto;
 
 		padding: 3rem 3rem 2rem;
 		border-radius: 1.5rem;
