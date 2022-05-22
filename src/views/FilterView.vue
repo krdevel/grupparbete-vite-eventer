@@ -75,13 +75,17 @@
 		methods: {
 			handleListOrGrid(value) {
 				value === 'list' ? (this.listOrGrid = true) : (this.listOrGrid = false)
-			}
-		},
-		toggleTagToggleButtonText() {
-			if (this.tagToggleButtonText == 'Show tags') {
-				this.tagToggleButtonText == 'Close tags'
-			} else {
-				this.tagToggleButtonText == 'Show tags'
+			},
+			toggleTagToggleButtonText() {
+				console.log(
+					'toggleTagToggleButtonTextthis.tagToggleButtonText: ' +
+						this.tagToggleButtonText
+				)
+				if (this.tagToggleButtonText == 'Show tags') {
+					this.tagToggleButtonText = 'Close tags'
+				} else {
+					this.tagToggleButtonText = 'Show tags'
+				}
 			}
 		}
 	}
