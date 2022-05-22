@@ -16,11 +16,12 @@
 						width="16"
 						height="16"
 						fill="currentColor"
-						class="bi bi-bar-chart-steps"
+						class="bi bi-sliders"
 						viewBox="0 0 16 16"
 					>
 						<path
-							d="M.5 0a.5.5 0 0 1 .5.5v15a.5.5 0 0 1-1 0V.5A.5.5 0 0 1 .5 0zM2 1.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5v-1zm2 4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zm2 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1-.5-.5v-1zm2 4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1z"
+							fill-rule="evenodd"
+							d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"
 						/>
 					</svg>
 				</button>
@@ -171,13 +172,15 @@
 		height: 2rem;
 		line-height: 0.5rem;
 		margin: 1.5rem auto 0;
-		padding-top: 0.54rem;
+		padding-top: 0.65rem;
 		/* padding-bottom: 10px; */
 		/* font-size: 1rem; */
 	}
 
 	#toggleButtonSvg {
 		margin-left: 1rem;
+		margin-top: -0.2rem;
+		padding-top: 0;
 	}
 
 	/* .tag-container-box {
