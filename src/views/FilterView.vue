@@ -53,7 +53,6 @@
 			FilterList,
 			TagContainer
 		},
-		//Programatisk Router exempel
 		data() {
 			return {
 				// true/1 for list, false/0 for grid
