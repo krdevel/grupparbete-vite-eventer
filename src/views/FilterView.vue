@@ -23,11 +23,13 @@
 					</svg>
 				</button>
 			</div>
-			<div class="tag-container-box collapse">
-				<TagContainer type="type" heading="Category" />
-				<TagContainer type="location" heading="Location" />
-				<TagContainer type="date" heading="Time" />
-				<a class="clear-filters" @click="clearFilters">Clear filters</a>
+			<div class="tag-container-box-container collapse">
+				<div class="tag-container-box">
+					<TagContainer type="type" heading="Category" />
+					<TagContainer type="location" heading="Location" />
+					<TagContainer type="date" heading="Time" />
+					<a class="clear-filters" @click="clearFilters">Clear filters</a>
+				</div>
 			</div>
 		</div>
 		<div class="list-box">
@@ -226,15 +228,26 @@
 		padding: 1rem 1rem 0 1rem;
 	}
 
-	#filter-view .tag-container-box {
+	#filter-view .tag-container-box-container {
 		background-color: #fff;
 
 		width: 75%;
 		/* margin: 0 auto; */
+		margin: 0 auto 1rem;
+
+		padding: 0;
+		border-radius: 1.5rem;
+	}
+
+	#filter-view .tag-container-box {
+		background-color: #fff;
+
+		width: 100%;
+		/* margin: 0 auto; */
 		margin: 1rem auto;
 
 		padding: 3rem 3rem 2rem;
-		border-radius: 1.5rem;
+		/* border-radius: 1.5rem; */
 	}
 
 	#filter-view .list-box {
