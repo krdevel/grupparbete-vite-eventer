@@ -164,6 +164,7 @@
 		background-repeat: no-repeat;
 		background-attachment: fixed;
 		background-size: cover;
+		padding: 0 0 1rem;
 
 		/* border-width: 4px;
 		border-style: solid;
@@ -230,11 +231,8 @@
 
 	#filter-view .tag-container-box-container {
 		background-color: #fff;
-
 		width: 75%;
-		/* margin: 0 auto; */
-		margin: 0 auto 1rem;
-
+		margin: 0 auto;
 		padding: 0;
 		border-radius: 1.5rem;
 	}
