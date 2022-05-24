@@ -1,68 +1,49 @@
 <template>
 	<nav class="nav">
 		<div v-if="isMobile" class="navbar-container mobile">
-			<!-- <img id="logo" src="/favicon-196.png" alt="Logo" @click="resetStore" /> -->
-
 			<RouterLink class="nav-link" to="/">
-				<i class="bi bi-house-fill nav-item" style="font-size: 2rem"> </i>
+				<i class="bi bi-house-fill nav-item"> </i>
 			</RouterLink>
-			<RouterLink class="nav-link" to="/">
-				<i class="bi bi-search nav-item" style="font-size: 2rem"> </i>
-			</RouterLink>
-			<RouterLink class="nav-link" to="/">
-				<i class="bi bi-heart nav-item" style="font-size: 2rem"> </i>
-			</RouterLink>
+			<a class="nav-link">
+				<i class="bi bi-search nav-item"> </i>
+			</a>
+			<a class="nav-link">
+				<i class="nav-item" :class="siteLikeClass" @click="toggleSiteLike"> </i>
+			</a>
 			<RouterLink class="nav-link" to="/admin">
-				<i class="bi bi-person-circle nav-item" style="font-size: 2rem"> </i>
+				<i class="bi bi-person-circle nav-item"> </i>
 			</RouterLink>
 		</div>
 
 		<nav v-else class="navbar navbar-light bg-light">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">
-					<img
+				<a class="navbar-brand" @click="resetStore"
+					>Ǝ
+					<!-- img
 						src="../assets/logo.svg"
-						width="30"
-						height="24"
 						alt="Logo"
 						@click="resetStore"
-					/>
+					/ -->
 				</a>
 
 				<div class="d-flex">
-					<RouterLink class="nav-link" to="/">
-						<a>Home</a>
-					</RouterLink>
-					<RouterLink class="nav-link" to="/admin">
-						<a>ADMIN</a>
-					</RouterLink>
-
-					<!-- <a class="nav-link" href="#"> </a> -->
-					<RouterLink class="nav-link" to="/">
-						<i class="bi bi-search" style="font-size: 2rem"> </i>
-					</RouterLink>
-					<RouterLink class="nav-link" to="/">
-						<i class="bi bi-heart" style="font-size: 2rem; color: red"> </i>
-					</RouterLink>
+					<RouterLink class="nav-link" to="/">Home</RouterLink>
+					<RouterLink class="nav-link" to="/admin">ADMIN</RouterLink>
+					<a class="nav-link" href="https://www.google.com">
+						<i class="bi bi-search"> </i>
+					</a>
+					<a class="nav-link">
+						<i :class="siteLikeClass" @click="toggleSiteLike"> </i>
+					</a>
 				</div>
 			</div>
 		</nav>
-
-		<!-- <div v-else class="navbar-container">
-			<img id="logo" src="/favicon-196.png" alt="Logo" @click="resetStore" />
-
-			<RouterLink class="nav-link" to="/">
-				<p>Home</p>
-			</RouterLink>
-			<RouterLink class="nav-link" to="/admin">
-				<p>Admin</p>
-			</RouterLink>
-		</div> -->
 	</nav>
 </template>
 
 <script>
 	import '../../css/bootstrap.scss'
+
 	export default {
 		data() {
 			return {
@@ -72,6 +53,13 @@
 					{ address: '/', title: 'Home' },
 					{ address: '/admin', title: 'admin' }
 				]
+			}
+		},
+		computed: {
+			siteLikeClass() {
+				return (
+					'bi ' + (this.$store.state.siteLike ? 'bi-heart-fill' : 'bi-heart')
+				)
 			}
 		},
 		watch: {
@@ -96,6 +84,9 @@
 			},
 			getRes() {
 				this.windowWidth = window.innerWidth
+			},
+			toggleSiteLike() {
+				this.$store.commit('toggleSiteLike')
 			}
 		}
 	}
@@ -112,6 +103,7 @@
 	}
 
 	nav .nav-link {
+		cursor: pointer;
 		font-size: 1.25rem;
 		font-weight: 550;
 		color: #000;
@@ -120,24 +112,31 @@
 		padding: 0 2rem;
 	}
 
+	nav .nav-link > .bi {
+		font-size: 2rem;
+	}
+
+	nav .navbar-brand {
+		cursor: pointer;
+		font-size: 3rem;
+		line-height: 1em;
+		font-weight: bold;
+	}
+
 	.navbar-light .navbar-toggler {
 		border-color: transparent;
 		color: #868686;
 	}
+
 	.nav-link {
 		margin: 0;
 		text-align: center;
 		margin-top: auto;
 		margin-bottom: auto;
 	}
+
 	.navbar {
 		width: 100%;
-	}
-
-	#logo {
-		cursor: pointer;
-		width: 2rem;
-		margin: 0.5rem 0.75rem 0.5rem 0;
 	}
 
 	.navbar-container {
@@ -152,12 +151,22 @@
 		list-style-type: none;
 	}
 
+	.nav-link > .bi-heart,
+	.nav-link > .bi-heart-fill {
+		color: red;
+	}
+
+	.nav-link > .bi-heart:hover {
+		text-shadow: 0 0 0.5rem red;
+	}
+
 	@media screen and (max-width: 768px) {
 		.nav {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 		}
+
 		.navbar-container {
 			position: fixed;
 			bottom: 0;
