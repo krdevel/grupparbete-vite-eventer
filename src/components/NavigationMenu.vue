@@ -76,6 +76,10 @@
 		padding: 0;
 	}
 
+	nav {
+		z-index: 999;
+	}
+
 	nav.navbar.bg-light {
 		background-color: #fff !important;
 	}

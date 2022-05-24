@@ -1,21 +1,6 @@
 <template>
 	<main>
-		<div
-			style="
-				width: 60%;
-				height: fit-content;
-				background-color: rgba(255, 255, 255, 0.8);
-				border-radius: 25px;
-				position: absolute;
-				margin-left: auto;
-				margin-right: auto;
-				margin-top: 250px;
-				top: 0;
-				left: 0;
-				right: 0;
-				z-index: 100000;
-			"
-		>
+		<div class="event-creation">
 			<div class="header">
 				<h1>Create your event</h1>
 			</div>
@@ -37,14 +22,13 @@
 
 			<div v-else-if="step === 3" class="hcenter">
 				<h3>What's the event type?</h3>
-
-				<div>
+				<div class="mobile">
 					<button
 						v-for="(tag, i) in getTags('type')"
 						:key="i"
 						type="button"
 						:class="selected === i ? 'btn-primary' : 'btn-outline'"
-						class="btn"
+						class="btn item"
 						@click=";(selected = i), (typeTag = tag.text), handleNext()"
 					>
 						{{ tag.text }}
@@ -54,7 +38,7 @@
 			</div>
 			<div v-else-if="step === 4" class="hcenter">
 				<h3>What's the location?</h3>
-				<div>
+				<div class="mobile">
 					<button
 						v-for="(tag, i) in getTags('location')"
 						:key="i"
@@ -70,7 +54,7 @@
 			</div>
 			<div v-else-if="step === 5" class="hcenter">
 				<h3>What's the date?</h3>
-				<div>
+				<div class="mobile">
 					<button
 						v-for="(tag, i) in getTags('date')"
 						:key="i"
@@ -86,7 +70,7 @@
 			</div>
 			<div v-else-if="step === 6" class="hcenter">
 				<h3>What time?</h3>
-				<div>
+				<div class="mobile">
 					<button
 						v-for="(tag, i) in getTags('time')"
 						:key="i"
@@ -106,7 +90,7 @@
 						id="floatingTextarea2"
 						v-model="description"
 						class="form-control"
-						style="height: 200px; width: 30rem; resize: none"
+						style="height: 200px; width: 100%; resize: none"
 					></textarea>
 					<label for="floatingTextarea2">Description</label>
 				</div>
@@ -344,6 +328,21 @@
 	.navigator {
 		margin-top: 30px;
 	}
+
+	.event-creation {
+		width: 60%;
+		height: fit-content;
+		background-color: rgba(255, 255, 255, 0.8);
+		border-radius: 25px;
+		position: absolute;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 250px;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 100000;
+	}
 	.slide-right-enter-active,
 	.slide-right-leave-active {
 		transition: all 0.5s ease-out;
@@ -481,5 +480,21 @@
 		margin-bottom: 0px;
 		margin-top: 0px;
 		margin-right: 0px;
+	}
+
+	@media screen and (max-width: (1024px)) {
+		.event-creation {
+			position: relative;
+		}
+		.mobile {
+			width: 80vw;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.mobile > button {
+			width: max-content;
+			box-sizing: border-box;
+		}
 	}
 </style>
