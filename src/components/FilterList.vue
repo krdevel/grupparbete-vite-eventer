@@ -118,9 +118,27 @@
 		border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 	}
 
-	#filter-list .grid-container {
+	#filter-list > * {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 		gap: 3rem;
+	}
+
+	#filter-list > .grid-container {
+		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+	}
+
+	#filter-list > ul {
+		grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
+	}
+
+	#filter-list li {
+		grid-auto-columns: 1fr;
+	}
+
+	@media screen and (max-width: 639px) {
+		#filter-list > ul {
+			display: block;
+			grid-template-columns: none;
+		}
 	}
 </style>

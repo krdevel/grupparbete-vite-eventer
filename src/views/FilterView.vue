@@ -23,11 +23,13 @@
 					</svg>
 				</button>
 			</div>
-			<div class="tag-container-box collapse">
-				<TagContainer type="type" heading="Category" />
-				<TagContainer type="location" heading="Location" />
-				<TagContainer type="date" heading="Time" />
-				<a class="clear-filters" @click="clearFilters">Clear filters</a>
+			<div class="tag-container-box-container collapse">
+				<div class="tag-container-box">
+					<TagContainer type="type" heading="Category" />
+					<TagContainer type="location" heading="Location" />
+					<TagContainer type="date" heading="Time" />
+					<a class="clear-filters" @click="clearFilters">Clear filters</a>
+				</div>
 			</div>
 		</div>
 		<div class="list-box">
@@ -162,6 +164,7 @@
 		background-repeat: no-repeat;
 		background-attachment: fixed;
 		background-size: cover;
+		padding: 0 0 1rem;
 
 		/* border-width: 4px;
 		border-style: solid;
@@ -223,28 +226,29 @@
 
 	#filter-view main > .list-box {
 		width: 100%;
-		padding: 1rem 1rem 0 1rem;
+		margin-top: 2rem;
+		padding: 0 1rem;
+		display: flex;
+		flex-direction: column;
+	}
+
+	#filter-view .tag-container-box-container {
+		background-color: #fff;
+		width: 75%;
+		margin: 0 auto;
+		padding: 0;
+		border-radius: 1.5rem;
 	}
 
 	#filter-view .tag-container-box {
 		background-color: #fff;
 
-		width: 75%;
+		width: 100%;
 		/* margin: 0 auto; */
 		margin: 1rem auto;
 
 		padding: 3rem 3rem 2rem;
-		border-radius: 1.5rem;
-	}
-
-	#filter-view .list-box {
-		width: 50%;
-		padding: 2rem 2rem 0 1rem;
-	}
-
-	#filter-view .list-box {
-		display: flex;
-		flex-direction: column;
+		/* border-radius: 1.5rem; */
 	}
 
 	/* This overrides Bootstrap */

@@ -73,11 +73,16 @@
 
 	.header > h5 {
 		line-height: 1.75rem;
+		overflow: hidden;
+		text-overflow: ' …';
+		white-space: nowrap;
 	}
 
 	.header > div {
 		color: #ff523a;
 		line-height: 1.5rem;
+		overflow: hidden;
+		text-overflow: ' …';
 	}
 
 	p {
@@ -88,5 +93,22 @@
 		overflow: hidden;
 		text-overflow: ' …';
 		margin-bottom: 0;
+	}
+
+	@media screen and (max-width: 639px) {
+		a {
+			padding: 1rem 0;
+		}
+
+		p {
+			display: none;
+		}
+
+		.header {
+			display: block;
+			align-items: normal;
+			justify-content: normal;
+			margin: 0;
+		}
 	}
 </style>
