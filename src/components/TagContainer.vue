@@ -55,7 +55,7 @@
 	}
 
 	.tag-container:not(:last-child) {
-		margin-bottom: 2rem;
+		padding-bottom: 2rem;
 	}
 
 	@media screen and (max-width: 1024px) {

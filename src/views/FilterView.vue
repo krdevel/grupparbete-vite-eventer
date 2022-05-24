@@ -3,7 +3,7 @@
 		<div class="search-and-tag-container">
 			<h1>FIND YOUR EVENT</h1>
 			<!-- div class="toggle-tags-div" -->
-			<!-- button
+			<button
 				class="btn toggle-tags-button"
 				data-toggle="collapse"
 				data-target=".collapse"
@@ -21,27 +21,10 @@
 				>
 					<path fill-rule="evenodd" :d="toggleButtonPath" />
 				</svg>
-			</button -->
-			<button class="btn toggle-tags-button" @click="toggleTagToggleButtonText">
-				{{ tagToggleButtonText }}
-				<svg
-					id="toggleButtonSvg"
-					xmlns="http://www.w3.org/2000/svg"
-					width="16"
-					height="16"
-					fill="currentColor"
-					class="bi bi-sliders"
-					viewBox="0 0 16 16"
-				>
-					<path fill-rule="evenodd" :d="toggleButtonPath" />
-				</svg>
 			</button>
 			<!-- /div -->
 			<!-- div class="tag-container-box-container collapse" -->
-			<div
-				class="tag-container-box-container"
-				:class="tagContainerBoxContainerClass"
-			>
+			<div class="tag-container-box-container collapse">
 				<div class="tag-container-box">
 					<TagContainer type="type" heading="Category" />
 					<TagContainer type="location" heading="Location" />
@@ -105,11 +88,6 @@
 				hidePath:
 					'M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z',
 				toggleButtonPath: null
-			}
-		},
-		computed: {
-			tagContainerBoxContainerClass() {
-				return this.tagToggleButtonText == 'Show tags' ? '' : 'open'
 			}
 		},
 		created() {
@@ -256,19 +234,12 @@
 	}
 
 	#filter-view .tag-container-box-container {
-		background-color: #fff;
+		background-color: transparent;
 		width: 75%;
-		height: 0;
 		margin: 0 auto;
-		border-radius: 1.5rem;
+		padding-bottom: 3rem;
 
 		overflow: hidden;
-		transition: height 1s, margin 1s;
-	}
-
-	#filter-view .tag-container-box-container.open {
-		height: 35.25rem;
-		margin-bottom: 3rem;
 	}
 
 	#filter-view .tag-container-box {
@@ -279,7 +250,7 @@
 		/* margin: 1rem auto; */
 
 		padding: 3rem;
-		/* border-radius: 1.5rem; */
+		border-radius: 1.5rem;
 	}
 
 	/* This overrides Bootstrap */
@@ -333,10 +304,6 @@
 
 		#filter-view .tag-container-box {
 			padding: 2rem 1rem;
-		}
-
-		#filter-view .tag-container-box-container.open {
-			height: 53.25rem;
 		}
 	}
 </style>
