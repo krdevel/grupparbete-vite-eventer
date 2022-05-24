@@ -226,7 +226,10 @@
 
 	#filter-view main > .list-box {
 		width: 100%;
-		padding: 1rem 1rem 0 1rem;
+		margin-top: 2rem;
+		padding: 0 1rem;
+		display: flex;
+		flex-direction: column;
 	}
 
 	#filter-view .tag-container-box-container {
@@ -246,16 +249,6 @@
 
 		padding: 3rem 3rem 2rem;
 		/* border-radius: 1.5rem; */
-	}
-
-	#filter-view .list-box {
-		width: 50%;
-		padding: 2rem 2rem 0 1rem;
-	}
-
-	#filter-view .list-box {
-		display: flex;
-		flex-direction: column;
 	}
 
 	/* This overrides Bootstrap */
