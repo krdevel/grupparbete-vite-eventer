@@ -1,40 +1,36 @@
 <template>
 	<nav class="nav">
-		<div v-if="isMobile" class="navbar-container mobile">
-			<RouterLink class="nav-link" to="/">
-				<i class="bi bi-house-fill nav-item"> </i>
-			</RouterLink>
-			<a class="nav-link">
-				<i class="bi bi-search nav-item"> </i>
-			</a>
-			<a class="nav-link">
-				<i class="nav-item" :class="siteLikeClass" @click="toggleSiteLike"> </i>
-			</a>
-			<RouterLink class="nav-link" to="/admin">
-				<i class="bi bi-person-circle nav-item"> </i>
-			</RouterLink>
-		</div>
-
-		<nav v-else class="navbar navbar-light bg-light">
+		<nav class="navbar navbar-light bg-light">
 			<div class="container-fluid">
-				<a class="navbar-brand" @click="resetStore"
-					>Ǝ
-					<!-- img
-						src="../assets/logo.svg"
-						alt="Logo"
-						@click="resetStore"
-					/ -->
-				</a>
+				<a class="navbar-brand" @click="resetStore">Ǝ</a>
 
-				<div class="d-flex">
-					<RouterLink class="nav-link" to="/">Home</RouterLink>
-					<RouterLink class="nav-link" to="/admin">ADMIN</RouterLink>
-					<a class="nav-link" href="https://www.google.com">
-						<i class="bi bi-search"> </i>
+				<div class="large">
+					<div class="d-flex justify-content-end">
+						<RouterLink class="nav-link" to="/">Home</RouterLink>
+						<RouterLink class="nav-link" to="/admin">ADMIN</RouterLink>
+						<a class="nav-link" href="https://www.google.com">
+							<i class="bi bi-search"> </i>
+						</a>
+						<a class="nav-link">
+							<i :class="siteLikeClass" @click="toggleSiteLike"> </i>
+						</a>
+					</div>
+				</div>
+
+				<div class="mobile">
+					<RouterLink class="nav-link" to="/">
+						<i class="bi bi-house-fill nav-item"> </i>
+					</RouterLink>
+					<a class="nav-link">
+						<i class="bi bi-search nav-item"> </i>
 					</a>
 					<a class="nav-link">
-						<i :class="siteLikeClass" @click="toggleSiteLike"> </i>
+						<i class="nav-item" :class="siteLikeClass" @click="toggleSiteLike">
+						</i>
 					</a>
+					<RouterLink class="nav-link" to="/admin">
+						<i class="bi bi-person-circle nav-item"> </i>
+					</RouterLink>
 				</div>
 			</div>
 		</nav>
@@ -46,14 +42,7 @@
 
 	export default {
 		data() {
-			return {
-				windowWidth: window.innerWidth,
-				isMobile: null,
-				links: [
-					{ address: '/', title: 'Home' },
-					{ address: '/admin', title: 'admin' }
-				]
-			}
+			return {}
 		},
 		computed: {
 			siteLikeClass() {
@@ -62,28 +51,11 @@
 				)
 			}
 		},
-		watch: {
-			windowWidth(newWidth) {
-				if (newWidth >= 768) {
-					this.isMobile = false
-				} else {
-					this.isMobile = true
-				}
-			}
-		},
-		created() {
-			this.getRes()
-			this.$nextTick(() => {
-				window.addEventListener('resize', this.getRes)
-			})
-		},
+		created() {},
 		methods: {
 			resetStore() {
 				window.localStorage.removeItem('vuex')
 				location.reload()
-			},
-			getRes() {
-				this.windowWidth = window.innerWidth
 			},
 			toggleSiteLike() {
 				this.$store.commit('toggleSiteLike')
@@ -93,6 +65,12 @@
 </script>
 
 <style lang="scss" scoped>
+	.mobile {
+		display: none;
+	}
+	.large {
+		display: flex;
+	}
 	nav.navbar {
 		margin: 1rem;
 		padding: 0;
@@ -139,14 +117,6 @@
 		width: 100%;
 	}
 
-	.navbar-container {
-		width: 100%;
-		background-color: #1f3868;
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-	}
-
 	.nav-item {
 		list-style-type: none;
 	}
@@ -160,8 +130,41 @@
 		text-shadow: 0 0 0.5rem red;
 	}
 
-	@media screen and (max-width: 768px) {
+	@media screen and (max-width: 1024px) {
+		.nav-item {
+			color: black;
+		}
+		.large {
+			display: none;
+		}
+		.mobile {
+			display: flex;
+			width: 100%;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+		}
 		.nav {
+			display: flex;
+			justify-content: center;
+		}
+		.navbar {
+			position: fixed;
+			bottom: 0;
+			margin-bottom: 1rem;
+			border-radius: 25px;
+			width: 85%;
+		}
+		nav.navbar.bg-light {
+			background-color: #cd8cc7 !important;
+		}
+
+		.navbar-brand {
+			display: none;
+		}
+	}
+	@media screen and (max-width: 768px) {
+		/* .nav {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -185,6 +188,6 @@
 
 		.nav-item:hover {
 			border-bottom: 2px white solid;
-		}
+		} */
 	}
 </style>

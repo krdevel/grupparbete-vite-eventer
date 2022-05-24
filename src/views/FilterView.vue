@@ -117,29 +117,6 @@
 </script>
 
 <style>
-	#filter-view nav.navbar {
-		margin: 1rem;
-		padding: 0;
-	}
-
-	#filter-view nav.navbar.bg-light {
-		background-color: #fff !important;
-	}
-
-	#filter-view nav .nav-link {
-		font-size: 1.25rem;
-		font-weight: 550;
-		color: #000;
-		text-transform: uppercase;
-
-		padding: 0 2rem;
-	}
-
-	#filter-view .navbar-light .navbar-toggler {
-		border-color: transparent;
-		color: #868686;
-	}
-
 	#filter-view h1 {
 		font-size: 3rem;
 		margin: 0 auto;
