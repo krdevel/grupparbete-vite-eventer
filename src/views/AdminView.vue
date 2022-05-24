@@ -18,11 +18,10 @@
 		>
 			<div class="header">
 				<h1>Create your event</h1>
-				<h2>{{ step }}</h2>
 			</div>
 			<div v-if="step === 1" class="hcenter">
-				<h1>What's the image URL?</h1>
-				<input v-model="imgUri" placeholder="www.asd.com" required />
+				<h3>What's the image URL?</h3>
+				<input v-model="imgUri" placeholder="https://imageurl.com" required />
 				<p style="color: red">{{ error }}</p>
 				<p>
 					https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Football_iu_1996.jpg/640px-Football_iu_1996.jpg
@@ -30,14 +29,14 @@
 			</div>
 
 			<div v-else-if="step === 2" class="hcenter">
-				<h1>What's the event name?</h1>
-				<input v-model="eventName" placeholder="Gabriels Änglar" required />
+				<h3>What's the event name?</h3>
+				<input v-model="eventName" placeholder="Event name" required />
 				<p style="color: red">{{ error }}</p>
 				<!-- https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Football_iu_1996.jpg/640px-Football_iu_1996.jpg -->
 			</div>
 
 			<div v-else-if="step === 3" class="hcenter">
-				<h1>What's the event type?</h1>
+				<h3>What's the event type?</h3>
 
 				<div>
 					<button
@@ -54,7 +53,7 @@
 				<p style="color: red">{{ error }}</p>
 			</div>
 			<div v-else-if="step === 4" class="hcenter">
-				<h1>What's the location?</h1>
+				<h3>What's the location?</h3>
 				<div>
 					<button
 						v-for="(tag, i) in getTags('location')"
@@ -70,7 +69,7 @@
 				<p style="color: red">{{ error }}</p>
 			</div>
 			<div v-else-if="step === 5" class="hcenter">
-				<h1>What's the date?</h1>
+				<h3>What's the date?</h3>
 				<div>
 					<button
 						v-for="(tag, i) in getTags('date')"
@@ -86,7 +85,7 @@
 				<p style="color: red">{{ error }}</p>
 			</div>
 			<div v-else-if="step === 6" class="hcenter">
-				<h1>What time?</h1>
+				<h3>What time?</h3>
 				<div>
 					<button
 						v-for="(tag, i) in getTags('time')"
@@ -107,16 +106,11 @@
 						id="floatingTextarea2"
 						v-model="description"
 						class="form-control"
-						placeholder="Event Description"
-						style="height: 100px; width: 30rem"
+						style="height: 200px; width: 30rem; resize: none"
 					></textarea>
+					<label for="floatingTextarea2">Description</label>
 				</div>
 				<p style="color: red">{{ error }}</p>
-			</div>
-			<div v-else-if="step === 8" class="hcenter">
-				<button type="button" class="btn btn-primary" @click="submit">
-					Create
-				</button>
 			</div>
 
 			<div class="navigator vcenter">
@@ -135,6 +129,14 @@
 					@click="handleNext"
 				>
 					Next
+				</button>
+				<button
+					v-if="step === 8"
+					type="button"
+					class="btn btn-primary"
+					@click="submit"
+				>
+					Create
 				</button>
 			</div>
 		</div>
