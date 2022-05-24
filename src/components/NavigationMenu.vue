@@ -163,31 +163,4 @@
 			display: none;
 		}
 	}
-	@media screen and (max-width: 768px) {
-		/* .nav {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-
-		.navbar-container {
-			position: fixed;
-			bottom: 0;
-			margin-bottom: 10px;
-			width: 80%;
-			min-width: 350px;
-			display: flex;
-			justify-content: space-around;
-			flex-direction: row;
-			border-radius: 25px;
-		}
-
-		i {
-			color: white;
-		}
-
-		.nav-item:hover {
-			border-bottom: 2px white solid;
-		} */
-	}
 </style>
