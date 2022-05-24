@@ -193,7 +193,8 @@
 		//width: 64rem;
 		//height: 36.8125rem;
 		width: 100%;
-		height: 36rem;
+		max-height: 36rem;
+		min-height: 10rem;
 		object-fit: cover;
 		margin: auto;
 
@@ -214,7 +215,8 @@
 	.descText {
 		margin-top: 2rem;
 		text-align: left;
-		width: 50%;
+		max-width: 50%;
+		min-width: 100%;
 	}
 	.shareBox {
 		display: flex;
