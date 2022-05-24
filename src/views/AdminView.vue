@@ -1,114 +1,184 @@
 <template>
-	<div>
-		<div class="headerImg">
-			<img class="imgData" :src="imgUri" />
-			<div class="imgText">
-				<h1
-					class="nameData"
-					name="eventName"
-					contenteditable="true"
-					@input="onInput"
+	<main>
+		<div class="event-creation">
+			<div class="header">
+				<h1>Create your event</h1>
+			</div>
+			<div v-if="step === 1" class="hcenter">
+				<h3>What's the image URL?</h3>
+				<input v-model="imgUri" placeholder="https://imageurl.com" required />
+				<p style="color: red">{{ error }}</p>
+				<p>
+					https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Football_iu_1996.jpg/640px-Football_iu_1996.jpg
+				</p>
+			</div>
+
+			<div v-else-if="step === 2" class="hcenter">
+				<h3>What's the event name?</h3>
+				<input v-model="eventName" placeholder="Event name" required />
+				<p style="color: red">{{ error }}</p>
+				<!-- https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Football_iu_1996.jpg/640px-Football_iu_1996.jpg -->
+			</div>
+
+			<div v-else-if="step === 3" class="hcenter">
+				<h3>What's the event type?</h3>
+				<div class="mobile">
+					<button
+						v-for="(tag, i) in getTags('type')"
+						:key="i"
+						type="button"
+						:class="selected === i ? 'btn-primary' : 'btn-outline'"
+						class="btn item"
+						@click=";(selected = i), (typeTag = tag.text), handleNext()"
+					>
+						{{ tag.text }}
+					</button>
+				</div>
+				<p style="color: red">{{ error }}</p>
+			</div>
+			<div v-else-if="step === 4" class="hcenter">
+				<h3>What's the location?</h3>
+				<div class="mobile">
+					<button
+						v-for="(tag, i) in getTags('location')"
+						:key="i"
+						type="button"
+						:class="selected === i ? 'btn-primary' : 'btn-outline'"
+						class="btn"
+						@click=";(selected = i), (locationTag = tag.text), handleNext()"
+					>
+						{{ tag.text }}
+					</button>
+				</div>
+				<p style="color: red">{{ error }}</p>
+			</div>
+			<div v-else-if="step === 5" class="hcenter">
+				<h3>What's the date?</h3>
+				<div class="mobile">
+					<button
+						v-for="(tag, i) in getTags('date')"
+						:key="i"
+						type="button"
+						:class="selected === i ? 'btn-primary' : 'btn-outline'"
+						class="btn"
+						@click=";(selected = i), (dateTag = tag.text), handleNext()"
+					>
+						{{ tag.text }}
+					</button>
+				</div>
+				<p style="color: red">{{ error }}</p>
+			</div>
+			<div v-else-if="step === 6" class="hcenter">
+				<h3>What time?</h3>
+				<div class="mobile">
+					<button
+						v-for="(tag, i) in getTags('time')"
+						:key="i"
+						type="button"
+						:class="selected === i ? 'btn-primary' : 'btn-outline'"
+						class="btn"
+						@click=";(selected = i), (timeTag = tag.text), handleNext()"
+					>
+						{{ tag.text }}
+					</button>
+				</div>
+				<p style="color: red">{{ error }}</p>
+			</div>
+			<div v-else-if="step === 7" class="hcenter">
+				<div class="form-floating">
+					<textarea
+						id="floatingTextarea2"
+						v-model="description"
+						class="form-control"
+						style="height: 200px; width: 100%; resize: none"
+					></textarea>
+					<label for="floatingTextarea2">Description</label>
+				</div>
+				<p style="color: red">{{ error }}</p>
+			</div>
+
+			<div class="navigator vcenter">
+				<button
+					v-if="step !== 1"
+					type="button"
+					class="btn btn-primary"
+					@click="step--"
 				>
-					{{ eventName }}
-				</h1>
+					Back
+				</button>
+				<button
+					v-if="step !== 8"
+					type="button"
+					class="btn btn-primary"
+					@click="handleNext"
+				>
+					Next
+				</button>
+				<button
+					v-if="step === 8"
+					type="button"
+					class="btn btn-primary"
+					@click="submit"
+				>
+					Create
+				</button>
 			</div>
 		</div>
+
 		<div class="container">
-			<div id="btnTags">
-				<input
-					list="typeTags"
-					class="btn-primary btnTest"
-					contenteditable="true"
-					@input="handleDataList"
-				/>
-				<datalist id="typeTags">
-					<option
-						v-for="(tag, id) in dbTypeTags"
-						:key="id"
-						:value="tag.text"
-					></option>
-				</datalist>
+			<Transition name="slide-up">
+				<img v-if="imgUri" class="imgData" :src="imgUri" />
+			</Transition>
 
-				<input
-					list="locationTags"
-					class="btn-primary btnTest"
-					contenteditable="true"
-					@input="handleDataList"
-				/>
-				<datalist id="locationTags">
-					<option
-						v-for="(tag, id) in dbLocationTags"
-						:key="id"
-						:value="tag.text"
-					></option>
-				</datalist>
+			<div class="container">
+				<h1 v-if="eventName" style="margin-top: 3rem">{{ eventName }}</h1>
 
-				<input
-					list="dateTags"
-					class="btn-primary btnTest"
-					contenteditable="true"
-					@input="handleDataList"
-				/>
-				<datalist id="dateTags">
-					<option
-						v-for="(tag, id) in dbDateTags"
-						:key="id"
-						:value="tag.text"
-					></option>
-				</datalist>
-
-				<input
-					list="timeTags"
-					class="btn-primary btnTest"
-					contenteditable="true"
-					@input="handleDataList"
-				/>
-				<datalist id="timeTags">
-					<option
-						v-for="(tag, id) in dbTimeTags"
-						:key="id"
-						:value="tag.text"
-					></option>
-				</datalist>
+				<div id="btnTags">
+					<Transition name="slide-up">
+						<button v-if="typeTag" class="btn btn-primary" disabled>
+							{{ typeTag }}
+						</button>
+					</Transition>
+					<Transition name="slide-up">
+						<button v-if="locationTag" class="btn btn-primary" disabled>
+							{{ locationTag }}
+						</button>
+					</Transition>
+					<Transition name="slide-up">
+						<button v-if="dateTag" class="btn btn-primary" disabled>
+							{{ dateTag }}
+						</button>
+					</Transition>
+					<Transition name="slide-up">
+						<button v-if="timeTag" class="btn btn-primary" disabled>
+							{{ timeTag }}
+						</button>
+					</Transition>
+				</div>
+				<p class="descText">{{ description }}</p>
 			</div>
-			<p
-				class="descText"
-				contenteditable="true"
-				name="description"
-				@input="onInput"
-			>
-				{{ description }}
-			</p>
 		</div>
-
-		<button class="btn btn-outline-primary center" @click="submit">
-			Create!
-		</button>
-	</div>
+	</main>
 </template>
 
 <script>
-	// import { v4 as uuidv4 } from 'uuid'
-
 	export default {
 		data() {
 			return {
+				error: null,
+				selected: null,
+				types: null,
 				// default values / placeholders
-				eventName: 'Gabbes Änglar',
-				typeTag: 'Musik',
-				locationTag: 'Göteborg',
-				dateTag: '2022-06-18',
-				timeTag: '18:00',
-				description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-				doloribus a dolores cupiditate facere? Magni dolorum animi repudiandae,
-				iusto est mollitia tenetur veniam nisi vel, eligendi reiciendis ullam,
-				sed ad!`,
-				imgUri:
-					'https://kopakrypto.se/wp-content/uploads/sites/6/2021/12/olika-kryptovalutor.jpg',
-
+				eventName: null,
+				typeTag: null,
+				locationTag: null,
+				dateTag: null,
+				timeTag: null,
+				description: null,
+				imgUri: null,
 				event: {},
+				step: 1,
 				// all tags that are retrieved on created()
-
 				dbTypeTags: null,
 				dbLocationTags: null,
 				dbDateTags: null,
@@ -122,17 +192,103 @@
 			this.dbTimeTags = this.$store.state.dbTimeTags
 		},
 		methods: {
+			handleNext() {
+				switch (this.step) {
+					case 1:
+						this.error = null
+						if (this.imgUri === null) {
+							this.error = 'No image found!'
+						} else {
+							this.step++
+							this.error = null
+						}
+						break
+					case 2:
+						this.error = null
+						if (this.eventName === null) {
+							this.error = 'No event name found!'
+						} else {
+							this.step++
+							this.error = null
+						}
+						break
+					case 3:
+						this.selected = null
+						this.error = null
+						if (this.typeTag === null) {
+							this.error = 'No event type!'
+						} else {
+							this.step++
+							this.error = null
+						}
+						break
+					case 4:
+						this.selected = null
+						this.error = null
+						if (this.locationTag === null) {
+							this.error = 'No location type!'
+						} else {
+							this.step++
+							this.error = null
+						}
+						break
+					case 5:
+						this.selected = null
+						this.error = null
+						if (this.dateTag === null) {
+							this.error = 'No date!'
+						} else {
+							this.step++
+							this.error = null
+						}
+						break
+					case 6:
+						this.selected = null
+						this.error = null
+						if (this.timeTag === null) {
+							this.error = 'No time tag selected!'
+						} else {
+							this.step++
+							this.error = null
+						}
+						break
+					case 7:
+						this.error = null
+						if (this.description === null) {
+							this.error = 'No description!'
+						} else {
+							this.step++
+							this.error = null
+						}
+						break
+
+					default:
+						break
+				}
+			},
+
+			handleSelect() {
+				this.selected = !this.selected
+			},
+
+			getTags(type) {
+				const key = 'db' + type.charAt(0).toUpperCase() + type.slice(1) + 'Tags'
+
+				return this.$store.state[key]
+			},
+
 			// handles input from "buttons", not working properly with v-model
 			handleDataList(e) {
-				const variableToUpdate = e.target.getAttribute('name')
+				const variableToUpdate = e.target.getAttribute('list')
+				console.log(variableToUpdate)
 				this[variableToUpdate] = e.target.value
+				console.log(this.typeTag)
 			},
 			// handles input from html elemnts tagged with editable, not working with v-model
 			onInput(e) {
 				const variableToUpdate = e.target.getAttribute('name')
 				this[variableToUpdate] = e.target.innerText
 			},
-
 			submit() {
 				this.event = {
 					id: 'a33abc11-264e-4bbb-82e8-b87226bb4383',
@@ -141,13 +297,12 @@
 					location: this.locationTag,
 					date: this.dateTag,
 					time: this.timeTag,
-					image:
-						'https://kopakrypto.se/wp-content/uploads/sites/6/2021/12/olika-kryptovalutor.jpg',
+					image: this.imgUri,
 					description: this.description,
 					likes: 0,
 					likeBool: false
 				}
-
+				console.log(this.event)
 				// adds event to db
 				this.$store.commit('createEvent', this.event)
 				// assigns tags in db
@@ -158,7 +313,6 @@
 					dateTagText: this.dateTag,
 					timeTagText: this.timeTag
 				})
-
 				// navigates to the created event
 				this.$router.push({ path: `/event/${this.event.id}` })
 			}
@@ -167,32 +321,90 @@
 </script>
 
 <style lang="scss" scoped>
-	.list {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+	main {
+		min-height: 100vh;
 	}
 
-	#btnTags {
+	.navigator {
+		margin-top: 30px;
+	}
+
+	.event-creation {
+		width: 60%;
+		height: fit-content;
+		background-color: rgba(255, 255, 255, 0.8);
+		border-radius: 25px;
+		position: absolute;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 250px;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 100000;
+	}
+	.slide-right-enter-active,
+	.slide-right-leave-active {
+		transition: all 0.5s ease-out;
+	}
+
+	.slide-right-enter-from {
+		opacity: 0;
+		transform: translateX(30px);
+	}
+
+	.slide-right-leave-to {
+		opacity: 0;
+		transform: translateX(-30px);
+	}
+	.slide-up-enter-active,
+	.slide-up-leave-active {
+		transition: all 0.25s ease-out;
+	}
+
+	.slide-up-enter-from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	.slide-up-leave-to {
+		opacity: 0;
+		transform: translateY(-30px);
+	}
+	.header {
 		display: flex;
 		justify-content: center;
 	}
-	.btnTest {
-		background-color: #1f3868;
-		color: #f1f6ff;
+	.hcenter {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: 200px;
+	}
+	.vcenter {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+	.textarea {
+		overflow: hidden;
 		border: 0;
-		border-radius: 1.5rem;
-		padding: 0.75rem;
-		width: 8rem;
-		margin: 5px;
+		width: 100%;
+		height: auto;
+		resize: none;
+	}
+	#btnTags {
+		width: auto;
+		margin-top: 3rem;
+		text-align: left;
 	}
 	#likeIcon {
 		display: flex;
-		justify-content: center;
+		justify-content: right;
 	}
 	.nameData {
 		color: black;
+		text-align: center;
 	}
 
 	.headerImg {
@@ -200,6 +412,9 @@
 	}
 
 	.imgText {
+		// 		margin: 30px;
+		// 		background-color: #ffffff;
+		// opacity: 0.6;
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -207,31 +422,79 @@
 	}
 	.imgData {
 		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		max-width: 100%;
-		height: auto;
-		border-radius: 8px;
-		object-fit: contain;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-		opacity: 0.7;
+		//width: 64rem;
+		//height: 36.8125rem;
+		width: 100%;
+		max-height: 36rem;
+		min-height: 10rem;
+		object-fit: cover;
+		margin: auto;
+
+		//opacity: 0.7;
 	}
 	#iconTwo {
 		color: red;
+
+		//background: rgba(242, 78, 30, 0.15);
 	}
 	#iconTwo:hover {
-		color: black;
+		color: red;
+		text-shadow: 0 0 11px red;
 	}
 	#iconOne {
 		color: red;
 	}
 	.descText {
-		text-align: center;
+		margin-top: 2rem;
+		text-align: left;
+		max-width: 50%;
+		min-width: 100%;
+	}
+	.shareBox {
+		display: flex;
+		align-items: baseline;
+		margin-bottom: 5rem;
+		margin-top: 2rem;
+	}
+	#shareIkonF:hover {
+		//color: darkblue;
+		//box-shadow: ;
+		text-shadow: 0 0 11px black;
+	}
+	#linkOne {
+		margin-right: 0.5rem;
+		margin-left: 1rem;
+	}
+	#linkTwo {
+		margin-right: 1rem;
+	}
+	#linkThree {
+		margin-bottom: -3rem;
+	}
+	.linkText {
+		border-radius: 10px;
+		color: black;
+		border-color: #fae8f5;
+	}
+	#linkBtn {
+		margin-bottom: 0px;
+		margin-top: 0px;
+		margin-right: 0px;
 	}
 
-	.center {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
+	@media screen and (max-width: (1024px)) {
+		.event-creation {
+			position: relative;
+		}
+		.mobile {
+			width: 80vw;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.mobile > button {
+			width: max-content;
+			box-sizing: border-box;
+		}
 	}
 </style>

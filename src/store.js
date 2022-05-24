@@ -83,9 +83,13 @@ const mutations = {
 		likeFalse(state, Id) {
 			let event = state.dbEvents.find((event) => event.id === Id)
 			event.likeBool = false
+		},
+		toggleSiteLike(state) {
+			state.siteLike = !state.siteLike
 		}
 	},
 	state = {
+		siteLike: false,
 		dbLoaded: false,
 		/*
 		events: [

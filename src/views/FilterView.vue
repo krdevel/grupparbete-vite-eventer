@@ -2,27 +2,28 @@
 	<main>
 		<div class="search-and-tag-container">
 			<h1>FIND YOUR EVENT</h1>
-			<div class="toggle-tags-div">
-				<button
-					class="btn toggle-tags-button"
-					data-toggle="collapse"
-					data-target=".collapse"
-					@click="toggleTagToggleButtonText"
+			<!-- div class="toggle-tags-div" -->
+			<button
+				class="btn toggle-tags-button"
+				data-toggle="collapse"
+				data-target=".collapse"
+				@click="toggleTagToggleButtonText"
+			>
+				{{ tagToggleButtonText }}
+				<svg
+					id="toggleButtonSvg"
+					xmlns="http://www.w3.org/2000/svg"
+					width="16"
+					height="16"
+					fill="currentColor"
+					class="bi bi-sliders"
+					viewBox="0 0 16 16"
 				>
-					{{ tagToggleButtonText }}
-					<svg
-						id="toggleButtonSvg"
-						xmlns="http://www.w3.org/2000/svg"
-						width="16"
-						height="16"
-						fill="currentColor"
-						class="bi bi-sliders"
-						viewBox="0 0 16 16"
-					>
-						<path fill-rule="evenodd" :d="toggleButtonPath" />
-					</svg>
-				</button>
-			</div>
+					<path fill-rule="evenodd" :d="toggleButtonPath" />
+				</svg>
+			</button>
+			<!-- /div -->
+			<!-- div class="tag-container-box-container collapse" -->
 			<div class="tag-container-box-container collapse">
 				<div class="tag-container-box">
 					<TagContainer type="type" heading="Category" />
@@ -100,12 +101,14 @@
 				value === 'list' ? (this.listOrGrid = true) : (this.listOrGrid = false)
 			},
 			toggleTagToggleButtonText() {
+				/*
 				console.log(
 					'toggleTagToggleButtonTextthis.tagToggleButtonText: ' +
 						this.tagToggleButtonText
 				)
+				*/
 				if (this.tagToggleButtonText == 'Show tags') {
-					this.tagToggleButtonText = 'Close tags'
+					this.tagToggleButtonText = 'Hide tags'
 					this.toggleButtonPath = this.hidePath
 				} else {
 					this.tagToggleButtonText = 'Show tags'
@@ -117,33 +120,10 @@
 </script>
 
 <style>
-	#filter-view nav.navbar {
-		margin: 1rem;
-		padding: 0;
-	}
-
-	#filter-view nav.navbar.bg-light {
-		background-color: #fff !important;
-	}
-
-	#filter-view nav .nav-link {
-		font-size: 1.25rem;
-		font-weight: 550;
-		color: #000;
-		text-transform: uppercase;
-
-		padding: 0 2rem;
-	}
-
-	#filter-view .navbar-light .navbar-toggler {
-		border-color: transparent;
-		color: #868686;
-	}
-
 	#filter-view h1 {
 		font-size: 3rem;
-		margin: 0 auto;
-		padding: 4rem 0 0;
+		line-height: 1.5;
+		margin: 3rem auto;
 	}
 
 	#filter-view main {
@@ -164,7 +144,6 @@
 		background-repeat: no-repeat;
 		background-attachment: fixed;
 		background-size: cover;
-		padding: 0 0 1rem;
 
 		/* border-width: 4px;
 		border-style: solid;
@@ -174,36 +153,58 @@
 		flex-direction: column;
 	}
 
-	.toggle-tags-div {
-		/* background-color: #000000; */
+	/* This padding adjusts the heading away from the edges on thin screens. */
+	.search-and-tag-container > h1 {
+		padding: 0 2rem;
+	}
 
+	/*
+	.toggle-tags-div {
+	*/
+
+	/* background-color: #000000; */
+
+	/*
 		margin: 0 auto 2rem;
 		padding: 0;
-		/* padding-bottom: 10px; */
-		/* font-size: 1rem; */
+	*/
+
+	/* padding-bottom: 10px; */
+	/* font-size: 1rem; */
+
+	/*
 	}
+	*/
 
 	.toggle-tags-button {
 		background-color: #27ae60;
 		color: #fff;
+		/*
 		width: auto;
 		height: 2rem;
 		line-height: 0.5rem;
-		margin: 1.5rem auto 0;
 		padding-top: 0.68rem;
+		*/
+		margin: 0 auto 3rem;
 		/* padding-bottom: 10px; */
 		/* font-size: 1rem; */
+
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
 	}
 
 	.toggle-tags-button:hover {
 		color: rgb(119, 119, 119);
 	}
 
+	/*
 	#toggleButtonSvg {
 		margin-left: 1rem;
 		margin-top: -0.2rem;
 		padding-top: 0;
 	}
+	*/
 
 	/* .tag-container-box {
 		width: 70%;
@@ -233,22 +234,23 @@
 	}
 
 	#filter-view .tag-container-box-container {
-		background-color: #fff;
+		background-color: transparent;
 		width: 75%;
 		margin: 0 auto;
-		padding: 0;
-		border-radius: 1.5rem;
+		padding-bottom: 3rem;
+
+		overflow: hidden;
 	}
 
 	#filter-view .tag-container-box {
 		background-color: #fff;
 
 		width: 100%;
-		/* margin: 0 auto; */
-		margin: 1rem auto;
+		margin: 0 auto;
+		/* margin: 1rem auto; */
 
-		padding: 3rem 3rem 2rem;
-		/* border-radius: 1.5rem; */
+		padding: 3rem;
+		border-radius: 1.5rem;
 	}
 
 	/* This overrides Bootstrap */
@@ -294,4 +296,14 @@
 			padding: 1rem 1rem 0 1rem;
 		}
 	} */
+
+	@media screen and (max-width: 639px) {
+		#filter-view .tag-container-box-container {
+			width: 90%;
+		}
+
+		#filter-view .tag-container-box {
+			padding: 2rem 1rem;
+		}
+	}
 </style>

@@ -1,110 +1,83 @@
 <template>
 	<nav class="nav">
-		<div v-if="isMobile" class="navbar-container mobile">
-			<!-- <img id="logo" src="/favicon-196.png" alt="Logo" @click="resetStore" /> -->
-
-			<RouterLink class="nav-link" to="/">
-				<i class="bi bi-house-fill nav-item" style="font-size: 2rem"> </i>
-			</RouterLink>
-			<RouterLink class="nav-link" to="/">
-				<i class="bi bi-search nav-item" style="font-size: 2rem"> </i>
-			</RouterLink>
-			<RouterLink class="nav-link" to="/">
-				<i class="bi bi-heart nav-item" style="font-size: 2rem"> </i>
-			</RouterLink>
-			<RouterLink class="nav-link" to="/admin">
-				<i class="bi bi-person-circle nav-item" style="font-size: 2rem"> </i>
-			</RouterLink>
-		</div>
-
-		<nav v-else class="navbar navbar-light bg-light">
+		<nav class="navbar navbar-light bg-light">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">
-					<img
-						src="../assets/logo.svg"
-						width="30"
-						height="24"
-						alt="Logo"
-						@click="resetStore"
-					/>
-				</a>
+				<a class="navbar-brand" @click="resetStore">Ǝ</a>
 
-				<div class="d-flex">
+				<div class="large">
+					<div class="d-flex justify-content-end">
+						<RouterLink class="nav-link" to="/">Home</RouterLink>
+						<RouterLink class="nav-link" to="/admin">ADMIN</RouterLink>
+						<a class="nav-link" href="https://www.google.com">
+							<i class="bi bi-search"> </i>
+						</a>
+						<a class="nav-link">
+							<i :class="siteLikeClass" @click="toggleSiteLike"> </i>
+						</a>
+					</div>
+				</div>
+
+				<div class="mobile">
 					<RouterLink class="nav-link" to="/">
-						<a>Home</a>
+						<i class="bi bi-house-fill nav-item"> </i>
 					</RouterLink>
+					<a class="nav-link">
+						<i class="bi bi-search nav-item"> </i>
+					</a>
+					<a class="nav-link">
+						<i class="nav-item" :class="siteLikeClass" @click="toggleSiteLike">
+						</i>
+					</a>
 					<RouterLink class="nav-link" to="/admin">
-						<a>ADMIN</a>
-					</RouterLink>
-
-					<!-- <a class="nav-link" href="#"> </a> -->
-					<RouterLink class="nav-link" to="/">
-						<i class="bi bi-search" style="font-size: 2rem"> </i>
-					</RouterLink>
-					<RouterLink class="nav-link" to="/">
-						<i class="bi bi-heart" style="font-size: 2rem; color: red"> </i>
+						<i class="bi bi-person-circle nav-item"> </i>
 					</RouterLink>
 				</div>
 			</div>
 		</nav>
-
-		<!-- <div v-else class="navbar-container">
-			<img id="logo" src="/favicon-196.png" alt="Logo" @click="resetStore" />
-
-			<RouterLink class="nav-link" to="/">
-				<p>Home</p>
-			</RouterLink>
-			<RouterLink class="nav-link" to="/admin">
-				<p>Admin</p>
-			</RouterLink>
-		</div> -->
 	</nav>
 </template>
 
 <script>
 	import '../../css/bootstrap.scss'
+
 	export default {
 		data() {
-			return {
-				windowWidth: window.innerWidth,
-				isMobile: null,
-				links: [
-					{ address: '/', title: 'Home' },
-					{ address: '/admin', title: 'admin' }
-				]
+			return {}
+		},
+		computed: {
+			siteLikeClass() {
+				return (
+					'bi ' + (this.$store.state.siteLike ? 'bi-heart-fill' : 'bi-heart')
+				)
 			}
 		},
-		watch: {
-			windowWidth(newWidth) {
-				if (newWidth >= 768) {
-					this.isMobile = false
-				} else {
-					this.isMobile = true
-				}
-			}
-		},
-		created() {
-			this.getRes()
-			this.$nextTick(() => {
-				window.addEventListener('resize', this.getRes)
-			})
-		},
+		created() {},
 		methods: {
 			resetStore() {
 				window.localStorage.removeItem('vuex')
 				location.reload()
 			},
-			getRes() {
-				this.windowWidth = window.innerWidth
+			toggleSiteLike() {
+				this.$store.commit('toggleSiteLike')
 			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
+	.mobile {
+		display: none;
+	}
+	.large {
+		display: flex;
+	}
 	nav.navbar {
 		margin: 1rem;
 		padding: 0;
+	}
+
+	nav {
+		z-index: 999;
 	}
 
 	nav.navbar.bg-light {
@@ -112,6 +85,7 @@
 	}
 
 	nav .nav-link {
+		cursor: pointer;
 		font-size: 1.25rem;
 		font-weight: 550;
 		color: #000;
@@ -120,62 +94,77 @@
 		padding: 0 2rem;
 	}
 
+	nav .nav-link > .bi {
+		font-size: 2rem;
+	}
+
+	nav .navbar-brand {
+		cursor: pointer;
+		font-size: 3rem;
+		line-height: 1em;
+		font-weight: bold;
+	}
+
 	.navbar-light .navbar-toggler {
 		border-color: transparent;
 		color: #868686;
 	}
+
 	.nav-link {
 		margin: 0;
 		text-align: center;
 		margin-top: auto;
 		margin-bottom: auto;
 	}
+
 	.navbar {
 		width: 100%;
-	}
-
-	#logo {
-		cursor: pointer;
-		width: 2rem;
-		margin: 0.5rem 0.75rem 0.5rem 0;
-	}
-
-	.navbar-container {
-		width: 100%;
-		background-color: #1f3868;
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
 	}
 
 	.nav-item {
 		list-style-type: none;
 	}
 
-	@media screen and (max-width: 768px) {
+	.nav-link > .bi-heart,
+	.nav-link > .bi-heart-fill {
+		color: red;
+	}
+
+	.nav-link > .bi-heart:hover {
+		text-shadow: 0 0 0.5rem red;
+	}
+
+	@media screen and (max-width: 1024px) {
+		.nav-item {
+			color: black;
+		}
+		.large {
+			display: none;
+		}
+		.mobile {
+			display: flex;
+			width: 100%;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+		}
 		.nav {
 			display: flex;
 			justify-content: center;
-			align-items: center;
 		}
-		.navbar-container {
+		.navbar {
 			position: fixed;
 			bottom: 0;
-			margin-bottom: 10px;
-			width: 80%;
-			min-width: 350px;
-			display: flex;
-			justify-content: space-around;
-			flex-direction: row;
+			margin-bottom: 1rem;
 			border-radius: 25px;
+			width: 85%;
+		}
+		nav.navbar.bg-light {
+			background-color: #cd8cc7 !important;
 		}
 
-		i {
-			color: white;
-		}
-
-		.nav-item:hover {
-			border-bottom: 2px white solid;
+		.navbar-brand {
+			display: none;
 		}
 	}
 </style>
