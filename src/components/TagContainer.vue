@@ -49,6 +49,7 @@
 
 <style scoped>
 	.tag-container > h4 {
+		font-size: 1.5rem;
 		line-height: 1.5;
 		margin-bottom: 1rem;
 	}

@@ -175,6 +175,11 @@
 		flex-direction: column;
 	}
 
+	/* This padding adjusts the heading away from the edges on thin screens. */
+	.search-and-tag-container > h1 {
+		padding: 0 2rem;
+	}
+
 	/*
 	.toggle-tags-div {
 	*/
@@ -320,4 +325,18 @@
 			padding: 1rem 1rem 0 1rem;
 		}
 	} */
+
+	@media screen and (max-width: 639px) {
+		#filter-view .tag-container-box-container {
+			width: 90%;
+		}
+
+		#filter-view .tag-container-box {
+			padding: 2rem 1rem;
+		}
+
+		#filter-view .tag-container-box-container.open {
+			height: 53.25rem;
+		}
+	}
 </style>
