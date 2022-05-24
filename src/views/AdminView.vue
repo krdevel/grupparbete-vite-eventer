@@ -1,42 +1,25 @@
 <template>
 	<main>
-		<div class="container">
+		<div
+			style="
+				width: 60%;
+				height: fit-content;
+				background-color: rgba(255, 255, 255, 0.8);
+				border-radius: 25px;
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 250px;
+				top: 0;
+				left: 0;
+				right: 0;
+				z-index: 100000;
+			"
+		>
 			<div class="header">
 				<h1>Create your event</h1>
 				<h2>{{ step }}</h2>
 			</div>
-			<Transition name="slide-up">
-				<img v-if="imgUri" class="imgData" :src="imgUri" />
-			</Transition>
-
-			<div class="container">
-				<h1 v-if="eventName" style="margin-top: 3rem">{{ eventName }}</h1>
-
-				<div id="btnTags">
-					<Transition name="slide-up">
-						<button v-if="typeTag" class="btn btn-primary" disabled>
-							{{ typeTag }}
-						</button>
-					</Transition>
-					<Transition name="slide-up">
-						<button v-if="locationTag" class="btn btn-primary" disabled>
-							{{ locationTag }}
-						</button>
-					</Transition>
-					<Transition name="slide-up">
-						<button v-if="dateTag" class="btn btn-primary" disabled>
-							{{ dateTag }}
-						</button>
-					</Transition>
-					<Transition name="slide-up">
-						<button v-if="timeTag" class="btn btn-primary" disabled>
-							{{ timeTag }}
-						</button>
-					</Transition>
-				</div>
-				<p class="descText">{{ description }}</p>
-			</div>
-
 			<div v-if="step === 1" class="hcenter">
 				<h1>What's the image URL?</h1>
 				<input v-model="imgUri" placeholder="www.asd.com" required />
@@ -138,14 +121,6 @@
 
 			<div class="navigator vcenter">
 				<button
-					v-if="step !== 8"
-					type="button"
-					class="btn btn-primary"
-					@click="handleNext"
-				>
-					Next
-				</button>
-				<button
 					v-if="step !== 1"
 					type="button"
 					class="btn btn-primary"
@@ -153,6 +128,48 @@
 				>
 					Back
 				</button>
+				<button
+					v-if="step !== 8"
+					type="button"
+					class="btn btn-primary"
+					@click="handleNext"
+				>
+					Next
+				</button>
+			</div>
+		</div>
+
+		<div class="container">
+			<Transition name="slide-up">
+				<img v-if="imgUri" class="imgData" :src="imgUri" />
+			</Transition>
+
+			<div class="container">
+				<h1 v-if="eventName" style="margin-top: 3rem">{{ eventName }}</h1>
+
+				<div id="btnTags">
+					<Transition name="slide-up">
+						<button v-if="typeTag" class="btn btn-primary" disabled>
+							{{ typeTag }}
+						</button>
+					</Transition>
+					<Transition name="slide-up">
+						<button v-if="locationTag" class="btn btn-primary" disabled>
+							{{ locationTag }}
+						</button>
+					</Transition>
+					<Transition name="slide-up">
+						<button v-if="dateTag" class="btn btn-primary" disabled>
+							{{ dateTag }}
+						</button>
+					</Transition>
+					<Transition name="slide-up">
+						<button v-if="timeTag" class="btn btn-primary" disabled>
+							{{ timeTag }}
+						</button>
+					</Transition>
+				</div>
+				<p class="descText">{{ description }}</p>
 			</div>
 		</div>
 	</main>
@@ -320,6 +337,10 @@
 <style lang="scss" scoped>
 	main {
 		min-height: 100vh;
+	}
+
+	.navigator {
+		margin-top: 30px;
 	}
 	.slide-right-enter-active,
 	.slide-right-leave-active {
