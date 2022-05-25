@@ -144,6 +144,7 @@
 		background-repeat: no-repeat;
 		background-attachment: fixed;
 		background-size: cover;
+		padding-bottom: 2rem;
 
 		/* border-width: 4px;
 		border-style: solid;
@@ -238,7 +239,6 @@
 		background-color: transparent;
 		width: 75%;
 		margin: 0 auto;
-		padding-bottom: 3rem;
 
 		overflow: hidden;
 	}
