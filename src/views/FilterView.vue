@@ -185,6 +185,7 @@
 		line-height: 0.5rem;
 		padding-top: 0.68rem;
 		*/
+		height: 2rem;
 		margin: 0 auto 3rem;
 		/* padding-bottom: 10px; */
 		/* font-size: 1rem; */
