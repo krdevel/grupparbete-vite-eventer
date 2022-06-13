@@ -1,4 +1,4 @@
-# A Vue webapp - Eventer - 
+# A Vue webapp - Eventer
 Eventer: Find local events, such as concerts, football matches etc.
 
 Eventer is developed in collaboration with Gabriel Tar, Victor Gustafsson and Vincent Pilström Tipmung, using  [Vite](https://vitejs.dev).
